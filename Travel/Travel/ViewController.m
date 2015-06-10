@@ -87,6 +87,7 @@
     
     _HomeCollectionView=[[UICollectionView alloc]initWithFrame:CGRectMake(0, 80, self.view.frame.size.width, self.view.frame.size.height-80) collectionViewLayout:flowLayout];
     _HomeCollectionView.pagingEnabled=YES;
+    _HomeCollectionView.showsHorizontalScrollIndicator=NO;
     _HomeCollectionView.delegate=self;
     _HomeCollectionView.dataSource=self;
     //注册cell

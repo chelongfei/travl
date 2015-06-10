@@ -13,7 +13,14 @@
 #import "PriceOffView.h"
 #import "LocalColoringView.h"
 
-@interface RecommendHeadView()
+@interface RecommendHeadView()<UIScrollViewDelegate>
+{
+    NSTimer * _timer;
+    NSInteger _scrollViewPageNumber;
+    NSInteger _currentPage;
+}
+
+
 @property(nonatomic)PriceOffView * priceOffView;
 @property(nonatomic)LocalColoringView * localView;
 
@@ -34,15 +41,54 @@
 //更新头视图上的scrollView
 -(void)updateScrollView:(NSArray *)array
 {
-    _scrollView.contentSize=CGSizeMake(_scrollView.frame.size.width*array.count, 0);
-    for (int index=0; index<array.count; index++) {
-        RecommendModel * model=array[index];
-        CGRect frame=CGRectMake(index*_scrollView.frame.size.width, 0, _scrollView.frame.size.width, _scrollView.frame.size.height);
-        MyImageView * imageView=[[ MyImageView alloc]initWithFrame:frame model:model];
-        [imageView sd_setImageWithURL:[NSURL URLWithString:model.photo]];
-        [_scrollView addSubview:imageView];
+    _scrollViewPageNumber=array.count+2;
+    self.pageController.numberOfPages=_scrollViewPageNumber-2;
+    _scrollView.contentSize=CGSizeMake(_scrollView.frame.size.width*(array.count+2), 0);
+    for (int index=0; index<=array.count+1; index++) {
+        if (index==0||index==array.count+1) {
+            RecommendModel * model=(index==0?array[array.count-1]:array[0]);
+            CGRect frame=CGRectMake(index*_scrollView.frame.size.width, 0, _scrollView.frame.size.width, _scrollView.frame.size.height);
+            MyImageView * imageView=[[ MyImageView alloc]initWithFrame:frame model:model];
+            [imageView sd_setImageWithURL:[NSURL URLWithString:model.photo]];
+            [_scrollView addSubview:imageView];
+        }else{
+            RecommendModel * model=array[index-1];
+            CGRect frame=CGRectMake(index*_scrollView.frame.size.width, 0, _scrollView.frame.size.width, _scrollView.frame.size.height);
+            MyImageView * imageView=[[ MyImageView alloc]initWithFrame:frame model:model];
+            [imageView sd_setImageWithURL:[NSURL URLWithString:model.photo]];
+            [_scrollView addSubview:imageView];
+        }
+        
     }
-   
+    [self insertSubview:self.pageController aboveSubview:self.scrollView];
+    self.scrollView.contentOffset=CGPointMake(self.frame.size.width, 0);
+    self.pageController.currentPage=0;
+    _currentPage=2;
+   //开启定时器让pageController更改
+   _timer=[NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(scrollViewPageChange) userInfo:nil repeats:YES];
+}
+
+//定时器启动
+-(void)scrollViewPageChange
+{
+    if (_currentPage==_scrollViewPageNumber) {
+            self.pageController.currentPage=0;
+            self.scrollView.contentOffset=CGPointMake(self.frame.size.width, 0);
+            _currentPage=2;
+    }else if (_currentPage==1){
+        self.pageController.currentPage=_scrollViewPageNumber-3;
+        self.scrollView.contentOffset=CGPointMake(self.frame.size.width*(_scrollViewPageNumber-2), 0);
+        _currentPage=_scrollViewPageNumber-1;
+    }else{
+        _currentPage++;
+        self.pageController.currentPage++;
+        if (_currentPage==_scrollViewPageNumber) {
+            self.pageController.currentPage=0;
+        }
+        [UIView animateWithDuration:1 animations:^{
+            self.scrollView.contentOffset=CGPointMake((_currentPage-1)*self.frame.size.width, 0);
+        }];
+    }
 }
 
 -(void)updateSubjectView:(NSArray *)array
@@ -108,7 +154,6 @@
         [_localView updateUIWithModel:model];
         [self.localColoringView addSubview:_localView];
     }
-  
 }
 
 -(CGRect)frameForLocalColoringView:(int)index
@@ -119,6 +164,38 @@
     CGRect frame;
     return frame=index%2==0?CGRectMake(padding, 60+(padding+height)*(index/2), width,height):CGRectMake(padding+padding+width+padding, 60+(padding+height)*(index/2), width,height);
 }
+
+#pragma mark------<UIScrollViewDelegate>
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    NSInteger currentPage=self.scrollView.contentOffset.x/self.frame.size.width;
+    _currentPage=currentPage+1;
+    if (_currentPage==1) {
+        self.pageController.currentPage=_scrollViewPageNumber-3;
+         self.scrollView.contentOffset=CGPointMake(self.frame.size.width*(_scrollViewPageNumber-2), 0);
+    }else if (_currentPage==_scrollViewPageNumber){
+        self.pageController.currentPage=0;
+       self.scrollView.contentOffset=CGPointMake(self.frame.size.width, 0);
+    }else{
+        if (_currentPage==_scrollViewPageNumber) {
+            self.pageController.currentPage=0;
+        }else{
+            self.pageController.currentPage=currentPage-1;
+        }
+    }
+}
+
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [_timer invalidate];
+}
+
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+   _timer=[NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(scrollViewPageChange) userInfo:nil repeats:YES];
+}
+
 
 
 @end

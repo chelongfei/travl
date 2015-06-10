@@ -9,9 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface RecommendHeadView : UIView
+
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *SubjiectView;
 @property (weak, nonatomic) IBOutlet UIView *discountView;
 @property (weak, nonatomic) IBOutlet UIView *localColoringView;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageController;
+
 -(void)updateRecommendHeadView:(NSMutableArray *)dataArray;
+
+
 @end
+
