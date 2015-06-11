@@ -24,5 +24,8 @@ typedef void(^FailedBlockType)(NSError * error);
 //获取推荐页面刷新CELL数据
 -(void)requestRecommendCellDataWithPage:(NSInteger)pageNo success:(SuccessBlockType)success faild:(FailedBlockType)failed;
 
+//获取社区二级页面数据
+
+-(void)requestGroupDetailDataWithID:(NSString *)forId page:(NSInteger)pageNo type:(NSString *)type success:(SuccessBlockType)success faild:(FailedBlockType)failed;
 
 @end

@@ -638,6 +638,10 @@
 		BCBA375E1B29261200B568F9 /* RecommendCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBA375D1B29261200B568F9 /* RecommendCellModel.m */; };
 		BCBA37631B2927CD00B568F9 /* RecommendTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBA37611B2927CD00B568F9 /* RecommendTVCell.m */; };
 		BCBA37641B2927CD00B568F9 /* RecommendTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCBA37621B2927CD00B568F9 /* RecommendTVCell.xib */; };
+		BCBA37681B295B1E00B568F9 /* GroupDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBA37671B295B1D00B568F9 /* GroupDetailController.m */; };
+		BCBA376D1B2969F400B568F9 /* GroupDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBA376B1B2969F400B568F9 /* GroupDetailCell.m */; };
+		BCBA376E1B2969F400B568F9 /* GroupDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCBA376C1B2969F400B568F9 /* GroupDetailCell.xib */; };
+		BCBA37711B296E3F00B568F9 /* GroupDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBA37701B296E3F00B568F9 /* GroupDetailModel.m */; };
 		BCC416721B21C4960031C632 /* DestinationView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC416711B21C4960031C632 /* DestinationView.m */; };
 		BCC416771B21C6980031C632 /* DestinationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC416761B21C6980031C632 /* DestinationModel.m */; };
 		BCC4167B1B21C7F50031C632 /* AnalyticalNetWorkData.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC4167A1B21C7F50031C632 /* AnalyticalNetWorkData.m */; };
@@ -1354,6 +1358,13 @@
 		BCBA37601B2927CD00B568F9 /* RecommendTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendTVCell.h; sourceTree = "<group>"; };
 		BCBA37611B2927CD00B568F9 /* RecommendTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendTVCell.m; sourceTree = "<group>"; };
 		BCBA37621B2927CD00B568F9 /* RecommendTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendTVCell.xib; sourceTree = "<group>"; };
+		BCBA37661B295B1D00B568F9 /* GroupDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDetailController.h; sourceTree = "<group>"; };
+		BCBA37671B295B1D00B568F9 /* GroupDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDetailController.m; sourceTree = "<group>"; };
+		BCBA376A1B2969F400B568F9 /* GroupDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDetailCell.h; sourceTree = "<group>"; };
+		BCBA376B1B2969F400B568F9 /* GroupDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDetailCell.m; sourceTree = "<group>"; };
+		BCBA376C1B2969F400B568F9 /* GroupDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupDetailCell.xib; sourceTree = "<group>"; };
+		BCBA376F1B296E3F00B568F9 /* GroupDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDetailModel.h; sourceTree = "<group>"; };
+		BCBA37701B296E3F00B568F9 /* GroupDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDetailModel.m; sourceTree = "<group>"; };
 		BCC416701B21C4960031C632 /* DestinationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationView.h; sourceTree = "<group>"; };
 		BCC416711B21C4960031C632 /* DestinationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationView.m; sourceTree = "<group>"; };
 		BCC416751B21C6980031C632 /* DestinationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationModel.h; sourceTree = "<group>"; };
@@ -2045,8 +2056,9 @@
 		BCADD4AD1B258120009E655B /* 社区界面所有View */ = {
 			isa = PBXGroup;
 			children = (
+				BCBA37691B2969D300B568F9 /* 详情页cell */,
 				BCADD4BB1B2592FD009E655B /* 头视图 */,
-				BCADD4B51B258A97009E655B /* cell */,
+				BCADD4B51B258A97009E655B /* 首页cell */,
 				BCADD4AE1B258132009E655B /* 主页面 */,
 			);
 			name = "社区界面所有View";
@@ -2061,14 +2073,14 @@
 			name = "主页面";
 			sourceTree = "<group>";
 		};
-		BCADD4B51B258A97009E655B /* cell */ = {
+		BCADD4B51B258A97009E655B /* 首页cell */ = {
 			isa = PBXGroup;
 			children = (
 				BCADD4B61B258AB4009E655B /* MyCollectionViewCell.h */,
 				BCADD4B71B258AB4009E655B /* MyCollectionViewCell.m */,
 				BCADD4B81B258AB4009E655B /* MyCollectionViewCell.xib */,
 			);
-			name = cell;
+			name = "首页cell";
 			sourceTree = "<group>";
 		};
 		BCADD4BB1B2592FD009E655B /* 头视图 */ = {
@@ -2287,6 +2299,7 @@
 		BCB9AA211B1F14A500CC7023 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BCBA37651B295AEB00B568F9 /* 社区详情 */,
 				BC88E6F51B205B540087FE0C /* 点击图片进入页面 */,
 			);
 			name = ViewControllers;
@@ -2313,6 +2326,8 @@
 				BCBA375D1B29261200B568F9 /* RecommendCellModel.m */,
 				BCC416751B21C6980031C632 /* DestinationModel.h */,
 				BCC416761B21C6980031C632 /* DestinationModel.m */,
+				BCBA376F1B296E3F00B568F9 /* GroupDetailModel.h */,
+				BCBA37701B296E3F00B568F9 /* GroupDetailModel.m */,
 				BCADD4B21B258670009E655B /* GroupModel.h */,
 				BCADD4B31B258670009E655B /* GroupModel.m */,
 			);
@@ -2362,6 +2377,25 @@
 				BCBA37621B2927CD00B568F9 /* RecommendTVCell.xib */,
 			);
 			name = cell;
+			sourceTree = "<group>";
+		};
+		BCBA37651B295AEB00B568F9 /* 社区详情 */ = {
+			isa = PBXGroup;
+			children = (
+				BCBA37661B295B1D00B568F9 /* GroupDetailController.h */,
+				BCBA37671B295B1D00B568F9 /* GroupDetailController.m */,
+			);
+			name = "社区详情";
+			sourceTree = "<group>";
+		};
+		BCBA37691B2969D300B568F9 /* 详情页cell */ = {
+			isa = PBXGroup;
+			children = (
+				BCBA376A1B2969F400B568F9 /* GroupDetailCell.h */,
+				BCBA376B1B2969F400B568F9 /* GroupDetailCell.m */,
+				BCBA376C1B2969F400B568F9 /* GroupDetailCell.xib */,
+			);
+			name = "详情页cell";
 			sourceTree = "<group>";
 		};
 		BCC4166E1B21C4440031C632 /* 推荐页面所有View */ = {
@@ -3027,6 +3061,7 @@
 				BCADD4191B257CB2009E655B /* ic_user_detail_trip.png in Resources */,
 				BCADD40F1B257CB2009E655B /* ic_tip_null_been.png in Resources */,
 				BCADD3FC1B257CB2009E655B /* ic_setting.png in Resources */,
+				BCBA376E1B2969F400B568F9 /* GroupDetailCell.xib in Resources */,
 				BCADD2B51B257CB2009E655B /* bg_item_card_left.9.png in Resources */,
 				BCADD4551B257CB2009E655B /* ic_weather_s_10.png in Resources */,
 				BCADD2831B257CB2009E655B /* bg_about_qyer_text1.png in Resources */,
@@ -3086,6 +3121,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCBA37711B296E3F00B568F9 /* GroupDetailModel.m in Sources */,
 				BC88E6E81B2013B90087FE0C /* MyImageView.m in Sources */,
 				BCB9AA1A1B1F149D00CC7023 /* UIImageView+HighlightedWebCache.m in Sources */,
 				BCB9A9FB1B1F149D00CC7023 /* AFHTTPRequestOperation.m in Sources */,
@@ -3112,6 +3148,7 @@
 				BCB9AA421B1F2B3A00CC7023 /* RecommendHeadView.m in Sources */,
 				BCB9AA171B1F149D00CC7023 /* UIImage+GIF.m in Sources */,
 				BC0C55FC1B22EED8004BEF5A /* HeadViewForDestinationView.m in Sources */,
+				BCBA376D1B2969F400B568F9 /* GroupDetailCell.m in Sources */,
 				BCB9AA351B1F245900CC7023 /* BaseModel.m in Sources */,
 				BC88E6F81B205B6C0087FE0C /* DetailViewController.m in Sources */,
 				BCB9AA1C1B1F149D00CC7023 /* UIView+WebCacheOperation.m in Sources */,
@@ -3140,6 +3177,7 @@
 				BCB9AA051B1F149D00CC7023 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				BCB9AA3C1B1F275C00CC7023 /* DataEngine.m in Sources */,
 				BCB9AA031B1F149D00CC7023 /* AFURLSessionManager.m in Sources */,
+				BCBA37681B295B1E00B568F9 /* GroupDetailController.m in Sources */,
 				BCC416721B21C4960031C632 /* DestinationView.m in Sources */,
 				BCB9AA381B1F249300CC7023 /* RecommendModel.m in Sources */,
 				BCB9AA1B1B1F149D00CC7023 /* UIImageView+WebCache.m in Sources */,

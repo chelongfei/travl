@@ -86,5 +86,12 @@
     return headView;
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    GroupModel * model=[[[self.dataArray objectAtIndex:indexPath.section] objectAtIndex:1]objectAtIndex:indexPath.row];
+    self.groupBlock(model);
+}
+
+
 
 @end

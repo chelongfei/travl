@@ -7,6 +7,7 @@
 //
 
 #import "AnalyticalNetWorkData.h"
+#import "GroupDetailModel.h"
 
 @implementation AnalyticalNetWorkData
 
@@ -110,11 +111,27 @@
     NSMutableArray * dataArray=[[NSMutableArray alloc]init];
     
     NSDictionary * orginDic=(NSDictionary *)responseObject;
-    NSArray * orginArray=orginDic[@"data"];
+     NSArray * orginArray=orginDic[@"data"];
+
     for (NSDictionary * dict in orginArray) {
         RecommendCellModel * cellModel=[[RecommendCellModel alloc]init];
         [cellModel setValuesForKeysWithDictionary:dict];
         [dataArray addObject:cellModel];
+    }
+    return dataArray;
+}
+
++(NSMutableArray *)parseGroupDetailData:(id)responseObject
+{
+    NSMutableArray * dataArray=[[NSMutableArray alloc]init];
+    
+    NSDictionary * orginDic=(NSDictionary *)responseObject;
+    NSDictionary * orginDict=orginDic[@"data"];
+    NSArray * orginArray=orginDict[@"entry"];
+    for (NSDictionary * dict in orginArray) {
+        GroupDetailModel * model=[[GroupDetailModel alloc]init];
+        [model setValuesForKeysWithDictionary:dict];
+        [dataArray addObject:model];
     }
     return dataArray;
 }

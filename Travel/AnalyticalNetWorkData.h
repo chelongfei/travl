@@ -27,4 +27,7 @@
 //解析推荐页面的cell信息并返回
 +(NSMutableArray *)parseRecommendCell:(id)responseObject;
 
+//解析社区二级页面全部栏目的cell信息并返回
++(NSMutableArray *)parseGroupDetailData:(id)responseObject;
+
 @end

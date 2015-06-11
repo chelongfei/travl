@@ -17,6 +17,7 @@
 #import "AnalyticalNetWorkData.h"
 #import "GroupView.h"
 #import "CoreDataManager.h"
+#import "GroupDetailController.h"
 
 
 #define COLLECTIONVIEW_CELLID @"collectionViewCellId"
@@ -41,6 +42,7 @@
 @property(nonatomic)NSMutableArray * destinationDataArray;
 
 //第三个view的数据存储
+//数组中每一项都包含两个数组,第一个数组表示头标题,第二个表示内部的model
 @property(nonatomic)NSMutableArray * groupDataArray;
 
 //推荐页面的view
@@ -70,6 +72,7 @@
     [self addRecommendView];
     //使用coreData数据渲染
     [self.recommendView updateHeadView:[[CoreDataManager defaultCoreManager]fetchModelFromCoreData]];
+    
     [self addDestinationView];
 
     [self addGroupView];
@@ -156,6 +159,12 @@
 -(void)addGroupView
 {
     self.groupView=[[GroupView alloc]initWithFrame:(CGRectMake(self.view.frame.size.width*2, 0, self.view.frame.size.width, self.view.frame.size.height-80))];
+    __weak typeof(self)weakself=self;
+    [self.groupView setGroupBlock:^(GroupModel * model){
+        GroupDetailController * controller=[[GroupDetailController alloc]init];
+        controller.model=model;
+        [weakself.navigationController pushViewController:controller animated:YES];
+    }];
     [_HomeCollectionView addSubview:self.groupView];
 }
 

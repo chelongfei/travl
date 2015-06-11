@@ -21,6 +21,7 @@
 @property(nonatomic)NSMutableArray * dataArray;
 @property(nonatomic)NSInteger currentPage;
 @property(nonatomic)NSMutableArray * tableDataArray;
+@property(nonatomic)BOOL isLoading;
 
 @end
 
@@ -31,6 +32,8 @@
     if (self=[super initWithFrame:frame]) {
         
         self.currentPage=0;
+        
+        _isLoading=NO;
         
         self.dataArray=[NSMutableArray array];
         
@@ -85,7 +88,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     RecommendTVCell * cell=[self.tableView dequeueReusableCellWithIdentifier:TBL_VIWE_CELLID forIndexPath:indexPath];
-   RecommendCellModel * model=[self.tableDataArray objectAtIndex:indexPath.row];
+    RecommendCellModel * model=[self.tableDataArray objectAtIndex:indexPath.row];
     [cell updateCellWithModel:model];
     return cell;
 }
@@ -102,21 +105,30 @@
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
     float height = scrollView.contentSize.height > _tableView.frame.size.height ?_tableView.frame.size.height : scrollView.contentSize.height;
-    if ((height - scrollView.contentSize.height + scrollView.contentOffset.y) / height > 0.1) {
-        NSLog(@"我要刷新了啊");
-        self.currentPage++;
-        // 调用上拉刷新方法
-        [[DataEngine shareInstance]requestRecommendCellDataWithPage:self.currentPage success:^(NSData *respondsObject) {
-            NSArray * temArray=[AnalyticalNetWorkData parseRecommendCell:respondsObject];
-            for (RecommendCellModel * model in temArray) {
-                [self.tableDataArray addObject:model];
-            }
-            [self.tableView reloadData];
-        } faild:^(NSError *error) {
-            
-        }];
+    if (_isLoading==NO) {
         
+        if ((height - scrollView.contentSize.height + scrollView.contentOffset.y) / height > 0.1) {
+            NSLog(@"我要刷新了啊");
+            _isLoading=YES;
+            self.currentPage++;
+            // 调用上拉刷新方法
+            [self refreshCell];
+        }
+        _isLoading=NO;
     }
+}
+
+-(void)refreshCell
+{
+    [[DataEngine shareInstance]requestRecommendCellDataWithPage:self.currentPage success:^(NSData *respondsObject) {
+        NSArray * temArray=[AnalyticalNetWorkData parseRecommendCell:respondsObject];
+        for (RecommendCellModel * model in temArray) {
+            [self.tableDataArray addObject:model];
+        }
+        [self.tableView reloadData];
+    } faild:^(NSError *error) {
+        
+    }];
 }
 
 @end

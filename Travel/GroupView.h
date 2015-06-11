@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@class GroupModel;
+
+typedef void (^GroupCellClick)(GroupModel * model);
 
 @interface GroupView : UIView
 
 @property(nonatomic)NSArray * dataArray;
+
+@property(nonatomic,copy)GroupCellClick groupBlock;
 
 @end
