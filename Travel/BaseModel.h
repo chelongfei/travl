@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BaseModel : NSObject
+@interface BaseModel :NSObject
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key;
 -(id)valueForUndefinedKey:(NSString *)key;
 @end

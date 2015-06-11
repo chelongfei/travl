@@ -16,6 +16,7 @@
 #import "DestinationView.h"
 #import "AnalyticalNetWorkData.h"
 #import "GroupView.h"
+#import "CoreDataManager.h"
 
 
 #define COLLECTIONVIEW_CELLID @"collectionViewCellId"
@@ -45,6 +46,9 @@
 //推荐页面的view
 @property(nonatomic)RecommendView * recommendView;
 
+//目的地界面的view
+@property(nonatomic)DestinationView * destinationView;
+
 //社区页面的view
 @property(nonatomic)GroupView * groupView;
 
@@ -56,13 +60,19 @@
 -(void)awakeFromNib
 {
     
-   
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initView];
     [self addHomeCollectionView];
+    [self addRecommendView];
+    //使用coreData数据渲染
+    [self.recommendView updateHeadView:[[CoreDataManager defaultCoreManager]fetchModelFromCoreData]];
+    [self addDestinationView];
+
+    [self addGroupView];
     [self loadRecommendData];
     [self loadDestinationData];
     [self loadGroupData];
@@ -85,6 +95,9 @@
     flowLayout.minimumLineSpacing=0;
     flowLayout.scrollDirection=UICollectionViewScrollDirectionHorizontal;
     
+   
+    
+    
     _HomeCollectionView=[[UICollectionView alloc]initWithFrame:CGRectMake(0, 80, self.view.frame.size.width, self.view.frame.size.height-80) collectionViewLayout:flowLayout];
     _HomeCollectionView.pagingEnabled=YES;
     _HomeCollectionView.showsHorizontalScrollIndicator=NO;
@@ -103,6 +116,7 @@
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter]removeObserver:self];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reciveImageClick:) name:@"imageClick" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(recommendCellSelected:) name:@"recommendCellClick" object:nil];
 }
 
 //接收到图片点击事件后的处理事件
@@ -114,42 +128,60 @@
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
+//点击推荐页面cell后处理事件
+-(void)recommendCellSelected:(NSNotification *)notify
+{
+    RecommendCellModel * model=(RecommendCellModel *)notify.object;
+    DetailViewController * detailVC=[[DetailViewController alloc]init];
+    detailVC.url=model.view_url;
+    [self.navigationController pushViewController:detailVC animated:YES];
+}
+
+
+//添加recommendView
+-(void)addRecommendView
+{
+    self.recommendView=[[RecommendView alloc]initWithFrame:(CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height))];
+    [_HomeCollectionView addSubview:self.recommendView];
+}
+
+//添加DestinationView
+-(void)addDestinationView
+{
+    self.destinationView=[[DestinationView alloc]initWithFrame:(CGRectMake(self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height-80))];
+    [_HomeCollectionView addSubview:self.destinationView];
+}
+
+//添加GroupView
+-(void)addGroupView
+{
+    self.groupView=[[GroupView alloc]initWithFrame:(CGRectMake(self.view.frame.size.width*2, 0, self.view.frame.size.width, self.view.frame.size.height-80))];
+    [_HomeCollectionView addSubview:self.groupView];
+}
+
+
 //加载推荐页面的数据
 -(void)loadRecommendData
 {
     [[DataEngine shareInstance]requestRecommendData:^(NSData *respondsObject) {
         self.recommendDataArray=[AnalyticalNetWorkData parseRecommendData:respondsObject];
-        [self addRecommendView:self.recommendDataArray];
+       [[CoreDataManager defaultCoreManager]removeAllModelFromCoreData];
+        [[CoreDataManager defaultCoreManager]addModelFromNetWork:self.recommendDataArray];
+        [self.recommendView updateHeadView:self.recommendDataArray];
     } faild:^(NSError *error) {
         
     }];
 }
 
-//添加recommendView
--(void)addRecommendView:(NSMutableArray *)dataArray
-{
-    RecommendView * recommendView=[[RecommendView alloc]initWithFrame:(CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height))];
-    [recommendView updateHeadView:dataArray];
-    [_HomeCollectionView addSubview:recommendView];
-}
-
 //加载目的地页面的数据
 -(void)loadDestinationData
 {
-  [[DataEngine shareInstance]requestDestinationData:^(NSData *respondsObject) {
-      self.destinationDataArray=[AnalyticalNetWorkData parseDestinationData:respondsObject];
-      [self addDestinationView:self.destinationDataArray];
-  } faild:^(NSError *error) {
-      
-  }];
-}
-
-//添加DestinationView
--(void)addDestinationView:(NSMutableArray *)dataArray
-{
-    DestinationView * destinationView=[[DestinationView alloc]initWithFrame:(CGRectMake(self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height-80))];
-    destinationView.dataArray=dataArray;
-    [_HomeCollectionView addSubview:destinationView];
+    [[DataEngine shareInstance]requestDestinationData:^(NSData *respondsObject) {
+        self.destinationDataArray=[AnalyticalNetWorkData parseDestinationData:respondsObject];
+        self.destinationView.dataArray=self.destinationDataArray;
+    } faild:^(NSError *error) {
+        
+    }];
 }
 
 //加载社区页面的数据
@@ -157,19 +189,12 @@
 {
     [[DataEngine shareInstance]requestGroupData:^(NSData *respondsObject) {
         self.groupDataArray=[AnalyticalNetWorkData parseGroupData:respondsObject];
-        [self addGroupView:self.groupDataArray];
+        self.groupView.dataArray=self.groupDataArray;
     } faild:^(NSError *error) {
         
     }];
 }
 
-//添加GroupView
--(void)addGroupView:(NSMutableArray *)dataArray
-{
-    self.groupView=[[GroupView alloc]initWithFrame:(CGRectMake(self.view.frame.size.width*2, 0, self.view.frame.size.width, self.view.frame.size.height-80))];
-    self.groupView.dataArray=dataArray;
-    [_HomeCollectionView addSubview:self.groupView];
-}
 
 #pragma mark---懒加载区域
 
@@ -251,13 +276,12 @@
             frame.origin.y=_whiteSliderForHeadButton.frame.origin.y;
             self.whiteSliderForHeadButton.frame=frame;
         }];
-        
     }
 }
 
 #pragma mark----dealloc
 -(void)dealloc
 {
-   [[NSNotificationCenter defaultCenter]removeObserver:self];
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 @end

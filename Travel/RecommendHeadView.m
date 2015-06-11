@@ -28,10 +28,10 @@
 
 @implementation RecommendHeadView
 
-
 //刷新headView上的UI
 -(void)updateRecommendHeadView:(NSMutableArray *)dataArray
 {
+    [_timer invalidate];
     [self updateScrollView:dataArray[0]];
     [self updateSubjectView:dataArray[1]];
     [self updateDiscountView:dataArray[2]];

@@ -8,7 +8,7 @@
 
 #import "BaseModel.h"
 
-@interface RecommendModel : BaseModel
+@interface RecommendModel : BaseModel<NSCoding>
 
 
 @property(nonatomic,copy)NSString * url;

@@ -12,6 +12,9 @@
 		BC0C55F71B22E605004BEF5A /* HeadViewForSection.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0C55F61B22E605004BEF5A /* HeadViewForSection.m */; };
 		BC0C55FC1B22EED8004BEF5A /* HeadViewForDestinationView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0C55FA1B22EED8004BEF5A /* HeadViewForDestinationView.m */; };
 		BC0C55FD1B22EED8004BEF5A /* HeadViewForDestinationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC0C55FB1B22EED8004BEF5A /* HeadViewForDestinationView.xib */; };
+		BC7DA29F1B27E87000A37571 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7DA29E1B27E87000A37571 /* CoreDataManager.m */; };
+		BC7DA2AC1B28255C00A37571 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BC7DA2AA1B28255C00A37571 /* Model.xcdatamodeld */; };
+		BC7DA2AF1B28257A00A37571 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7DA2AE1B28257A00A37571 /* Entity.m */; };
 		BC88E6E81B2013B90087FE0C /* MyImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC88E6E71B2013B90087FE0C /* MyImageView.m */; };
 		BC88E6F81B205B6C0087FE0C /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC88E6F71B205B6C0087FE0C /* DetailViewController.m */; };
 		BC88E6FC1B2075A80087FE0C /* PriceOffView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC88E6FB1B2075A80087FE0C /* PriceOffView.m */; };
@@ -632,6 +635,9 @@
 		BCB9AA421B1F2B3A00CC7023 /* RecommendHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB9AA411B1F2B3A00CC7023 /* RecommendHeadView.m */; };
 		BCB9AA441B1F2B4700CC7023 /* RecommendHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCB9AA431B1F2B4700CC7023 /* RecommendHeadView.xib */; };
 		BCB9AA481B1F2F9A00CC7023 /* RecommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB9AA471B1F2F9A00CC7023 /* RecommendView.m */; };
+		BCBA375E1B29261200B568F9 /* RecommendCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBA375D1B29261200B568F9 /* RecommendCellModel.m */; };
+		BCBA37631B2927CD00B568F9 /* RecommendTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBA37611B2927CD00B568F9 /* RecommendTVCell.m */; };
+		BCBA37641B2927CD00B568F9 /* RecommendTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCBA37621B2927CD00B568F9 /* RecommendTVCell.xib */; };
 		BCC416721B21C4960031C632 /* DestinationView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC416711B21C4960031C632 /* DestinationView.m */; };
 		BCC416771B21C6980031C632 /* DestinationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC416761B21C6980031C632 /* DestinationModel.m */; };
 		BCC4167B1B21C7F50031C632 /* AnalyticalNetWorkData.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC4167A1B21C7F50031C632 /* AnalyticalNetWorkData.m */; };
@@ -659,6 +665,11 @@
 		BC0C55F91B22EED8004BEF5A /* HeadViewForDestinationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadViewForDestinationView.h; sourceTree = "<group>"; };
 		BC0C55FA1B22EED8004BEF5A /* HeadViewForDestinationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadViewForDestinationView.m; sourceTree = "<group>"; };
 		BC0C55FB1B22EED8004BEF5A /* HeadViewForDestinationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeadViewForDestinationView.xib; sourceTree = "<group>"; };
+		BC7DA29D1B27E87000A37571 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
+		BC7DA29E1B27E87000A37571 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
+		BC7DA2AB1B28255C00A37571 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		BC7DA2AD1B28257A00A37571 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
+		BC7DA2AE1B28257A00A37571 /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
 		BC88E6E61B2013B90087FE0C /* MyImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyImageView.h; sourceTree = "<group>"; };
 		BC88E6E71B2013B90087FE0C /* MyImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyImageView.m; sourceTree = "<group>"; };
 		BC88E6F61B205B6C0087FE0C /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
@@ -1338,6 +1349,11 @@
 		BCB9AA431B1F2B4700CC7023 /* RecommendHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendHeadView.xib; sourceTree = "<group>"; };
 		BCB9AA461B1F2F9A00CC7023 /* RecommendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendView.h; sourceTree = "<group>"; };
 		BCB9AA471B1F2F9A00CC7023 /* RecommendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendView.m; sourceTree = "<group>"; };
+		BCBA375C1B29261200B568F9 /* RecommendCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendCellModel.h; sourceTree = "<group>"; };
+		BCBA375D1B29261200B568F9 /* RecommendCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendCellModel.m; sourceTree = "<group>"; };
+		BCBA37601B2927CD00B568F9 /* RecommendTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendTVCell.h; sourceTree = "<group>"; };
+		BCBA37611B2927CD00B568F9 /* RecommendTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendTVCell.m; sourceTree = "<group>"; };
+		BCBA37621B2927CD00B568F9 /* RecommendTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendTVCell.xib; sourceTree = "<group>"; };
 		BCC416701B21C4960031C632 /* DestinationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationView.h; sourceTree = "<group>"; };
 		BCC416711B21C4960031C632 /* DestinationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationView.m; sourceTree = "<group>"; };
 		BCC416751B21C6980031C632 /* DestinationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationModel.h; sourceTree = "<group>"; };
@@ -1386,14 +1402,40 @@
 			name = "Section头视图";
 			sourceTree = "<group>";
 		};
-		BC0C55F81B22EEAB004BEF5A /* 目的地页面头视图 */ = {
+		BC0C55F81B22EEAB004BEF5A /* 头视图 */ = {
 			isa = PBXGroup;
 			children = (
 				BC0C55F91B22EED8004BEF5A /* HeadViewForDestinationView.h */,
 				BC0C55FA1B22EED8004BEF5A /* HeadViewForDestinationView.m */,
 				BC0C55FB1B22EED8004BEF5A /* HeadViewForDestinationView.xib */,
 			);
-			name = "目的地页面头视图";
+			name = "头视图";
+			sourceTree = "<group>";
+		};
+		BC7DA2941B27E73E00A37571 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				BC7DA2AA1B28255C00A37571 /* Model.xcdatamodeld */,
+				BC7DA2AD1B28257A00A37571 /* Entity.h */,
+				BC7DA2AE1B28257A00A37571 /* Entity.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		BC7DA29B1B27E7F000A37571 /* CoreModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CoreModel;
+			sourceTree = "<group>";
+		};
+		BC7DA29C1B27E84F00A37571 /* CoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				BC7DA29D1B27E87000A37571 /* CoreDataManager.h */,
+				BC7DA29E1B27E87000A37571 /* CoreDataManager.m */,
+			);
+			name = CoreDataManager;
 			sourceTree = "<group>";
 		};
 		BC88E6E51B2013970087FE0C /* 自定义可点击ImageView */ = {
@@ -1414,24 +1456,24 @@
 			name = "点击图片进入页面";
 			sourceTree = "<group>";
 		};
-		BC88E6F91B2075630087FE0C /* 抢特价折扣子视图 */ = {
+		BC88E6F91B2075630087FE0C /* 抢特价折扣 */ = {
 			isa = PBXGroup;
 			children = (
 				BC88E6FA1B2075A80087FE0C /* PriceOffView.h */,
 				BC88E6FB1B2075A80087FE0C /* PriceOffView.m */,
 				BC88E6FD1B2075B50087FE0C /* PriceOffView.xib */,
 			);
-			name = "抢\U0010特价折扣子视图";
+			name = "抢\U0010特价折扣";
 			sourceTree = "<group>";
 		};
-		BC88E6FF1B20850B0087FE0C /* 玩当地特色子视图 */ = {
+		BC88E6FF1B20850B0087FE0C /* 玩当地特色 */ = {
 			isa = PBXGroup;
 			children = (
 				BC88E7001B20857B0087FE0C /* LocalColoringView.h */,
 				BC88E7011B20857B0087FE0C /* LocalColoringView.m */,
 				BC88E7031B20858D0087FE0C /* LocalColoringView.xib */,
 			);
-			name = "玩当地特色子视图";
+			name = "玩当地特色";
 			sourceTree = "<group>";
 		};
 		BCADD0501B257CAE009E655B /* Resoures */ = {
@@ -2003,39 +2045,39 @@
 		BCADD4AD1B258120009E655B /* 社区界面所有View */ = {
 			isa = PBXGroup;
 			children = (
-				BCADD4BB1B2592FD009E655B /* 社区界面头视图 */,
-				BCADD4B51B258A97009E655B /* 社区页面cell */,
-				BCADD4AE1B258132009E655B /* 社区页面 */,
+				BCADD4BB1B2592FD009E655B /* 头视图 */,
+				BCADD4B51B258A97009E655B /* cell */,
+				BCADD4AE1B258132009E655B /* 主页面 */,
 			);
 			name = "社区界面所有View";
 			sourceTree = "<group>";
 		};
-		BCADD4AE1B258132009E655B /* 社区页面 */ = {
+		BCADD4AE1B258132009E655B /* 主页面 */ = {
 			isa = PBXGroup;
 			children = (
 				BCADD4AF1B258149009E655B /* GroupView.h */,
 				BCADD4B01B258149009E655B /* GroupView.m */,
 			);
-			name = "社区页面";
+			name = "主页面";
 			sourceTree = "<group>";
 		};
-		BCADD4B51B258A97009E655B /* 社区页面cell */ = {
+		BCADD4B51B258A97009E655B /* cell */ = {
 			isa = PBXGroup;
 			children = (
 				BCADD4B61B258AB4009E655B /* MyCollectionViewCell.h */,
 				BCADD4B71B258AB4009E655B /* MyCollectionViewCell.m */,
 				BCADD4B81B258AB4009E655B /* MyCollectionViewCell.xib */,
 			);
-			name = "社区页面cell";
+			name = cell;
 			sourceTree = "<group>";
 		};
-		BCADD4BB1B2592FD009E655B /* 社区界面头视图 */ = {
+		BCADD4BB1B2592FD009E655B /* 头视图 */ = {
 			isa = PBXGroup;
 			children = (
 				BCADD4BC1B259325009E655B /* MyCollectionHeadView.h */,
 				BCADD4BD1B259325009E655B /* MyCollectionHeadView.m */,
 			);
-			name = "社区界面头视图";
+			name = "头视图";
 			sourceTree = "<group>";
 		};
 		BCB9A5171B1F137600CC7023 = {
@@ -2043,6 +2085,9 @@
 			children = (
 				BC03F0471B2145A700A92893 /* Constants.h */,
 				BCB9AA321B1F23DE00CC7023 /* URLDefine.h */,
+				BC7DA29C1B27E84F00A37571 /* CoreDataManager */,
+				BC7DA29B1B27E7F000A37571 /* CoreModel */,
+				BC7DA2941B27E73E00A37571 /* CoreData */,
 				BCADD0501B257CAE009E655B /* Resoures */,
 				BCC416781B21C7750031C632 /* AnalyticalNetWorkData */,
 				BCB9AA391B1F274600CC7023 /* NetWork */,
@@ -2264,6 +2309,8 @@
 				BCB9AA341B1F245900CC7023 /* BaseModel.m */,
 				BCB9AA361B1F249300CC7023 /* RecommendModel.h */,
 				BCB9AA371B1F249300CC7023 /* RecommendModel.m */,
+				BCBA375C1B29261200B568F9 /* RecommendCellModel.h */,
+				BCBA375D1B29261200B568F9 /* RecommendCellModel.m */,
 				BCC416751B21C6980031C632 /* DestinationModel.h */,
 				BCC416761B21C6980031C632 /* DestinationModel.m */,
 				BCADD4B21B258670009E655B /* GroupModel.h */,
@@ -2288,33 +2335,44 @@
 			name = NetWork;
 			sourceTree = "<group>";
 		};
-		BCB9AA3F1B1F2B1F00CC7023 /* 推荐页面头视图 */ = {
+		BCB9AA3F1B1F2B1F00CC7023 /* 头视图 */ = {
 			isa = PBXGroup;
 			children = (
 				BCB9AA401B1F2B3A00CC7023 /* RecommendHeadView.h */,
 				BCB9AA411B1F2B3A00CC7023 /* RecommendHeadView.m */,
 				BCB9AA431B1F2B4700CC7023 /* RecommendHeadView.xib */,
 			);
-			name = "推荐页面头视图";
+			name = "头视图";
 			sourceTree = "<group>";
 		};
-		BCB9AA451B1F2F8700CC7023 /* 推荐页面 */ = {
+		BCB9AA451B1F2F8700CC7023 /* 主页面 */ = {
 			isa = PBXGroup;
 			children = (
 				BCB9AA461B1F2F9A00CC7023 /* RecommendView.h */,
 				BCB9AA471B1F2F9A00CC7023 /* RecommendView.m */,
 			);
-			name = "推荐页面";
+			name = "主页面";
+			sourceTree = "<group>";
+		};
+		BCBA375F1B29269800B568F9 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				BCBA37601B2927CD00B568F9 /* RecommendTVCell.h */,
+				BCBA37611B2927CD00B568F9 /* RecommendTVCell.m */,
+				BCBA37621B2927CD00B568F9 /* RecommendTVCell.xib */,
+			);
+			name = cell;
 			sourceTree = "<group>";
 		};
 		BCC4166E1B21C4440031C632 /* 推荐页面所有View */ = {
 			isa = PBXGroup;
 			children = (
+				BCBA375F1B29269800B568F9 /* cell */,
 				BC88E6E51B2013970087FE0C /* 自定义可点击ImageView */,
-				BCB9AA451B1F2F8700CC7023 /* 推荐页面 */,
-				BCB9AA3F1B1F2B1F00CC7023 /* 推荐页面头视图 */,
-				BC88E6F91B2075630087FE0C /* 抢特价折扣子视图 */,
-				BC88E6FF1B20850B0087FE0C /* 玩当地特色子视图 */,
+				BCB9AA451B1F2F8700CC7023 /* 主页面 */,
+				BCB9AA3F1B1F2B1F00CC7023 /* 头视图 */,
+				BC88E6F91B2075630087FE0C /* 抢特价折扣 */,
+				BC88E6FF1B20850B0087FE0C /* 玩当地特色 */,
 			);
 			name = "推荐页面所有View";
 			sourceTree = "<group>";
@@ -2322,11 +2380,11 @@
 		BCC4166F1B21C4660031C632 /* 目的地页面所有View */ = {
 			isa = PBXGroup;
 			children = (
-				BC0C55F81B22EEAB004BEF5A /* 目的地页面头视图 */,
+				BC0C55F81B22EEAB004BEF5A /* 头视图 */,
 				BC0C55F41B22E5E1004BEF5A /* Section头视图 */,
 				BC0C55EB1B22E14C004BEF5A /* 其他国家Cell */,
-				BCC4167D1B21D1E90031C632 /* 目的地页面collectionCell */,
-				BCC4167C1B21D1D70031C632 /* 目的地页面 */,
+				BCC4167D1B21D1E90031C632 /* collectionCell */,
+				BCC4167C1B21D1D70031C632 /* 页面 */,
 			);
 			name = "目的地页面所有View";
 			sourceTree = "<group>";
@@ -2340,23 +2398,23 @@
 			name = AnalyticalNetWorkData;
 			sourceTree = "<group>";
 		};
-		BCC4167C1B21D1D70031C632 /* 目的地页面 */ = {
+		BCC4167C1B21D1D70031C632 /* 页面 */ = {
 			isa = PBXGroup;
 			children = (
 				BCC416701B21C4960031C632 /* DestinationView.h */,
 				BCC416711B21C4960031C632 /* DestinationView.m */,
 			);
-			name = "目的地页面";
+			name = "页面";
 			sourceTree = "<group>";
 		};
-		BCC4167D1B21D1E90031C632 /* 目的地页面collectionCell */ = {
+		BCC4167D1B21D1E90031C632 /* collectionCell */ = {
 			isa = PBXGroup;
 			children = (
 				BCC4167E1B21D2180031C632 /* DestinationCollectionViewCell.h */,
 				BCC4167F1B21D2180031C632 /* DestinationCollectionViewCell.m */,
 				BCC416801B21D2180031C632 /* DestinationCollectionViewCell.xib */,
 			);
-			name = "目的地页面collectionCell";
+			name = collectionCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2759,6 +2817,7 @@
 				BCADD3431B257CB2009E655B /* ic_guide_jn_net_checked.png in Resources */,
 				BCB9AA441B1F2B4700CC7023 /* RecommendHeadView.xib in Resources */,
 				BCADD3FE1B257CB2009E655B /* ic_share_gray_small.png in Resources */,
+				BCBA37641B2927CD00B568F9 /* RecommendTVCell.xib in Resources */,
 				BCADD43F1B257CB2009E655B /* ic_weather_m_34.png in Resources */,
 				BCADD4401B257CB2009E655B /* ic_weather_m_35.png in Resources */,
 				BCADD3051B257CB2009E655B /* ic_dest_add_city.png in Resources */,
@@ -3030,6 +3089,7 @@
 				BC88E6E81B2013B90087FE0C /* MyImageView.m in Sources */,
 				BCB9AA1A1B1F149D00CC7023 /* UIImageView+HighlightedWebCache.m in Sources */,
 				BCB9A9FB1B1F149D00CC7023 /* AFHTTPRequestOperation.m in Sources */,
+				BCBA37631B2927CD00B568F9 /* RecommendTVCell.m in Sources */,
 				BCB9AA141B1F149D00CC7023 /* SDWebImageManager.m in Sources */,
 				BCB9AA101B1F149D00CC7023 /* SDWebImageCompat.m in Sources */,
 				BCB9AA151B1F149D00CC7023 /* SDWebImagePrefetcher.m in Sources */,
@@ -3045,6 +3105,7 @@
 				BCB9A9FC1B1F149D00CC7023 /* AFHTTPRequestOperationManager.m in Sources */,
 				BCB9AA0A1B1F149D00CC7023 /* UIProgressView+AFNetworking.m in Sources */,
 				BCB9AA191B1F149D00CC7023 /* UIImage+WebP.m in Sources */,
+				BC7DA2AF1B28257A00A37571 /* Entity.m in Sources */,
 				BCB9A9FE1B1F149D00CC7023 /* AFNetworkReachabilityManager.m in Sources */,
 				BCB9AA021B1F149D00CC7023 /* AFURLResponseSerialization.m in Sources */,
 				BCB9AA001B1F149D00CC7023 /* AFURLConnectionOperation.m in Sources */,
@@ -3064,15 +3125,18 @@
 				BCC416771B21C6980031C632 /* DestinationModel.m in Sources */,
 				BCB9A9FF1B1F149D00CC7023 /* AFSecurityPolicy.m in Sources */,
 				BCB9AA131B1F149D00CC7023 /* SDWebImageDownloaderOperation.m in Sources */,
+				BCBA375E1B29261200B568F9 /* RecommendCellModel.m in Sources */,
 				BCB9AA0D1B1F149D00CC7023 /* MKAnnotationView+WebCache.m in Sources */,
 				BCB9AA481B1F2F9A00CC7023 /* RecommendView.m in Sources */,
 				BCB9AA0B1B1F149D00CC7023 /* UIRefreshControl+AFNetworking.m in Sources */,
 				BCB9AA0C1B1F149D00CC7023 /* UIWebView+AFNetworking.m in Sources */,
+				BC7DA29F1B27E87000A37571 /* CoreDataManager.m in Sources */,
 				BCB9A9FD1B1F149D00CC7023 /* AFHTTPSessionManager.m in Sources */,
 				BCADD4B11B258149009E655B /* GroupView.m in Sources */,
 				BCB9AA071B1F149D00CC7023 /* UIAlertView+AFNetworking.m in Sources */,
 				BCB9AA121B1F149D00CC7023 /* SDWebImageDownloader.m in Sources */,
 				BCB9AA011B1F149D00CC7023 /* AFURLRequestSerialization.m in Sources */,
+				BC7DA2AC1B28255C00A37571 /* Model.xcdatamodeld in Sources */,
 				BCB9AA051B1F149D00CC7023 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				BCB9AA3C1B1F275C00CC7023 /* DataEngine.m in Sources */,
 				BCB9AA031B1F149D00CC7023 /* AFURLSessionManager.m in Sources */,
@@ -3291,6 +3355,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BC7DA2AA1B28255C00A37571 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BC7DA2AB1B28255C00A37571 /* Model.xcdatamodel */,
+			);
+			currentVersion = BC7DA2AB1B28255C00A37571 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BCB9A5181B1F137600CC7023 /* Project object */;
 }

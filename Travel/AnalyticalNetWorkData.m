@@ -105,4 +105,19 @@
     return dataArray;
 }
 
++(NSMutableArray *)parseRecommendCell:(id)responseObject
+{
+    NSMutableArray * dataArray=[[NSMutableArray alloc]init];
+    
+    NSDictionary * orginDic=(NSDictionary *)responseObject;
+    NSArray * orginArray=orginDic[@"data"];
+    for (NSDictionary * dict in orginArray) {
+        RecommendCellModel * cellModel=[[RecommendCellModel alloc]init];
+        [cellModel setValuesForKeysWithDictionary:dict];
+        [dataArray addObject:cellModel];
+    }
+    return dataArray;
+}
+
+
 @end

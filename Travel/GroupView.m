@@ -31,6 +31,12 @@
     return self;
 }
 
+-(void)setDataArray:(NSArray *)dataArray
+{
+    _dataArray=dataArray;
+    [self.collectionView reloadData];
+}
+
 -(void)addCollectionViewWithFrame:(CGRect)frame
 {
     UICollectionViewFlowLayout * flowLayout=[[UICollectionViewFlowLayout alloc]init];
