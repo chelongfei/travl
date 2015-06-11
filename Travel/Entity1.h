@@ -1,8 +1,8 @@
 //
-//  Entity.h
+//  Entity1.h
 //  Travel
 //
-//  Created by qianfeng on 15/6/10.
+//  Created by qianfeng on 15/6/11.
 //  Copyright (c) 2015年 qianfeng. All rights reserved.
 //
 
@@ -10,8 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "BaseManagerEntity.h"
 
-@interface Entity :BaseManagerEntity
+@interface Entity1 : BaseManagerEntity
 
-@property (nonatomic, retain) NSData * dataArray;
 
 @end

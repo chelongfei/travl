@@ -8,7 +8,7 @@
 
 #import "BaseModel.h"
 
-@interface DestinationModel : BaseModel
+@interface DestinationModel : BaseModel<NSCoding>
 
 //第一层model属性
 @property(nonatomic,copy)NSString * id;

@@ -8,7 +8,9 @@
 
 #import "CoreDataManager.h"
 #import "Entity.h"
-#import "RecommendModel.h"
+#import "BaseManagerEntity.h"
+#import "Entity1.h"
+
 
 
 @interface CoreDataManager()
@@ -30,9 +32,9 @@
     NSManagedObjectModel * model=[[NSManagedObjectModel alloc]initWithContentsOfURL:[NSURL URLWithString:momdPath]];
     NSPersistentStoreCoordinator * coordinator=[[NSPersistentStoreCoordinator alloc]initWithManagedObjectModel:model];
     
-    NSString *dbPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Entity.sqlite"];
+    NSString *dbPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/xxx.sqlite"];
     NSError *error   = nil;
-
+    NSLog(@"%@",dbPath);
     [coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[NSURL fileURLWithPath:dbPath] options:nil error:&error];
     _context=[[NSManagedObjectContext alloc]init];
     _context.persistentStoreCoordinator=coordinator;
@@ -49,39 +51,42 @@
     return s_coreDataManager;
 }
 
--(void)addModelFromNetWork:(NSArray *)array
+-(void)addModelFromNetWork:(NSArray *)array entityName:(NSString *)name
 {
-    Entity * entity=[NSEntityDescription insertNewObjectForEntityForName:@"Entity" inManagedObjectContext:_context];
+    
+    BaseManagerEntity * entity=[NSEntityDescription insertNewObjectForEntityForName:name
+                                                             inManagedObjectContext:_context];
     NSData * archiveCarPriceData=[NSKeyedArchiver archivedDataWithRootObject:array];
     entity.dataArray=archiveCarPriceData;
+    
     [_context save:nil];
     
 }
 
--(NSMutableArray *)fetchModelFromCoreData
+-(NSMutableArray *)fetchModelFromCoreDataWithEntityName:(NSString *)name
 {
     //推荐界面view的数据存储
     //数组中包含了四个数组,分别对应
     //[@"slide",@"subject",@"discount",@"mguide"];
-    NSFetchRequest * fetchRequest=[NSFetchRequest fetchRequestWithEntityName:@"Entity"];
+    NSFetchRequest * fetchRequest=[NSFetchRequest fetchRequestWithEntityName:name];
     NSArray * array=[_context executeFetchRequest:fetchRequest error:nil];
     if (array==0) {
         return nil;
     }else{
-        Entity * entity=[array firstObject];
-        NSArray * array=[NSKeyedUnarchiver unarchiveObjectWithData:entity.dataArray];
-        return (NSMutableArray *)array;
+        BaseManagerEntity * entity=[array firstObject];
+        NSArray * arrays=[NSKeyedUnarchiver unarchiveObjectWithData:entity.dataArray];
+        return (NSMutableArray *)arrays;
     }
 }
 
--(void)removeAllModelFromCoreData
+-(void)removeAllModelFromCoreDataWithEntityName:(NSString *)name
 {
-    NSFetchRequest * fetchRequest=[[NSFetchRequest alloc]initWithEntityName:@"Entity"];
+    NSFetchRequest * fetchRequest=[[NSFetchRequest alloc]initWithEntityName:name];
     NSArray * array=[_context executeFetchRequest:fetchRequest error:nil];
     if (array>0) {
-        for (Entity * model in array) {
+        for (BaseManagerEntity  * model in array) {
             [_context deleteObject:(NSManagedObject *)model];
-         }
+        }
         [_context save:nil];
     }
 }
@@ -93,12 +98,12 @@
     NSFetchRequest *request= [[NSFetchRequest alloc] init];
     [request setEntity:[NSEntityDescription entityForName:@"Entity" inManagedObjectContext:_context]];
     [request setPredicate:predicate];
-//    NSArray *arr = [_context executeFetchRequest:request error:nil];
-//    if (arr.count > 0) {
-//        for (Student *student in arr) {
-//            student.name = @"ZhengSangFeng";
-//        } // 循环结束后，数组中所有的学生对象名字都变为了 @"ZhengSangFeng";
-//    }
+    //    NSArray *arr = [_context executeFetchRequest:request error:nil];
+    //    if (arr.count > 0) {
+    //        for (Student *student in arr) {
+    //            student.name = @"ZhengSangFeng";
+    //        } // 循环结束后，数组中所有的学生对象名字都变为了 @"ZhengSangFeng";
+    //    }
     [_context save:nil];
 }
 

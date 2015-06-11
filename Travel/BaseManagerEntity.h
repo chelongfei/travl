@@ -1,16 +1,14 @@
 //
-//  Entity.h
+//  BaseManagerEntity.h
 //  Travel
 //
-//  Created by qianfeng on 15/6/10.
+//  Created by qianfeng on 15/6/11.
 //  Copyright (c) 2015年 qianfeng. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "BaseManagerEntity.h"
 
-@interface Entity :BaseManagerEntity
+@interface BaseManagerEntity : NSManagedObject
 
 @property (nonatomic, retain) NSData * dataArray;
 

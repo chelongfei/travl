@@ -3,7 +3,11 @@
     <entity name="Entity" representedClassName="Entity" syncable="YES">
         <attribute name="dataArray" optional="YES" attributeType="Binary" syncable="YES"/>
     </entity>
+    <entity name="Entity1" representedClassName="Entity1" syncable="YES">
+        <attribute name="dataArray" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Entity" positionX="-45" positionY="0" width="128" height="60"/>
+        <element name="Entity1" positionX="-18" positionY="36" width="128" height="60"/>
     </elements>
 </model>

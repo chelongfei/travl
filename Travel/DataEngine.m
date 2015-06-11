@@ -73,13 +73,13 @@
     
 }
 
--(void)requestGroupDetailDataWithID:(NSString *)forId page:(NSInteger)pageNo type:(NSString *)type success:(SuccessBlockType)success faild:(FailedBlockType)failed
+-(void)requestGroupDetailDataWithDict:(NSDictionary *)dict success:(SuccessBlockType)success faild:(FailedBlockType)failed
 {
-    [_manager GET:[NSString stringWithFormat:GROUP_DETAIL_URL,forId,type,pageNo] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+   [_manager POST:GROUP_DETAIL_URL_POST parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         success(responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        failed(error);
-    }];
+   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+       failed(error);
+   }];
 }
 
 

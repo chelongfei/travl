@@ -25,6 +25,7 @@
 @property(nonatomic)NSInteger currentPage;
 @property(nonatomic)UIView  * sliderForButton;
 @property(nonatomic)NSString * currentType;
+@property(nonatomic)NSString * forum_type;
 
 @property(nonatomic)BOOL isLoading;
 
@@ -33,6 +34,7 @@
 @property(nonatomic)UILabel * countLabel;
 
 @property(nonatomic)NSMutableArray * allDataArray;
+@property(nonatomic)NSMutableDictionary * postDict;
 
 
 @end
@@ -43,8 +45,12 @@
     [super viewDidLoad];
     self.currentPage=1;
     _isLoading=NO;
+    self.postDict=[[NSMutableDictionary alloc]init];
+    self.forum_type=[self.model.types objectAtIndex:0][@"id"];
+    self.currentType=@"all";
     
     self.view.backgroundColor=[UIColor whiteColor];
+    [self initPostDict];
     [self addHeadView];
     [self addSliderForButton];
     [self addHeadButton];
@@ -58,6 +64,16 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     self.navigationController.navigationBarHidden=NO;
+}
+
+-(void)initPostDict
+
+{
+    //    Post&page=%ld  &type=%@(&forum_type=6)  &forum_id=%@
+    [self.postDict setObject:self.model.id forKey:@"forum_id"];
+    [self.postDict setObject:[NSString stringWithFormat:@"%ld",self.currentPage] forKey:@"page"];
+    
+    //    [self.postDict setObject:@"" forKey:@"forum_type"];
 }
 
 -(void)addHeadView
@@ -142,6 +158,30 @@
             frame.origin.x=button.frame.origin.x;
             self.sliderForButton.frame=frame;
         }];
+        self.currentPage=1;
+        [self.postDict removeObjectForKey:@"forum_type"];
+        [self.postDict removeObjectForKey:@"type"];
+        switch (button.tag-BASETAG) {
+            case 0:
+                self.currentType=@"all";
+                [self.postDict setObject:self.currentType forKey:@"type"];
+                break;
+            case 1:
+                self.currentType=@"new";
+                [self.postDict setObject:self.currentType forKey:@"type"];
+                break;
+            case 2:
+                self.currentType=@"digest";
+                [self.postDict setObject:self.currentType forKey:@"type"];
+                break;
+            case 3:
+                [self.postDict setObject:self.forum_type forKey:@"forum_type"];
+                break;
+            default:
+                break;
+        }
+        [self initPostDict];
+        [self loadGroupAllData];
     }
 }
 
@@ -169,7 +209,8 @@
 -(void)loadGroupAllData
 {
     _isLoading=YES;
-    [[DataEngine shareInstance]requestGroupDetailDataWithID:self.model.id page:self.currentPage type:self.currentType success:^(NSData *respondsObject) {
+    
+    [[DataEngine shareInstance]requestGroupDetailDataWithDict:self.postDict success:^(NSData *respondsObject) {
         self.allDataArray=[AnalyticalNetWorkData parseGroupDetailData:respondsObject];
         [self.tableView reloadData];
         
@@ -210,7 +251,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-     GroupDetailModel * model=[self.allDataArray objectAtIndex:indexPath.row];
+    GroupDetailModel * model=[self.allDataArray objectAtIndex:indexPath.row];
     DetailViewController * controller=[[DetailViewController alloc]init];
     controller.url=model.view_url;
     [self.navigationController pushViewController:controller animated:YES];
@@ -236,7 +277,7 @@
 
 -(void)refreshCell
 {
-    [[DataEngine shareInstance]requestGroupDetailDataWithID:self.model.id page:self.currentPage type:self.currentType success:^(NSData *respondsObject) {
+    [[DataEngine shareInstance]requestGroupDetailDataWithDict:self.postDict success:^(NSData *respondsObject) {
         NSArray * temArray=[AnalyticalNetWorkData parseGroupDetailData:respondsObject];
         for (GroupDetailModel * model in temArray) {
             [self.allDataArray addObject:model];

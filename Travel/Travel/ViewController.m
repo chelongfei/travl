@@ -71,9 +71,11 @@
     [self addHomeCollectionView];
     [self addRecommendView];
     //使用coreData数据渲染
-    [self.recommendView updateHeadView:[[CoreDataManager defaultCoreManager]fetchModelFromCoreData]];
+    [self.recommendView updateHeadView:[[CoreDataManager defaultCoreManager]fetchModelFromCoreDataWithEntityName:@"Entity"]];
     
     [self addDestinationView];
+    self.destinationView.dataArray=[[CoreDataManager defaultCoreManager]fetchModelFromCoreDataWithEntityName:@"Entity1"];
+
 
     [self addGroupView];
     [self loadRecommendData];
@@ -174,9 +176,9 @@
 {
     [[DataEngine shareInstance]requestRecommendData:^(NSData *respondsObject) {
         self.recommendDataArray=[AnalyticalNetWorkData parseRecommendData:respondsObject];
-       [[CoreDataManager defaultCoreManager]removeAllModelFromCoreData];
-        [[CoreDataManager defaultCoreManager]addModelFromNetWork:self.recommendDataArray];
-        [self.recommendView updateHeadView:self.recommendDataArray];
+      [[CoreDataManager defaultCoreManager]removeAllModelFromCoreDataWithEntityName:@"Entity"];
+        [[CoreDataManager defaultCoreManager]addModelFromNetWork:self.recommendDataArray entityName:@"Entity"];
+       [self.recommendView updateHeadView:self.recommendDataArray];
     } faild:^(NSError *error) {
         
     }];
@@ -187,7 +189,9 @@
 {
     [[DataEngine shareInstance]requestDestinationData:^(NSData *respondsObject) {
         self.destinationDataArray=[AnalyticalNetWorkData parseDestinationData:respondsObject];
-        self.destinationView.dataArray=self.destinationDataArray;
+     [[CoreDataManager defaultCoreManager]removeAllModelFromCoreDataWithEntityName:@"Entity1"];
+      [[CoreDataManager defaultCoreManager]addModelFromNetWork:self.destinationDataArray entityName:@"Entity1"];
+      self.destinationView.dataArray=self.destinationDataArray;
     } faild:^(NSError *error) {
         
     }];

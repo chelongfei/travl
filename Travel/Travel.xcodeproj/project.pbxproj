@@ -642,6 +642,8 @@
 		BCBA376D1B2969F400B568F9 /* GroupDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBA376B1B2969F400B568F9 /* GroupDetailCell.m */; };
 		BCBA376E1B2969F400B568F9 /* GroupDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCBA376C1B2969F400B568F9 /* GroupDetailCell.xib */; };
 		BCBA37711B296E3F00B568F9 /* GroupDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBA37701B296E3F00B568F9 /* GroupDetailModel.m */; };
+		BCBA37771B2993B500B568F9 /* Entity1.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBA37761B2993B500B568F9 /* Entity1.m */; };
+		BCBA377A1B29A85500B568F9 /* BaseManagerEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBA37791B29A85400B568F9 /* BaseManagerEntity.m */; };
 		BCC416721B21C4960031C632 /* DestinationView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC416711B21C4960031C632 /* DestinationView.m */; };
 		BCC416771B21C6980031C632 /* DestinationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC416761B21C6980031C632 /* DestinationModel.m */; };
 		BCC4167B1B21C7F50031C632 /* AnalyticalNetWorkData.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC4167A1B21C7F50031C632 /* AnalyticalNetWorkData.m */; };
@@ -1365,6 +1367,10 @@
 		BCBA376C1B2969F400B568F9 /* GroupDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupDetailCell.xib; sourceTree = "<group>"; };
 		BCBA376F1B296E3F00B568F9 /* GroupDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDetailModel.h; sourceTree = "<group>"; };
 		BCBA37701B296E3F00B568F9 /* GroupDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDetailModel.m; sourceTree = "<group>"; };
+		BCBA37751B2993B500B568F9 /* Entity1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity1.h; sourceTree = "<group>"; };
+		BCBA37761B2993B500B568F9 /* Entity1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity1.m; sourceTree = "<group>"; };
+		BCBA37781B29A85400B568F9 /* BaseManagerEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseManagerEntity.h; sourceTree = "<group>"; };
+		BCBA37791B29A85400B568F9 /* BaseManagerEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseManagerEntity.m; sourceTree = "<group>"; };
 		BCC416701B21C4960031C632 /* DestinationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationView.h; sourceTree = "<group>"; };
 		BCC416711B21C4960031C632 /* DestinationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationView.m; sourceTree = "<group>"; };
 		BCC416751B21C6980031C632 /* DestinationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationModel.h; sourceTree = "<group>"; };
@@ -1427,8 +1433,6 @@
 			isa = PBXGroup;
 			children = (
 				BC7DA2AA1B28255C00A37571 /* Model.xcdatamodeld */,
-				BC7DA2AD1B28257A00A37571 /* Entity.h */,
-				BC7DA2AE1B28257A00A37571 /* Entity.m */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -1436,6 +1440,12 @@
 		BC7DA29B1B27E7F000A37571 /* CoreModel */ = {
 			isa = PBXGroup;
 			children = (
+				BCBA37781B29A85400B568F9 /* BaseManagerEntity.h */,
+				BCBA37791B29A85400B568F9 /* BaseManagerEntity.m */,
+				BC7DA2AD1B28257A00A37571 /* Entity.h */,
+				BC7DA2AE1B28257A00A37571 /* Entity.m */,
+				BCBA37751B2993B500B568F9 /* Entity1.h */,
+				BCBA37761B2993B500B568F9 /* Entity1.m */,
 			);
 			name = CoreModel;
 			sourceTree = "<group>";
@@ -1449,13 +1459,13 @@
 			name = CoreDataManager;
 			sourceTree = "<group>";
 		};
-		BC88E6E51B2013970087FE0C /* 自定义可点击ImageView */ = {
+		BC88E6E51B2013970087FE0C /* MyImageView */ = {
 			isa = PBXGroup;
 			children = (
 				BC88E6E61B2013B90087FE0C /* MyImageView.h */,
 				BC88E6E71B2013B90087FE0C /* MyImageView.m */,
 			);
-			name = "自定义可点击ImageView";
+			name = MyImageView;
 			sourceTree = "<group>";
 		};
 		BC88E6F51B205B540087FE0C /* 点击图片进入页面 */ = {
@@ -2402,7 +2412,7 @@
 			isa = PBXGroup;
 			children = (
 				BCBA375F1B29269800B568F9 /* cell */,
-				BC88E6E51B2013970087FE0C /* 自定义可点击ImageView */,
+				BC88E6E51B2013970087FE0C /* MyImageView */,
 				BCB9AA451B1F2F8700CC7023 /* 主页面 */,
 				BCB9AA3F1B1F2B1F00CC7023 /* 头视图 */,
 				BC88E6F91B2075630087FE0C /* 抢特价折扣 */,
@@ -3138,6 +3148,7 @@
 				BCB9A52C1B1F137600CC7023 /* ViewController.m in Sources */,
 				BCB9AA161B1F149D00CC7023 /* UIButton+WebCache.m in Sources */,
 				BCC416811B21D2180031C632 /* DestinationCollectionViewCell.m in Sources */,
+				BCBA377A1B29A85500B568F9 /* BaseManagerEntity.m in Sources */,
 				BCB9A9FC1B1F149D00CC7023 /* AFHTTPRequestOperationManager.m in Sources */,
 				BCB9AA0A1B1F149D00CC7023 /* UIProgressView+AFNetworking.m in Sources */,
 				BCB9AA191B1F149D00CC7023 /* UIImage+WebP.m in Sources */,
@@ -3150,6 +3161,7 @@
 				BC0C55FC1B22EED8004BEF5A /* HeadViewForDestinationView.m in Sources */,
 				BCBA376D1B2969F400B568F9 /* GroupDetailCell.m in Sources */,
 				BCB9AA351B1F245900CC7023 /* BaseModel.m in Sources */,
+				BCBA37771B2993B500B568F9 /* Entity1.m in Sources */,
 				BC88E6F81B205B6C0087FE0C /* DetailViewController.m in Sources */,
 				BCB9AA1C1B1F149D00CC7023 /* UIView+WebCacheOperation.m in Sources */,
 				BCB9AA081B1F149D00CC7023 /* UIButton+AFNetworking.m in Sources */,

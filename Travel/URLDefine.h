@@ -21,11 +21,9 @@
 //社区页面接口
 #define GROUO_URL @"http://open.qyer.com/qyer/bbs/forum_list?client_id=qyer_android&client_secret=9fcaae8aefc4f9ac4915&v=1&track_user_id=&lat=34.786472&lon=113.671383"
 
-//点击推荐页面进入详情(全部,最新,精华) //type=all//type=new//type=digest
-#define GROUP_DETAIL_URL @"http://open.qyer.com/qyer/bbs/forum_thread_list?client_id=qyer_android&client_secret=9fcaae8aefc4f9ac4915&v=1&track_user_id=&lat=34.786486&lon=113.6714&forum_id=%@&type=%@&count=10&page=%ld&delcache=0"
 
-//点击推荐页面进入详情(讨论)
-#define GROUP_DETAIL_DIS_URL    @"http://open.qyer.com/qyer/bbs/forum_thread_list?client_id=qyer_android&client_secret=9fcaae8aefc4f9ac4915&v=1&track_user_id=&lat=34.786486&lon=113.6714&forum_id=3&forum_type=6&count=10&page=1&delcache=0"
+//点击推荐页面进入Post&page=%ld  &type=%@(&forum_type=6)  &forum_id=%@
+#define GROUP_DETAIL_URL_POST @"http://open.qyer.com/qyer/bbs/forum_thread_list?client_id=qyer_android&client_secret=9fcaae8aefc4f9ac4915&v=1&track_user_id=&lat=34.786486&lon=113.6714&count=10&delcache=0"
 
 #endif
 

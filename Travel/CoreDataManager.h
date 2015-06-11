@@ -14,10 +14,10 @@
 
 +(instancetype)defaultCoreManager;
 
--(void)addModelFromNetWork:(NSArray *)array;
+-(void)addModelFromNetWork:(NSArray *)array entityName:(NSString *)name;
 
--(NSMutableArray *)fetchModelFromCoreData;
+-(NSMutableArray *)fetchModelFromCoreDataWithEntityName:(NSString *)name;
 
--(void)removeAllModelFromCoreData;
+-(void)removeAllModelFromCoreDataWithEntityName:(NSString *)name;
 
 @end
