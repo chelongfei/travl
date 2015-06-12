@@ -200,7 +200,7 @@
 
 -(void)updateHeadViewWithModel:(GroupModel *)model
 {
-    [self.topImageView sd_setImageWithURL:[NSURL URLWithString:model.photo]];
+    [self.topImageView sd_setImageWithURL:[NSURL URLWithString:model.photo] placeholderImage:[UIImage imageNamed:@"zbg_p9_cover_def_mid_round_corner.9.png"]];
     self.titleLabel.text=model.name;
     self.countLabel.text=[NSString stringWithFormat:@"%@个主题",model.total_threads];
 }

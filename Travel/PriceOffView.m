@@ -13,7 +13,7 @@
 -(void)updateUIWithModel:(RecommendModel *)model
 {
     
-    [_priceOffImageView sd_setImageWithURL:[NSURL URLWithString:model.photo]];
+    [_priceOffImageView sd_setImageWithURL:[NSURL URLWithString:model.photo]placeholderImage:[UIImage imageNamed:@"zbg_p9_cover_def_mid_round_corner.9.png"]];
     _titleLabel.text=model.title;
     _dateLabel.text=model.end_date;
     _priceLabel.attributedText=[self attributedStringOfPriceLabel:model.price];

@@ -21,7 +21,7 @@
     _countLabel.text=model.count;
     _countryNameLabel.text=model.cnname;
     _countryEnNameLabel.text=model.enname;
-    [_cityImageView sd_setImageWithURL:[NSURL URLWithString:model.photo]];
+    [_cityImageView sd_setImageWithURL:[NSURL URLWithString:model.photo] placeholderImage:[UIImage imageNamed:@"zbg_p9_cover_def_mid_round_corner.9.png"]];
 }
 
 @end

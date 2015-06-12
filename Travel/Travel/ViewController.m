@@ -67,6 +67,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self customNavigationBar];
     [self initView];
     [self addHomeCollectionView];
     [self addRecommendView];
@@ -81,6 +82,12 @@
     [self loadRecommendData];
     [self loadDestinationData];
     [self loadGroupData];
+}
+
+-(void)customNavigationBar
+{
+    self.navigationController.navigationBar.backgroundColor=[UIColor clearColor];
+    self.navigationController.navigationBar.backgroundColor=[UIColor redColor];
 }
 
 -(void)initView
