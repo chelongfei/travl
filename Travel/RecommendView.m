@@ -144,7 +144,7 @@
         case 1:{
             PriceOffView * priceCell=[self.collectionView dequeueReusableCellWithReuseIdentifier:COLLECT_PRICE_OFF_ID forIndexPath:indexPath];
             RecommendModel * model=[self.discountDataArray objectAtIndex:indexPath.row];
-            [priceCell updateUIWithModel:model];
+            [priceCell updateUIWithRecommendModel:model];
             priceCell.layer.borderColor=[UIColor lightGrayColor].CGColor;
             priceCell.layer.borderWidth=0.5;
             return priceCell;
@@ -152,7 +152,7 @@
         case 2:{
             LocalColoringView * locationCell=[self.collectionView dequeueReusableCellWithReuseIdentifier:COLLECT_LOCAL_OFF_ID forIndexPath:indexPath];
             RecommendModel * model=[self.locationDataArray objectAtIndex:indexPath.row];
-            [locationCell updateUIWithModel:model];
+            [locationCell updateUIWithRecommendModel:model];
             locationCell.layer.borderColor=[UIColor lightGrayColor].CGColor;
             locationCell.layer.borderWidth=0.5;
             return locationCell;
@@ -226,10 +226,10 @@
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
         //返回Header视图
         SectionHeadView * headView=[self.collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier: COLLECT_VIEW_SECTION_HEAD forIndexPath:indexPath];
-        headView.headTitle.text=(indexPath.section==1?@"抢特价折扣":@"玩当地特色");
-        if (indexPath.section==3) {
-            headView.headTitle.text=@"看热门游记";
-        }
+        
+        NSArray * array=@[@"抢特价折扣",@"玩当地特色",@"看热门游记"];
+        headView.headTitle.text=[array objectAtIndex:indexPath.section-1];
+        
         return headView;
     }else if([kind isEqualToString:UICollectionElementKindSectionFooter]){
         //返回Footer视图
@@ -275,7 +275,6 @@
     float height = scrollView.contentSize.height > _collectionView.frame.size.height ?_collectionView.frame.size.height : scrollView.contentSize.height;
     if (_isLoading==NO) {
         if ((height - scrollView.contentSize.height + scrollView.contentOffset.y) / height > 0.1) {
-            NSLog(@"我要刷新了啊");
             _isLoading=YES;
             self.currentPage++;
             // 调用上拉刷新方法

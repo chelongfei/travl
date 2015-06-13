@@ -19,7 +19,7 @@
 @property(nonatomic,copy)NSString * photo;
 @property(nonatomic,copy)NSString * count;
 @property(nonatomic,copy)NSString * label;
-@property(nonatomic,copy)NSString * flag;
+@property(nonatomic)int flag;
 
 @end
 

@@ -31,8 +31,10 @@
 //点推荐页面特价折扣进入
 #define RECOMMEND_DISCOUNT_URL   @"http://m.qyer.com/z/deal/%@/source=app" //model.id
 
-//点击目的地界面具体城市进入
-#define DES_DETAIL_URL   @"http://open.qyer.com/qyer/footprint/country_detail?client_id=qyer_android&client_secret=9fcaae8aefc4f9ac4915&v=1&country_id=%@&oauth_token="  //model.id
+//点击目的地界面具体国家进入
+#define DES_DETAIL_COUNTRY_URL   @"http://open.qyer.com/qyer/footprint/country_detail?client_id=qyer_android&client_secret=9fcaae8aefc4f9ac4915&v=1&country_id=%@&oauth_token="  //model.id
+//点击目的地界面国家具体城市进入
+#define DES_DETAIL_CITY_URL  @"http://open.qyer.com/qyer/footprint/city_detail?client_id=qyer_android&client_secret=9fcaae8aefc4f9ac4915&v=1&track_app_version=6.3&track_app_channel=qq&track_device_info=dior&city_id=%@&oauth_token="
 
 
 #endif

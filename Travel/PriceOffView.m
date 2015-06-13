@@ -10,7 +10,7 @@
 #import "UIImageView+WebCache.h"
 @implementation PriceOffView
 
--(void)updateUIWithModel:(RecommendModel *)model
+-(void)updateUIWithRecommendModel:(RecommendModel *)model
 {
     
     [_priceOffImageView sd_setImageWithURL:[NSURL URLWithString:model.photo]placeholderImage:[UIImage imageNamed:@"zbg_p9_cover_def_mid_round_corner.9.png"]];
@@ -40,6 +40,16 @@
         return priceOff;
     }
     return nil;
+}
+
+-(void)updateUIWithDesDiscountModel:(DesDiscountModel *)model
+{
+    
+    [_priceOffImageView sd_setImageWithURL:[NSURL URLWithString:model.photo]placeholderImage:[UIImage imageNamed:@"zbg_p9_cover_def_mid_round_corner.9.png"]];
+    _titleLabel.text=model.title;
+    _dateLabel.text=model.expire_date;
+    _priceLabel.attributedText=[self attributedStringOfPriceLabel:model.price];
+    _priceOffLabel.attributedText=[self attributedStringOfPriceOffLabel:model.priceoff];
 }
 
 

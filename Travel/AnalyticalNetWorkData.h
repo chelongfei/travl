@@ -30,7 +30,9 @@
 //解析推荐页面当地特色栏目信息并返回
 +(NSMutableArray *)parseRecommendLocation:(id)responseObject;
 
-//解析目的地界面具体城市信息并返回
-+(NSMutableArray *)parseDestinationDetailData:(id)responseObject;
+//解析目的地界面具体国家信息并返回
++(NSMutableArray *)parseDestinationDetailCountryData:(id)responseObject;
+
+
 
 @end

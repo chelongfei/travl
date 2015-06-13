@@ -61,7 +61,6 @@
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    NSLog(@"%ld",[self.dataArray count]);
     return [self.dataArray count];
 }
 

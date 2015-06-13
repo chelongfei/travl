@@ -31,9 +31,10 @@ typedef void(^FailedBlockType)(NSError * error);
 //获取推荐页面玩当地特色数据
 -(void)requestRecommendLocationDataWithPage:(NSString *)pageID success:(SuccessBlockType)success faild:(FailedBlockType)failed;
 
+//获取目的地界面具体国家数据
+-(void)requestDestinationDetailCountryDataWithCountryID:(NSString *)countryId success:(SuccessBlockType)success faild:(FailedBlockType)failed;
+
 //获取目的地界面具体城市数据
--(void)requestDestinationDetailDataWithCityID:(NSString *)cityId success:(SuccessBlockType)success faild:(FailedBlockType)failed;
-
-
+-(void)requestDestinationDetailCityDataWithCityID:(NSString *)cityId success:(SuccessBlockType)success faild:(FailedBlockType)failed;
 
 @end

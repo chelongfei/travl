@@ -10,7 +10,7 @@
 #import "UIImageView+WebCache.h"
 @implementation LocalColoringView
 
--(void)updateUIWithModel:(RecommendModel *)model
+-(void)updateUIWithRecommendModel:(RecommendModel *)model
 {
     self.headOfWriterImageView.layer.borderColor=[UIColor whiteColor].CGColor;
     [self.MainImageView sd_setImageWithURL:[NSURL URLWithString:model.photo]];
@@ -19,5 +19,13 @@
     self.titleLabel.text=model.title;
 }
 
+-(void)updateUIWithDesTripModel:(DesTripModel *)model
+{
+    self.headOfWriterImageView.layer.borderColor=[UIColor whiteColor].CGColor;
+    [self.MainImageView sd_setImageWithURL:[NSURL URLWithString:model.photo]];
+    [self.headOfWriterImageView sd_setImageWithURL:[NSURL URLWithString:model.avatar] placeholderImage:[UIImage imageNamed:@"zbg_p9_cover_def_mid_round_corner.9.png"]];
+    self.writerLabel.text=model.username;
+    self.titleLabel.text=model.title;
+}
 
 @end

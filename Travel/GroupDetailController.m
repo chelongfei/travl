@@ -47,7 +47,7 @@
     _isLoading=NO;
     self.postDict=[[NSMutableDictionary alloc]init];
     self.forum_type=[self.model.types objectAtIndex:0][@"id"];
-    self.currentType=@"all";
+//    self.currentType=@"all";
     
     self.view.backgroundColor=[UIColor whiteColor];
     [self initPostDict];
@@ -265,7 +265,6 @@
     if (_isLoading==NO) {
         _isLoading=YES;
         if ((height - scrollView.contentSize.height + scrollView.contentOffset.y) / height > 0.1) {
-            NSLog(@"我要刷新了啊");
             self.currentPage++;
             // 调用上拉刷新方法
             [self refreshCell];

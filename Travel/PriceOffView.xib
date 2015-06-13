@@ -53,7 +53,7 @@
                 <outlet property="priceOffLabel" destination="icX-Bz-uZH" id="hdr-xB-K1Z"/>
                 <outlet property="titleLabel" destination="kbO-pv-EJl" id="6Gy-D9-whq"/>
             </connections>
-            <point key="canvasLocation" x="320" y="346"/>
+            <point key="canvasLocation" x="319.5" y="346"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

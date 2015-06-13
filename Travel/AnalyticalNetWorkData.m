@@ -160,13 +160,12 @@
     return dataArray;
 }
 
-//解析目的地界面具体城市信息并返回
-+(NSMutableArray *)parseDestinationDetailData:(id)responseObject
+//解析目的地界面具体国家信息并返回
++(NSMutableArray *)parseDestinationDetailCountryData:(id)responseObject
 {
     NSMutableArray * dataArray=[[NSMutableArray alloc]init];
     NSDictionary * orginDic=(NSDictionary *)responseObject;
     NSDictionary * dict=orginDic[@"data"];
-    
     //二层数组
     NSMutableArray * countryDataArray=[[NSMutableArray alloc]init];
     NSMutableArray * hotCityDataArray=[[NSMutableArray alloc]init];
@@ -174,12 +173,13 @@
     NSMutableArray * tripDataArray=[[NSMutableArray alloc]init];
     
     DesCountryModel  * model=[[DesCountryModel alloc]init];
-    model.id=dict[@"id"];
+    
     model.chinesename=dict[@"chinesename"];
     model.englishname=dict[@"englishname"];
-    [model setValue:dict[@"id"] forKey:model.id];
     model.photos=dict[@"photos"];
+    model.id=dict[@"id"];
     [countryDataArray addObject:model];
+    
     
     for (NSDictionary * hotDic in dict[@"hot_city"]) {
         DesHotCityModel * model=[[DesHotCityModel alloc]init];
@@ -198,8 +198,8 @@
     }
     [dataArray addObject:countryDataArray];
     [dataArray addObject:hotCityDataArray];
-    [dataArray addObject:disCountDataArray];
     [dataArray addObject:tripDataArray];
+    [dataArray addObject:disCountDataArray];
     return dataArray;
 }
 

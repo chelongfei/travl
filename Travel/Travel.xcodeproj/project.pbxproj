@@ -649,6 +649,11 @@
 		BCC4167B1B21C7F50031C632 /* AnalyticalNetWorkData.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC4167A1B21C7F50031C632 /* AnalyticalNetWorkData.m */; };
 		BCC416811B21D2180031C632 /* DestinationCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC4167F1B21D2180031C632 /* DestinationCollectionViewCell.m */; };
 		BCC416821B21D2180031C632 /* DestinationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC416801B21D2180031C632 /* DestinationCollectionViewCell.xib */; };
+		BCD4DD031B2BBE0400CC389E /* DesCountryHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD4DD011B2BBE0400CC389E /* DesCountryHeadView.m */; };
+		BCD4DD041B2BBE0400CC389E /* DesCountryHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD4DD021B2BBE0400CC389E /* DesCountryHeadView.xib */; };
+		BCD4DD091B2BD06100CC389E /* HotCityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD4DD071B2BD06100CC389E /* HotCityCell.m */; };
+		BCD4DD0A1B2BD06100CC389E /* HotCityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD4DD081B2BD06100CC389E /* HotCityCell.xib */; };
+		BCD4DD131B2C08A700CC389E /* DesCityController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD4DD121B2C08A700CC389E /* DesCityController.m */; };
 		BCDBA8FE1B2AADA100E72830 /* SectionFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDBA8FC1B2AADA100E72830 /* SectionFootView.m */; };
 		BCDBA8FF1B2AADA100E72830 /* SectionFootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCDBA8FD1B2AADA100E72830 /* SectionFootView.xib */; };
 		BCDBA9031B2AADB300E72830 /* SectionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDBA9011B2AADB300E72830 /* SectionHeadView.m */; };
@@ -665,7 +670,6 @@
 		BCDBA92D1B2B04B200E72830 /* DesDiscountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDBA92C1B2B04B200E72830 /* DesDiscountModel.m */; };
 		BCDBA9301B2B04C800E72830 /* DesTripModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDBA92F1B2B04C800E72830 /* DesTripModel.m */; };
 		BCDBA9351B2B148400E72830 /* DesCountryController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDBA9331B2B148400E72830 /* DesCountryController.m */; };
-		BCDBA9361B2B148400E72830 /* DesCountryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCDBA9341B2B148400E72830 /* DesCountryController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1397,6 +1401,14 @@
 		BCC4167E1B21D2180031C632 /* DestinationCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationCollectionViewCell.h; sourceTree = "<group>"; };
 		BCC4167F1B21D2180031C632 /* DestinationCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationCollectionViewCell.m; sourceTree = "<group>"; };
 		BCC416801B21D2180031C632 /* DestinationCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DestinationCollectionViewCell.xib; sourceTree = "<group>"; };
+		BCD4DD001B2BBE0400CC389E /* DesCountryHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesCountryHeadView.h; sourceTree = "<group>"; };
+		BCD4DD011B2BBE0400CC389E /* DesCountryHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesCountryHeadView.m; sourceTree = "<group>"; };
+		BCD4DD021B2BBE0400CC389E /* DesCountryHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesCountryHeadView.xib; sourceTree = "<group>"; };
+		BCD4DD061B2BD06100CC389E /* HotCityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCityCell.h; sourceTree = "<group>"; };
+		BCD4DD071B2BD06100CC389E /* HotCityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotCityCell.m; sourceTree = "<group>"; };
+		BCD4DD081B2BD06100CC389E /* HotCityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotCityCell.xib; sourceTree = "<group>"; };
+		BCD4DD111B2C08A700CC389E /* DesCityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesCityController.h; sourceTree = "<group>"; };
+		BCD4DD121B2C08A700CC389E /* DesCityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesCityController.m; sourceTree = "<group>"; };
 		BCDBA8FB1B2AADA100E72830 /* SectionFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionFootView.h; sourceTree = "<group>"; };
 		BCDBA8FC1B2AADA100E72830 /* SectionFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionFootView.m; sourceTree = "<group>"; };
 		BCDBA8FD1B2AADA100E72830 /* SectionFootView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionFootView.xib; sourceTree = "<group>"; };
@@ -1424,7 +1436,6 @@
 		BCDBA92F1B2B04C800E72830 /* DesTripModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesTripModel.m; sourceTree = "<group>"; };
 		BCDBA9321B2B148400E72830 /* DesCountryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesCountryController.h; sourceTree = "<group>"; };
 		BCDBA9331B2B148400E72830 /* DesCountryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesCountryController.m; sourceTree = "<group>"; };
-		BCDBA9341B2B148400E72830 /* DesCountryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesCountryController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2355,6 +2366,7 @@
 		BCB9AA211B1F14A500CC7023 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BCD4DD0B1B2C072D00CC389E /* 目地点城市进入 */,
 				BCDBA9311B2B146000E72830 /* 目地点国家进入 */,
 				BCDBA90B1B2AC04300E72830 /* 当地特色 */,
 				BCBA37651B295AEB00B568F9 /* 社区详情 */,
@@ -2468,11 +2480,9 @@
 		BCC4166F1B21C4660031C632 /* 目地页面View */ = {
 			isa = PBXGroup;
 			children = (
-				BC0C55F81B22EEAB004BEF5A /* 头视图 */,
-				BC0C55F41B22E5E1004BEF5A /* Section头视图 */,
-				BC0C55EB1B22E14C004BEF5A /* 其他国家Cell */,
-				BCC4167D1B21D1E90031C632 /* collectionCell */,
-				BCC4167C1B21D1D70031C632 /* 页面 */,
+				BCD4DCFF1B2BBDCE00CC389E /* 二级列表 */,
+				BCD4DCFE1B2BBDC200CC389E /* 一级列表 */,
+				BCC4167C1B21D1D70031C632 /* 主页面 */,
 			);
 			name = "目地页面View";
 			sourceTree = "<group>";
@@ -2486,13 +2496,13 @@
 			name = AnalyticalNetWorkData;
 			sourceTree = "<group>";
 		};
-		BCC4167C1B21D1D70031C632 /* 页面 */ = {
+		BCC4167C1B21D1D70031C632 /* 主页面 */ = {
 			isa = PBXGroup;
 			children = (
 				BCC416701B21C4960031C632 /* DestinationView.h */,
 				BCC416711B21C4960031C632 /* DestinationView.m */,
 			);
-			name = "页面";
+			name = "主页面";
 			sourceTree = "<group>";
 		};
 		BCC4167D1B21D1E90031C632 /* collectionCell */ = {
@@ -2503,6 +2513,55 @@
 				BCC416801B21D2180031C632 /* DestinationCollectionViewCell.xib */,
 			);
 			name = collectionCell;
+			sourceTree = "<group>";
+		};
+		BCD4DCFD1B2BBD8100CC389E /* 目的详情Head */ = {
+			isa = PBXGroup;
+			children = (
+				BCD4DD001B2BBE0400CC389E /* DesCountryHeadView.h */,
+				BCD4DD011B2BBE0400CC389E /* DesCountryHeadView.m */,
+				BCD4DD021B2BBE0400CC389E /* DesCountryHeadView.xib */,
+			);
+			name = "目的详情Head";
+			sourceTree = "<group>";
+		};
+		BCD4DCFE1B2BBDC200CC389E /* 一级列表 */ = {
+			isa = PBXGroup;
+			children = (
+				BC0C55F81B22EEAB004BEF5A /* 头视图 */,
+				BC0C55F41B22E5E1004BEF5A /* Section头视图 */,
+				BC0C55EB1B22E14C004BEF5A /* 其他国家Cell */,
+				BCC4167D1B21D1E90031C632 /* collectionCell */,
+			);
+			name = "一级列表";
+			sourceTree = "<group>";
+		};
+		BCD4DCFF1B2BBDCE00CC389E /* 二级列表 */ = {
+			isa = PBXGroup;
+			children = (
+				BCD4DD051B2BCC6D00CC389E /* 热门城市cell */,
+				BCD4DCFD1B2BBD8100CC389E /* 目的详情Head */,
+			);
+			name = "二级列表";
+			sourceTree = "<group>";
+		};
+		BCD4DD051B2BCC6D00CC389E /* 热门城市cell */ = {
+			isa = PBXGroup;
+			children = (
+				BCD4DD061B2BD06100CC389E /* HotCityCell.h */,
+				BCD4DD071B2BD06100CC389E /* HotCityCell.m */,
+				BCD4DD081B2BD06100CC389E /* HotCityCell.xib */,
+			);
+			name = "热门城市cell";
+			sourceTree = "<group>";
+		};
+		BCD4DD0B1B2C072D00CC389E /* 目地点城市进入 */ = {
+			isa = PBXGroup;
+			children = (
+				BCD4DD111B2C08A700CC389E /* DesCityController.h */,
+				BCD4DD121B2C08A700CC389E /* DesCityController.m */,
+			);
+			name = "目地点城市进入";
 			sourceTree = "<group>";
 		};
 		BCDBA8F91B2AAD6B00E72830 /* sectionHead */ = {
@@ -2625,7 +2684,6 @@
 			children = (
 				BCDBA9321B2B148400E72830 /* DesCountryController.h */,
 				BCDBA9331B2B148400E72830 /* DesCountryController.m */,
-				BCDBA9341B2B148400E72830 /* DesCountryController.xib */,
 			);
 			name = "目地点国家进入";
 			sourceTree = "<group>";
@@ -2966,6 +3024,7 @@
 				BCADD3761B257CB2009E655B /* ic_map_activity_recommend_pressed.png in Resources */,
 				BCADD3601B257CB2009E655B /* ic_jn_cancel_big.png in Resources */,
 				BCADD33F1B257CB2009E655B /* ic_follow_un.png in Resources */,
+				BCD4DD041B2BBE0400CC389E /* DesCountryHeadView.xib in Resources */,
 				BCADD37C1B257CB2009E655B /* ic_map_hotel_planto_pressed.png in Resources */,
 				BCADD31E1B257CB2009E655B /* ic_dest_poi_ask.png in Resources */,
 				BCADD3BD1B257CB2009E655B /* ic_onway_demo_avatar_5.png in Resources */,
@@ -3067,7 +3126,6 @@
 				BCADD3091B257CB2009E655B /* ic_dest_detail_hotel.png in Resources */,
 				BCADD3CB1B257CB2009E655B /* ic_onway_poi_normal.png in Resources */,
 				BCADD4A41B257CB2009E655B /* wayway1_00018.png in Resources */,
-				BCDBA9361B2B148400E72830 /* DesCountryController.xib in Resources */,
 				BCADD4AA1B257CB2009E655B /* zbg_p9_cover_def_mid_round_corner.9.png in Resources */,
 				BCADD4761B257CB2009E655B /* ic_weather_s_4.png in Resources */,
 				BCADD3391B257CB2009E655B /* ic_down_arrow_black.png in Resources */,
@@ -3142,6 +3200,7 @@
 				BCADD2E61B257CB2009E655B /* ic_bbs_article_detail_only_author_normal.png in Resources */,
 				BCADD4671B257CB2009E655B /* ic_weather_s_27.png in Resources */,
 				BCADD3C71B257CB2009E655B /* ic_onway_micro_guide_normal.png in Resources */,
+				BCD4DD0A1B2BD06100CC389E /* HotCityCell.xib in Resources */,
 				BCADD4521B257CB2009E655B /* ic_weather_m_9.png in Resources */,
 				BCADD4101B257CB2009E655B /* ic_tip_null_poi.png in Resources */,
 				BCADD33A1B257CB2009E655B /* ic_down_arrow_green.png in Resources */,
@@ -3309,6 +3368,7 @@
 				BCBA37711B296E3F00B568F9 /* GroupDetailModel.m in Sources */,
 				BCDBA92A1B2B049800E72830 /* DesHotCityModel.m in Sources */,
 				BC88E6E81B2013B90087FE0C /* MyImageView.m in Sources */,
+				BCD4DD091B2BD06100CC389E /* HotCityCell.m in Sources */,
 				BCB9AA1A1B1F149D00CC7023 /* UIImageView+HighlightedWebCache.m in Sources */,
 				BCB9A9FB1B1F149D00CC7023 /* AFHTTPRequestOperation.m in Sources */,
 				BCBA37631B2927CD00B568F9 /* RecommendTVCell.m in Sources */,
@@ -3318,6 +3378,7 @@
 				BCB9AA091B1F149D00CC7023 /* UIImageView+AFNetworking.m in Sources */,
 				BC88E7021B20857B0087FE0C /* LocalColoringView.m in Sources */,
 				BCB9AA0F1B1F149D00CC7023 /* SDImageCache.m in Sources */,
+				BCD4DD031B2BBE0400CC389E /* DesCountryHeadView.m in Sources */,
 				BC0C55F71B22E605004BEF5A /* HeadViewForSection.m in Sources */,
 				BCADD4BE1B259325009E655B /* MyCollectionHeadView.m in Sources */,
 				BCB9AA201B1F149D00CC7023 /* SVProgressHUD.m in Sources */,
@@ -3381,6 +3442,7 @@
 				BCB9AA1B1B1F149D00CC7023 /* UIImageView+WebCache.m in Sources */,
 				BC0C55F21B22E18F004BEF5A /* OtherCountryCell.m in Sources */,
 				BC88E6FC1B2075A80087FE0C /* PriceOffView.m in Sources */,
+				BCD4DD131B2C08A700CC389E /* DesCityController.m in Sources */,
 				BCB9A5291B1F137600CC7023 /* AppDelegate.m in Sources */,
 				BCB9A5261B1F137600CC7023 /* main.m in Sources */,
 				BCB9AA1E1B1F149D00CC7023 /* SVIndefiniteAnimatedView.m in Sources */,

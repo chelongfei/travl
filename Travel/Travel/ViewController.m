@@ -158,9 +158,14 @@
     self.destinationView=[[DestinationView alloc]initWithFrame:(CGRectMake(self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height-80))];
      __weak typeof(self)weakself=self;
     [self.destinationView setClickCountryBlock:^(DestinationModel * model){
-        DesCountryController * desVC=[[DesCountryController alloc]init];
-        desVC.model=model;
-        [weakself.navigationController pushViewController:desVC animated:YES];
+        //如果flag==1表示是国家,否则直接跳转到城市界面
+        if (model.flag==1) {
+            DesCountryController * desVC=[[DesCountryController alloc]init];
+            desVC.model=model;
+            [weakself.navigationController pushViewController:desVC animated:YES];
+        }else{
+            NSLog(@"这是一个城市");
+        }
     }];
     [_HomeCollectionView addSubview:self.destinationView];
 }

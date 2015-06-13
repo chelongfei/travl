@@ -20,7 +20,7 @@
     if (self=[super init]) {
         _manager=[AFHTTPRequestOperationManager manager];
         //指定返回二进制数据
-//        [_manager setResponseSerializer:[AFHTTPResponseSerializer serializer]];
+        //        [_manager setResponseSerializer:[AFHTTPResponseSerializer serializer]];
     }
     return self;
 }
@@ -75,11 +75,11 @@
 
 -(void)requestGroupDetailDataWithDict:(NSDictionary *)dict success:(SuccessBlockType)success faild:(FailedBlockType)failed
 {
-   [_manager POST:GROUP_DETAIL_URL_POST parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [_manager POST:GROUP_DETAIL_URL_POST parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         success(responseObject);
-   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-       failed(error);
-   }];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failed(error);
+    }];
 }
 
 //获取推荐页面玩当地特色数据
@@ -95,9 +95,21 @@
 }
 
 //获取目的地界面具体城市数据
--(void)requestDestinationDetailDataWithCityID:(NSString *)cityId success:(SuccessBlockType)success faild:(FailedBlockType)failed
+-(void)requestDestinationDetailCountryDataWithCountryID:(NSString *)countryId success:(SuccessBlockType)success faild:(FailedBlockType)failed
 {
-    [_manager GET:[NSString stringWithFormat:DES_DETAIL_URL,cityId] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSString * url=[NSString stringWithFormat:DES_DETAIL_COUNTRY_URL,countryId];
+    [_manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        success(responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failed(error);
+    }];
+}
+
+//获取目的地界面具体城市数据
+-(void)requestDestinationDetailCityDataWithCityID:(NSString *)cityId success:(SuccessBlockType)success faild:(FailedBlockType)failed
+{
+    NSString * url=[NSString stringWithFormat:DES_DETAIL_CITY_URL,cityId];
+    [_manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         success(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failed(error);
