@@ -28,5 +28,12 @@ typedef void(^FailedBlockType)(NSError * error);
 //获取社区二级页面数据POST方法
 -(void)requestGroupDetailDataWithDict:(NSDictionary *)dict success:(SuccessBlockType)success faild:(FailedBlockType)failed;
 
+//获取推荐页面玩当地特色数据
+-(void)requestRecommendLocationDataWithPage:(NSString *)pageID success:(SuccessBlockType)success faild:(FailedBlockType)failed;
+
+//获取目的地界面具体城市数据
+-(void)requestDestinationDetailDataWithCityID:(NSString *)cityId success:(SuccessBlockType)success faild:(FailedBlockType)failed;
+
+
 
 @end

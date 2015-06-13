@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "RecommendModel.h"
-@interface PriceOffView : UIView
+
+@interface PriceOffView : UICollectionViewCell
+
 @property (weak, nonatomic) IBOutlet UIImageView *priceOffImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceOffLabel;
+
 -(void)updateUIWithModel:(RecommendModel *)model;
+
 @end

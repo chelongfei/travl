@@ -255,7 +255,6 @@
     DetailViewController * controller=[[DetailViewController alloc]init];
     controller.url=model.view_url;
     [self.navigationController pushViewController:controller animated:YES];
-    
 }
 
 #pragma mark---上拉刷新

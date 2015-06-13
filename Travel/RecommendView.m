@@ -12,15 +12,26 @@
 #import "RecommendCellModel.h"
 #import "AnalyticalNetWorkData.h"
 #import "RecommendTVCell.h"
+#import "PriceOffView.h"
+#import "LocalColoringView.h"
+#import "SectionFootView.h"
+#import "SectionHeadView.h"
+#import "URLDefine.h"
 
-#define TBL_VIWE_CELLID @"tableViewCellID"
+#define COLLECT_VIEW_HEAD @"headViewForAllViewId"
+#define COLLECT_VIEW_SECTION_HEAD @"headForSectionId"
+#define COLLECT_VIEW_SECTION_FOOT @"footForSectionId"
+#define COLLECT_VIWE_TBL_CELLID @"tableViewCellID"
+#define COLLECT_PRICE_OFF_ID @"priceOffCellId"
+#define COLLECT_LOCAL_OFF_ID @"LocalColoringCellId"
 
-@interface RecommendView ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
+@interface RecommendView ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate>
 
-@property(nonatomic)RecommendHeadView * recommendHeadView;
 @property(nonatomic)NSMutableArray * dataArray;
 @property(nonatomic)NSInteger currentPage;
 @property(nonatomic)NSMutableArray * tableDataArray;
+@property(nonatomic)NSMutableArray * discountDataArray;
+@property(nonatomic)NSMutableArray * locationDataArray;
 @property(nonatomic)BOOL isLoading;
 
 @end
@@ -35,78 +46,234 @@
         
         _isLoading=NO;
         
-        self.dataArray=[NSMutableArray array];
+        [self initArray];
         
-        self.tableDataArray=[NSMutableArray array];
-        
-        [self addTabelViewWithFrame:frame];
+        [self addCollectViewWithFrame:frame];
         
     }
     return self;
 }
 
--(void)addTabelViewWithFrame:(CGRect)frame
+-(void)initArray
 {
-    self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height-80)];
-    self.tableView.dataSource=self;
-    self.tableView.delegate=self;
-    UINib * nib=[UINib nibWithNibName:@"RecommendTVCell" bundle:nil];
-    [self.tableView registerNib:nib forCellReuseIdentifier:TBL_VIWE_CELLID];
-    [self addHeadView];
+    self.dataArray=[NSMutableArray array];
+    self.tableDataArray=[NSMutableArray array];
+    self.discountDataArray=[NSMutableArray array];
+    self.locationDataArray=[NSMutableArray array];
+}
+
+-(void)addCollectViewWithFrame:(CGRect)frame
+{
+    UICollectionViewFlowLayout * flowLayout=[[UICollectionViewFlowLayout alloc]init];
+    flowLayout.minimumInteritemSpacing=0;
+    flowLayout.minimumLineSpacing=0;
+    flowLayout.sectionInset=UIEdgeInsetsMake(0, 10, 0, 10);
+    self.collectionView=[[UICollectionView alloc]initWithFrame:(CGRectMake(0, 0, frame.size.width, frame.size.height)) collectionViewLayout:flowLayout];
+    self.collectionView.delegate=self;
+    self.collectionView.dataSource=self;
+    self.collectionView.backgroundColor=[UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1.0];
+    
+    [self registNibForCollectionView];
+    
+    [self addSubview:self.collectionView];
+}
+
+-(void)registNibForCollectionView
+{
+    UINib * priceNib=[UINib nibWithNibName:@"PriceOffView" bundle:nil];
+    [self.collectionView registerNib:priceNib forCellWithReuseIdentifier:COLLECT_PRICE_OFF_ID];
+    
+    UINib * locationNib=[UINib nibWithNibName:@"LocalColoringView" bundle:nil];
+    [self.collectionView registerNib:locationNib forCellWithReuseIdentifier:COLLECT_LOCAL_OFF_ID];
+    
+    UINib * tableNib=[UINib nibWithNibName:@"RecommendTVCell" bundle:nil];
+    [self.collectionView registerNib:tableNib forCellWithReuseIdentifier:COLLECT_VIWE_TBL_CELLID];
+    
+    UINib * headNib=[UINib nibWithNibName:@"SectionHeadView" bundle:nil];
+    [self.collectionView registerNib:headNib forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:COLLECT_VIEW_SECTION_HEAD];
+    
+    UINib * footNib=[UINib nibWithNibName:@"SectionFootView" bundle:nil];
+    [self.collectionView registerNib:footNib forSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+                 withReuseIdentifier:COLLECT_VIEW_SECTION_FOOT];
+    
+    UINib * headForAllNib=[UINib nibWithNibName:@"RecommendHeadView" bundle:nil];
+    [self.collectionView registerNib:headForAllNib forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+                 withReuseIdentifier:COLLECT_VIEW_HEAD];
 }
 
 //接收数据更新UI
--(void)updateHeadView:(NSMutableArray *)dataArray
+-(void)updateRecommendView:(NSMutableArray *)dataArray
 {
-    [_recommendHeadView updateRecommendHeadView:dataArray];
-}
-
-//添加tableView的头视图
--(void)addHeadView
-{
-    UINib * nib=[UINib nibWithNibName:@"RecommendHeadView" bundle:nil];
-    NSArray * array=[nib instantiateWithOwner:nil options:nil];
-    _recommendHeadView=[array lastObject];
-    _tableView.tableHeaderView=_recommendHeadView;
-    [self addSubview:_tableView];
+    self.dataArray=dataArray;
+    self.discountDataArray=[dataArray objectAtIndex:2];
+    self.locationDataArray=[dataArray objectAtIndex:3];
+//    [self.collectionView reloadData];
 }
 
 
 
-#pragma mark---<UITableViewDataSource,UITableViewDelegate>
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+#pragma mark---<UICollectionViewDelegate,UICollectionViewDataSource>
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return self.tableDataArray.count;
+    return 4;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 80;
+    switch (section) {
+        case 1:
+            return self.discountDataArray.count;
+            break;
+        case 2:
+            return self.locationDataArray.count;
+            break;
+        case 3:
+            return self.tableDataArray.count;
+            break;
+        default:
+            break;
+    }
+    return 0;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    RecommendTVCell * cell=[self.tableView dequeueReusableCellWithIdentifier:TBL_VIWE_CELLID forIndexPath:indexPath];
-    RecommendCellModel * model=[self.tableDataArray objectAtIndex:indexPath.row];
-    [cell updateCellWithModel:model];
-    return cell;
+    switch (indexPath.section) {
+        case 1:{
+            PriceOffView * priceCell=[self.collectionView dequeueReusableCellWithReuseIdentifier:COLLECT_PRICE_OFF_ID forIndexPath:indexPath];
+            RecommendModel * model=[self.discountDataArray objectAtIndex:indexPath.row];
+            [priceCell updateUIWithModel:model];
+            priceCell.layer.borderColor=[UIColor lightGrayColor].CGColor;
+            priceCell.layer.borderWidth=0.5;
+            return priceCell;
+            break;}
+        case 2:{
+            LocalColoringView * locationCell=[self.collectionView dequeueReusableCellWithReuseIdentifier:COLLECT_LOCAL_OFF_ID forIndexPath:indexPath];
+            RecommendModel * model=[self.locationDataArray objectAtIndex:indexPath.row];
+            [locationCell updateUIWithModel:model];
+            locationCell.layer.borderColor=[UIColor lightGrayColor].CGColor;
+            locationCell.layer.borderWidth=0.5;
+            return locationCell;
+            break;}
+        case 3:{
+            RecommendTVCell * recommendCell=[self.collectionView dequeueReusableCellWithReuseIdentifier:COLLECT_VIWE_TBL_CELLID forIndexPath:indexPath];
+            RecommendCellModel * model=[self.tableDataArray objectAtIndex:indexPath.row];
+            [recommendCell updateCellWithModel:model];
+            return recommendCell;
+            break;}
+        default:
+            return nil;
+            break;
+    }
 }
 
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark-----<UICollectionViewDelegateFlowLayout>
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    RecommendCellModel * model=[self.tableDataArray objectAtIndex:indexPath.row];
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"recommendCellClick" object:model];
+    CGSize size;
+    CGFloat width=(self.frame.size.width-20)/2.0;
+    switch (indexPath.section) {
+        case 1:
+            size=CGSizeMake(width, 230);
+            return size;
+            break;
+            
+        case 2:
+            size=CGSizeMake(width, 210);
+            return size;
+            break;
+        case 3:
+            size=CGSizeMake(self.frame.size.width-20, 80);
+            return size;
+            break;
+        default:
+            return CGSizeZero;
+            break;
+    }
+    
 }
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+    CGFloat width=self.frame.size.width-20;
+    CGSize  size=CGSizeMake(width,70);
+    if (section==0) {
+        size=CGSizeMake(self.frame.size.width,636);
+    }
+    return size;
+}
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
+{
+    if (section==1) {
+        CGFloat width=self.frame.size.width-20;
+        CGSize size=CGSizeMake(width,50);
+        return size;
+    }
+    return CGSizeZero;
+}
+
+-(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section==0) {
+        if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+            RecommendHeadView * headView=[self.collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier: COLLECT_VIEW_HEAD forIndexPath:indexPath];
+            [headView updateRecommendHeadView:self.dataArray];
+            return headView;
+        }
+    }else{
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        //返回Header视图
+        SectionHeadView * headView=[self.collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier: COLLECT_VIEW_SECTION_HEAD forIndexPath:indexPath];
+        headView.headTitle.text=(indexPath.section==1?@"抢特价折扣":@"玩当地特色");
+        if (indexPath.section==3) {
+            headView.headTitle.text=@"看热门游记";
+        }
+        return headView;
+    }else if([kind isEqualToString:UICollectionElementKindSectionFooter]){
+        //返回Footer视图
+        if (indexPath.section==1) {
+            SectionFootView * footView=[self.collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:COLLECT_VIEW_SECTION_FOOT forIndexPath:indexPath];
+            return footView;
+        }
+    }
+    }
+    return nil;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.section) {
+        case 1:{
+            RecommendModel * model=[self.discountDataArray objectAtIndex:indexPath.row];
+            NSString * url=[NSString stringWithFormat:RECOMMEND_DISCOUNT_URL,model.id];
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"DetailVCWithUrl" object:url];
+            break;}
+        case 2:{
+            RecommendModel * model=[self.locationDataArray objectAtIndex:indexPath.row];
+            if (_locationClickBlock) {
+                _locationClickBlock(model);
+            }
+            break;}
+        case 3:{
+            RecommendCellModel * model=[self.tableDataArray objectAtIndex:indexPath.row];
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"DetailVCWithUrl" object:model.view_url];
+            break;}
+            
+        default:
+            break;
+    }
+
+}
+
 
 #pragma mark---上拉刷新
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    float height = scrollView.contentSize.height > _tableView.frame.size.height ?_tableView.frame.size.height : scrollView.contentSize.height;
+    float height = scrollView.contentSize.height > _collectionView.frame.size.height ?_collectionView.frame.size.height : scrollView.contentSize.height;
     if (_isLoading==NO) {
-        
         if ((height - scrollView.contentSize.height + scrollView.contentOffset.y) / height > 0.1) {
             NSLog(@"我要刷新了啊");
             _isLoading=YES;
@@ -125,7 +292,7 @@
         for (RecommendCellModel * model in temArray) {
             [self.tableDataArray addObject:model];
         }
-        [self.tableView reloadData];
+        [self.collectionView reloadData];
     } faild:^(NSError *error) {
         
     }];

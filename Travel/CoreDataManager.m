@@ -34,7 +34,6 @@
     
     NSString *dbPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/xxx.sqlite"];
     NSError *error   = nil;
-    NSLog(@"%@",dbPath);
     [coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[NSURL fileURLWithPath:dbPath] options:nil error:&error];
     _context=[[NSManagedObjectContext alloc]init];
     _context.persistentStoreCoordinator=coordinator;

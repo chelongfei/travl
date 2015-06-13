@@ -10,8 +10,9 @@
 #import "RecommendModel.h"
 
 @interface MyImageView : UIImageView
-@property(nonatomic)RecommendModel * model;
 
--(id)initWithFrame:(CGRect)frame model:(RecommendModel *)model;
+@property(nonatomic,copy)NSString * url;
+
+-(id)initWithFrame:(CGRect)frame url:(NSString *)urlLink;
 
 @end

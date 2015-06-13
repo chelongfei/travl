@@ -649,6 +649,23 @@
 		BCC4167B1B21C7F50031C632 /* AnalyticalNetWorkData.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC4167A1B21C7F50031C632 /* AnalyticalNetWorkData.m */; };
 		BCC416811B21D2180031C632 /* DestinationCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC4167F1B21D2180031C632 /* DestinationCollectionViewCell.m */; };
 		BCC416821B21D2180031C632 /* DestinationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC416801B21D2180031C632 /* DestinationCollectionViewCell.xib */; };
+		BCDBA8FE1B2AADA100E72830 /* SectionFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDBA8FC1B2AADA100E72830 /* SectionFootView.m */; };
+		BCDBA8FF1B2AADA100E72830 /* SectionFootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCDBA8FD1B2AADA100E72830 /* SectionFootView.xib */; };
+		BCDBA9031B2AADB300E72830 /* SectionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDBA9011B2AADB300E72830 /* SectionHeadView.m */; };
+		BCDBA9041B2AADB300E72830 /* SectionHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCDBA9021B2AADB300E72830 /* SectionHeadView.xib */; };
+		BCDBA90E1B2AC06E00E72830 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDBA90D1B2AC06E00E72830 /* LocationViewController.m */; };
+		BCDBA9131B2AC0D200E72830 /* LocationHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDBA9111B2AC0D200E72830 /* LocationHeadView.m */; };
+		BCDBA9141B2AC0D200E72830 /* LocationHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCDBA9121B2AC0D200E72830 /* LocationHeadView.xib */; };
+		BCDBA91B1B2AC10F00E72830 /* LocationCollectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDBA9191B2AC10F00E72830 /* LocationCollectCell.m */; };
+		BCDBA91C1B2AC10F00E72830 /* LocationCollectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCDBA91A1B2AC10F00E72830 /* LocationCollectCell.xib */; };
+		BCDBA9201B2AC16500E72830 /* LocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDBA91F1B2AC16500E72830 /* LocationModel.m */; };
+		BCDBA9231B2AF46200E72830 /* custom_nav_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = BCDBA9221B2AF46200E72830 /* custom_nav_bar.png */; };
+		BCDBA9271B2B046D00E72830 /* DesCountryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDBA9261B2B046D00E72830 /* DesCountryModel.m */; };
+		BCDBA92A1B2B049800E72830 /* DesHotCityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDBA9291B2B049800E72830 /* DesHotCityModel.m */; };
+		BCDBA92D1B2B04B200E72830 /* DesDiscountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDBA92C1B2B04B200E72830 /* DesDiscountModel.m */; };
+		BCDBA9301B2B04C800E72830 /* DesTripModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDBA92F1B2B04C800E72830 /* DesTripModel.m */; };
+		BCDBA9351B2B148400E72830 /* DesCountryController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDBA9331B2B148400E72830 /* DesCountryController.m */; };
+		BCDBA9361B2B148400E72830 /* DesCountryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCDBA9341B2B148400E72830 /* DesCountryController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1380,6 +1397,34 @@
 		BCC4167E1B21D2180031C632 /* DestinationCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationCollectionViewCell.h; sourceTree = "<group>"; };
 		BCC4167F1B21D2180031C632 /* DestinationCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationCollectionViewCell.m; sourceTree = "<group>"; };
 		BCC416801B21D2180031C632 /* DestinationCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DestinationCollectionViewCell.xib; sourceTree = "<group>"; };
+		BCDBA8FB1B2AADA100E72830 /* SectionFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionFootView.h; sourceTree = "<group>"; };
+		BCDBA8FC1B2AADA100E72830 /* SectionFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionFootView.m; sourceTree = "<group>"; };
+		BCDBA8FD1B2AADA100E72830 /* SectionFootView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionFootView.xib; sourceTree = "<group>"; };
+		BCDBA9001B2AADB300E72830 /* SectionHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionHeadView.h; sourceTree = "<group>"; };
+		BCDBA9011B2AADB300E72830 /* SectionHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionHeadView.m; sourceTree = "<group>"; };
+		BCDBA9021B2AADB300E72830 /* SectionHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeadView.xib; sourceTree = "<group>"; };
+		BCDBA90C1B2AC06E00E72830 /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
+		BCDBA90D1B2AC06E00E72830 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
+		BCDBA9101B2AC0D200E72830 /* LocationHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationHeadView.h; sourceTree = "<group>"; };
+		BCDBA9111B2AC0D200E72830 /* LocationHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationHeadView.m; sourceTree = "<group>"; };
+		BCDBA9121B2AC0D200E72830 /* LocationHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationHeadView.xib; sourceTree = "<group>"; };
+		BCDBA9181B2AC10F00E72830 /* LocationCollectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationCollectCell.h; sourceTree = "<group>"; };
+		BCDBA9191B2AC10F00E72830 /* LocationCollectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationCollectCell.m; sourceTree = "<group>"; };
+		BCDBA91A1B2AC10F00E72830 /* LocationCollectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationCollectCell.xib; sourceTree = "<group>"; };
+		BCDBA91E1B2AC16500E72830 /* LocationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationModel.h; sourceTree = "<group>"; };
+		BCDBA91F1B2AC16500E72830 /* LocationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationModel.m; sourceTree = "<group>"; };
+		BCDBA9221B2AF46200E72830 /* custom_nav_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = custom_nav_bar.png; sourceTree = "<group>"; };
+		BCDBA9251B2B046D00E72830 /* DesCountryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesCountryModel.h; sourceTree = "<group>"; };
+		BCDBA9261B2B046D00E72830 /* DesCountryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesCountryModel.m; sourceTree = "<group>"; };
+		BCDBA9281B2B049800E72830 /* DesHotCityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesHotCityModel.h; sourceTree = "<group>"; };
+		BCDBA9291B2B049800E72830 /* DesHotCityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesHotCityModel.m; sourceTree = "<group>"; };
+		BCDBA92B1B2B04B200E72830 /* DesDiscountModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesDiscountModel.h; sourceTree = "<group>"; };
+		BCDBA92C1B2B04B200E72830 /* DesDiscountModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesDiscountModel.m; sourceTree = "<group>"; };
+		BCDBA92E1B2B04C800E72830 /* DesTripModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesTripModel.h; sourceTree = "<group>"; };
+		BCDBA92F1B2B04C800E72830 /* DesTripModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesTripModel.m; sourceTree = "<group>"; };
+		BCDBA9321B2B148400E72830 /* DesCountryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesCountryController.h; sourceTree = "<group>"; };
+		BCDBA9331B2B148400E72830 /* DesCountryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesCountryController.m; sourceTree = "<group>"; };
+		BCDBA9341B2B148400E72830 /* DesCountryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesCountryController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1468,38 +1513,39 @@
 			name = MyImageView;
 			sourceTree = "<group>";
 		};
-		BC88E6F51B205B540087FE0C /* 点击图片进入页面 */ = {
+		BC88E6F51B205B540087FE0C /* URL进入页面 */ = {
 			isa = PBXGroup;
 			children = (
 				BC88E6F61B205B6C0087FE0C /* DetailViewController.h */,
 				BC88E6F71B205B6C0087FE0C /* DetailViewController.m */,
 			);
-			name = "点击图片进入页面";
+			name = "URL进入页面";
 			sourceTree = "<group>";
 		};
-		BC88E6F91B2075630087FE0C /* 抢特价折扣 */ = {
+		BC88E6F91B2075630087FE0C /* 抢特价折扣cell */ = {
 			isa = PBXGroup;
 			children = (
 				BC88E6FA1B2075A80087FE0C /* PriceOffView.h */,
 				BC88E6FB1B2075A80087FE0C /* PriceOffView.m */,
 				BC88E6FD1B2075B50087FE0C /* PriceOffView.xib */,
 			);
-			name = "抢\U0010特价折扣";
+			name = "抢\U0010特价折扣cell";
 			sourceTree = "<group>";
 		};
-		BC88E6FF1B20850B0087FE0C /* 玩当地特色 */ = {
+		BC88E6FF1B20850B0087FE0C /* 玩当地特色cell */ = {
 			isa = PBXGroup;
 			children = (
 				BC88E7001B20857B0087FE0C /* LocalColoringView.h */,
 				BC88E7011B20857B0087FE0C /* LocalColoringView.m */,
 				BC88E7031B20858D0087FE0C /* LocalColoringView.xib */,
 			);
-			name = "玩当地特色";
+			name = "玩当地特色cell";
 			sourceTree = "<group>";
 		};
 		BCADD0501B257CAE009E655B /* Resoures */ = {
 			isa = PBXGroup;
 			children = (
+				BCDBA9221B2AF46200E72830 /* custom_nav_bar.png */,
 				BCADD0511B257CAE009E655B /* bg_about_qyer_img1.jpg */,
 				BCADD0521B257CAE009E655B /* bg_about_qyer_img2.jpg */,
 				BCADD0531B257CAE009E655B /* bg_about_qyer_img3.jpg */,
@@ -2063,7 +2109,7 @@
 			path = "drawable-xxhdpi-v4";
 			sourceTree = "<group>";
 		};
-		BCADD4AD1B258120009E655B /* 社区界面所有View */ = {
+		BCADD4AD1B258120009E655B /* 社区页面View */ = {
 			isa = PBXGroup;
 			children = (
 				BCBA37691B2969D300B568F9 /* 详情页cell */,
@@ -2071,7 +2117,7 @@
 				BCADD4B51B258A97009E655B /* 首页cell */,
 				BCADD4AE1B258132009E655B /* 主页面 */,
 			);
-			name = "社区界面所有View";
+			name = "社区页面View";
 			sourceTree = "<group>";
 		};
 		BCADD4AE1B258132009E655B /* 主页面 */ = {
@@ -2309,8 +2355,10 @@
 		BCB9AA211B1F14A500CC7023 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BCDBA9311B2B146000E72830 /* 目地点国家进入 */,
+				BCDBA90B1B2AC04300E72830 /* 当地特色 */,
 				BCBA37651B295AEB00B568F9 /* 社区详情 */,
-				BC88E6F51B205B540087FE0C /* 点击图片进入页面 */,
+				BC88E6F51B205B540087FE0C /* URL进入页面 */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -2318,9 +2366,14 @@
 		BCB9AA221B1F14AD00CC7023 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BCADD4AD1B258120009E655B /* 社区界面所有View */,
-				BCC4166E1B21C4440031C632 /* 推荐页面所有View */,
-				BCC4166F1B21C4660031C632 /* 目的地页面所有View */,
+				BCDBA90F1B2AC0AF00E72830 /* 当地页面View */,
+				BCDBA8FA1B2AAD7500E72830 /* sectionFoot */,
+				BCDBA8F91B2AAD6B00E72830 /* sectionHead */,
+				BC88E6F91B2075630087FE0C /* 抢特价折扣cell */,
+				BC88E6FF1B20850B0087FE0C /* 玩当地特色cell */,
+				BCADD4AD1B258120009E655B /* 社区页面View */,
+				BCC4166E1B21C4440031C632 /* 推荐页面View */,
+				BCC4166F1B21C4660031C632 /* 目地页面View */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2328,18 +2381,11 @@
 		BCB9AA231B1F14B500CC7023 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BCB9AA331B1F245900CC7023 /* BaseModel.h */,
-				BCB9AA341B1F245900CC7023 /* BaseModel.m */,
-				BCB9AA361B1F249300CC7023 /* RecommendModel.h */,
-				BCB9AA371B1F249300CC7023 /* RecommendModel.m */,
-				BCBA375C1B29261200B568F9 /* RecommendCellModel.h */,
-				BCBA375D1B29261200B568F9 /* RecommendCellModel.m */,
-				BCC416751B21C6980031C632 /* DestinationModel.h */,
-				BCC416761B21C6980031C632 /* DestinationModel.m */,
-				BCBA376F1B296E3F00B568F9 /* GroupDetailModel.h */,
-				BCBA37701B296E3F00B568F9 /* GroupDetailModel.m */,
-				BCADD4B21B258670009E655B /* GroupModel.h */,
-				BCADD4B31B258670009E655B /* GroupModel.m */,
+				BCDBA9211B2AC16F00E72830 /* 基类model */,
+				BCDBA91D1B2AC14A00E72830 /* 当地页面model */,
+				BCDBA9081B2ABE0000E72830 /* 推荐页面model */,
+				BCDBA9091B2ABE0D00E72830 /* 目的地页面model */,
+				BCDBA90A1B2ABE1700E72830 /* 社区页面model */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -2360,14 +2406,14 @@
 			name = NetWork;
 			sourceTree = "<group>";
 		};
-		BCB9AA3F1B1F2B1F00CC7023 /* 头视图 */ = {
+		BCB9AA3F1B1F2B1F00CC7023 /* 总头视图 */ = {
 			isa = PBXGroup;
 			children = (
 				BCB9AA401B1F2B3A00CC7023 /* RecommendHeadView.h */,
 				BCB9AA411B1F2B3A00CC7023 /* RecommendHeadView.m */,
 				BCB9AA431B1F2B4700CC7023 /* RecommendHeadView.xib */,
 			);
-			name = "头视图";
+			name = "总头视图";
 			sourceTree = "<group>";
 		};
 		BCB9AA451B1F2F8700CC7023 /* 主页面 */ = {
@@ -2408,20 +2454,18 @@
 			name = "详情页cell";
 			sourceTree = "<group>";
 		};
-		BCC4166E1B21C4440031C632 /* 推荐页面所有View */ = {
+		BCC4166E1B21C4440031C632 /* 推荐页面View */ = {
 			isa = PBXGroup;
 			children = (
 				BCBA375F1B29269800B568F9 /* cell */,
 				BC88E6E51B2013970087FE0C /* MyImageView */,
 				BCB9AA451B1F2F8700CC7023 /* 主页面 */,
-				BCB9AA3F1B1F2B1F00CC7023 /* 头视图 */,
-				BC88E6F91B2075630087FE0C /* 抢特价折扣 */,
-				BC88E6FF1B20850B0087FE0C /* 玩当地特色 */,
+				BCB9AA3F1B1F2B1F00CC7023 /* 总头视图 */,
 			);
-			name = "推荐页面所有View";
+			name = "推荐页面View";
 			sourceTree = "<group>";
 		};
-		BCC4166F1B21C4660031C632 /* 目的地页面所有View */ = {
+		BCC4166F1B21C4660031C632 /* 目地页面View */ = {
 			isa = PBXGroup;
 			children = (
 				BC0C55F81B22EEAB004BEF5A /* 头视图 */,
@@ -2430,7 +2474,7 @@
 				BCC4167D1B21D1E90031C632 /* collectionCell */,
 				BCC4167C1B21D1D70031C632 /* 页面 */,
 			);
-			name = "目的地页面所有View";
+			name = "目地页面View";
 			sourceTree = "<group>";
 		};
 		BCC416781B21C7750031C632 /* AnalyticalNetWorkData */ = {
@@ -2459,6 +2503,131 @@
 				BCC416801B21D2180031C632 /* DestinationCollectionViewCell.xib */,
 			);
 			name = collectionCell;
+			sourceTree = "<group>";
+		};
+		BCDBA8F91B2AAD6B00E72830 /* sectionHead */ = {
+			isa = PBXGroup;
+			children = (
+				BCDBA9001B2AADB300E72830 /* SectionHeadView.h */,
+				BCDBA9011B2AADB300E72830 /* SectionHeadView.m */,
+				BCDBA9021B2AADB300E72830 /* SectionHeadView.xib */,
+			);
+			name = sectionHead;
+			sourceTree = "<group>";
+		};
+		BCDBA8FA1B2AAD7500E72830 /* sectionFoot */ = {
+			isa = PBXGroup;
+			children = (
+				BCDBA8FB1B2AADA100E72830 /* SectionFootView.h */,
+				BCDBA8FC1B2AADA100E72830 /* SectionFootView.m */,
+				BCDBA8FD1B2AADA100E72830 /* SectionFootView.xib */,
+			);
+			name = sectionFoot;
+			sourceTree = "<group>";
+		};
+		BCDBA9081B2ABE0000E72830 /* 推荐页面model */ = {
+			isa = PBXGroup;
+			children = (
+				BCB9AA361B1F249300CC7023 /* RecommendModel.h */,
+				BCB9AA371B1F249300CC7023 /* RecommendModel.m */,
+				BCBA375C1B29261200B568F9 /* RecommendCellModel.h */,
+				BCBA375D1B29261200B568F9 /* RecommendCellModel.m */,
+			);
+			name = "推荐页面model";
+			sourceTree = "<group>";
+		};
+		BCDBA9091B2ABE0D00E72830 /* 目的地页面model */ = {
+			isa = PBXGroup;
+			children = (
+				BCC416751B21C6980031C632 /* DestinationModel.h */,
+				BCC416761B21C6980031C632 /* DestinationModel.m */,
+				BCDBA9251B2B046D00E72830 /* DesCountryModel.h */,
+				BCDBA9261B2B046D00E72830 /* DesCountryModel.m */,
+				BCDBA9281B2B049800E72830 /* DesHotCityModel.h */,
+				BCDBA9291B2B049800E72830 /* DesHotCityModel.m */,
+				BCDBA92B1B2B04B200E72830 /* DesDiscountModel.h */,
+				BCDBA92C1B2B04B200E72830 /* DesDiscountModel.m */,
+				BCDBA92E1B2B04C800E72830 /* DesTripModel.h */,
+				BCDBA92F1B2B04C800E72830 /* DesTripModel.m */,
+			);
+			name = "目的地页面model";
+			sourceTree = "<group>";
+		};
+		BCDBA90A1B2ABE1700E72830 /* 社区页面model */ = {
+			isa = PBXGroup;
+			children = (
+				BCBA376F1B296E3F00B568F9 /* GroupDetailModel.h */,
+				BCBA37701B296E3F00B568F9 /* GroupDetailModel.m */,
+				BCADD4B21B258670009E655B /* GroupModel.h */,
+				BCADD4B31B258670009E655B /* GroupModel.m */,
+			);
+			name = "社区页面model";
+			sourceTree = "<group>";
+		};
+		BCDBA90B1B2AC04300E72830 /* 当地特色 */ = {
+			isa = PBXGroup;
+			children = (
+				BCDBA90C1B2AC06E00E72830 /* LocationViewController.h */,
+				BCDBA90D1B2AC06E00E72830 /* LocationViewController.m */,
+			);
+			name = "当地特色";
+			sourceTree = "<group>";
+		};
+		BCDBA90F1B2AC0AF00E72830 /* 当地页面View */ = {
+			isa = PBXGroup;
+			children = (
+				BCDBA9171B2AC0F500E72830 /* 当地Cell */,
+				BCDBA9161B2AC0EC00E72830 /* 当地头视图 */,
+			);
+			name = "当地页面View";
+			sourceTree = "<group>";
+		};
+		BCDBA9161B2AC0EC00E72830 /* 当地头视图 */ = {
+			isa = PBXGroup;
+			children = (
+				BCDBA9101B2AC0D200E72830 /* LocationHeadView.h */,
+				BCDBA9111B2AC0D200E72830 /* LocationHeadView.m */,
+				BCDBA9121B2AC0D200E72830 /* LocationHeadView.xib */,
+			);
+			name = "当地头视图";
+			sourceTree = "<group>";
+		};
+		BCDBA9171B2AC0F500E72830 /* 当地Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BCDBA9181B2AC10F00E72830 /* LocationCollectCell.h */,
+				BCDBA9191B2AC10F00E72830 /* LocationCollectCell.m */,
+				BCDBA91A1B2AC10F00E72830 /* LocationCollectCell.xib */,
+			);
+			name = "当地Cell";
+			sourceTree = "<group>";
+		};
+		BCDBA91D1B2AC14A00E72830 /* 当地页面model */ = {
+			isa = PBXGroup;
+			children = (
+				BCDBA91E1B2AC16500E72830 /* LocationModel.h */,
+				BCDBA91F1B2AC16500E72830 /* LocationModel.m */,
+			);
+			name = "当地页面model";
+			sourceTree = "<group>";
+		};
+		BCDBA9211B2AC16F00E72830 /* 基类model */ = {
+			isa = PBXGroup;
+			children = (
+				BCB9AA331B1F245900CC7023 /* BaseModel.h */,
+				BCB9AA341B1F245900CC7023 /* BaseModel.m */,
+			);
+			name = "基类model";
+			sourceTree = "<group>";
+		};
+		BCDBA9311B2B146000E72830 /* 目地点国家进入 */ = {
+			isa = PBXGroup;
+			children = (
+				BCDBA9321B2B148400E72830 /* DesCountryController.h */,
+				BCDBA9331B2B148400E72830 /* DesCountryController.m */,
+				BCDBA9341B2B148400E72830 /* DesCountryController.xib */,
+			);
+			name = "目地点国家进入";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2680,6 +2849,7 @@
 				BCADD47B1B257CB2009E655B /* ic_weather_s_44.png in Resources */,
 				BCADD3E01B257CB2009E655B /* ic_poilist_sort_shopandact.png in Resources */,
 				BCADD2DC1B257CB2009E655B /* dest_tab_worldmap.png in Resources */,
+				BCDBA9141B2AC0D200E72830 /* LocationHeadView.xib in Resources */,
 				BCADD4321B257CB2009E655B /* ic_weather_m_23.png in Resources */,
 				BCADD42F1B257CB2009E655B /* ic_weather_m_20.png in Resources */,
 				BCADD29D1B257CB2009E655B /* bg_card_left_right_pressed.png in Resources */,
@@ -2806,6 +2976,7 @@
 				BCADD45C1B257CB2009E655B /* ic_weather_s_17.png in Resources */,
 				BCADD3341B257CB2009E655B /* ic_done_circle.png in Resources */,
 				BCADD32C1B257CB2009E655B /* ic_dest_poicate_act_pressed.png in Resources */,
+				BCDBA9231B2AF46200E72830 /* custom_nav_bar.png in Resources */,
 				BCADD3781B257CB2009E655B /* ic_map_food_planto_pressed.png in Resources */,
 				BCADD4A81B257CB2009E655B /* wayway1_00022.png in Resources */,
 				BCADD30E1B257CB2009E655B /* ic_dest_info_jinnang_normal.png in Resources */,
@@ -2896,6 +3067,7 @@
 				BCADD3091B257CB2009E655B /* ic_dest_detail_hotel.png in Resources */,
 				BCADD3CB1B257CB2009E655B /* ic_onway_poi_normal.png in Resources */,
 				BCADD4A41B257CB2009E655B /* wayway1_00018.png in Resources */,
+				BCDBA9361B2B148400E72830 /* DesCountryController.xib in Resources */,
 				BCADD4AA1B257CB2009E655B /* zbg_p9_cover_def_mid_round_corner.9.png in Resources */,
 				BCADD4761B257CB2009E655B /* ic_weather_s_4.png in Resources */,
 				BCADD3391B257CB2009E655B /* ic_down_arrow_black.png in Resources */,
@@ -2923,6 +3095,7 @@
 				BCADD3FB1B257CB2009E655B /* ic_send_white.png in Resources */,
 				BCADD33E1B257CB2009E655B /* ic_follow_ed.png in Resources */,
 				BCADD2E51B257CB2009E655B /* ic_back_white.png in Resources */,
+				BCDBA91C1B2AC10F00E72830 /* LocationCollectCell.xib in Resources */,
 				BCADD2C41B257CB2009E655B /* bg_regeist_button.png in Resources */,
 				BCADD3741B257CB2009E655B /* ic_map_activity_planto_pressed.png in Resources */,
 				BCADD49E1B257CB2009E655B /* wayway1_00012.png in Resources */,
@@ -2983,6 +3156,7 @@
 				BCADD2911B257CB2009E655B /* bg_card_item_mid_pressed.9.png in Resources */,
 				BCADD2CB1B257CB2009E655B /* bg_user_track_map.jpg in Resources */,
 				BCADD3F41B257CB2009E655B /* ic_refresh_gray_small.png in Resources */,
+				BCDBA8FF1B2AADA100E72830 /* SectionFootView.xib in Resources */,
 				BCADD4211B257CB2009E655B /* ic_wantto_white_pressed.png in Resources */,
 				BCADD2E21B257CB2009E655B /* ic_arrow_search_hotel.png in Resources */,
 				BCADD3A91B257CB2009E655B /* ic_onway_active_normal.png in Resources */,
@@ -3001,6 +3175,7 @@
 				BCADD43C1B257CB2009E655B /* ic_weather_m_32.png in Resources */,
 				BCADD4931B257CB2009E655B /* wayway1_00001.png in Resources */,
 				BCADD4A51B257CB2009E655B /* wayway1_00019.png in Resources */,
+				BCDBA9041B2AADB300E72830 /* SectionHeadView.xib in Resources */,
 				BCADD3BF1B257CB2009E655B /* ic_onway_demo_avatar_7.png in Resources */,
 				BCADD2D11B257CB2009E655B /* chat_ic_send_failure_normal.png in Resources */,
 				BCADD3231B257CB2009E655B /* ic_dest_poi_star_dark_big.png in Resources */,
@@ -3132,6 +3307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCBA37711B296E3F00B568F9 /* GroupDetailModel.m in Sources */,
+				BCDBA92A1B2B049800E72830 /* DesHotCityModel.m in Sources */,
 				BC88E6E81B2013B90087FE0C /* MyImageView.m in Sources */,
 				BCB9AA1A1B1F149D00CC7023 /* UIImageView+HighlightedWebCache.m in Sources */,
 				BCB9A9FB1B1F149D00CC7023 /* AFHTTPRequestOperation.m in Sources */,
@@ -3151,27 +3327,34 @@
 				BCBA377A1B29A85500B568F9 /* BaseManagerEntity.m in Sources */,
 				BCB9A9FC1B1F149D00CC7023 /* AFHTTPRequestOperationManager.m in Sources */,
 				BCB9AA0A1B1F149D00CC7023 /* UIProgressView+AFNetworking.m in Sources */,
+				BCDBA9201B2AC16500E72830 /* LocationModel.m in Sources */,
 				BCB9AA191B1F149D00CC7023 /* UIImage+WebP.m in Sources */,
 				BC7DA2AF1B28257A00A37571 /* Entity.m in Sources */,
+				BCDBA9031B2AADB300E72830 /* SectionHeadView.m in Sources */,
 				BCB9A9FE1B1F149D00CC7023 /* AFNetworkReachabilityManager.m in Sources */,
 				BCB9AA021B1F149D00CC7023 /* AFURLResponseSerialization.m in Sources */,
 				BCB9AA001B1F149D00CC7023 /* AFURLConnectionOperation.m in Sources */,
 				BCB9AA421B1F2B3A00CC7023 /* RecommendHeadView.m in Sources */,
+				BCDBA9131B2AC0D200E72830 /* LocationHeadView.m in Sources */,
 				BCB9AA171B1F149D00CC7023 /* UIImage+GIF.m in Sources */,
 				BC0C55FC1B22EED8004BEF5A /* HeadViewForDestinationView.m in Sources */,
 				BCBA376D1B2969F400B568F9 /* GroupDetailCell.m in Sources */,
+				BCDBA9301B2B04C800E72830 /* DesTripModel.m in Sources */,
 				BCB9AA351B1F245900CC7023 /* BaseModel.m in Sources */,
 				BCBA37771B2993B500B568F9 /* Entity1.m in Sources */,
 				BC88E6F81B205B6C0087FE0C /* DetailViewController.m in Sources */,
 				BCB9AA1C1B1F149D00CC7023 /* UIView+WebCacheOperation.m in Sources */,
+				BCDBA8FE1B2AADA100E72830 /* SectionFootView.m in Sources */,
 				BCB9AA081B1F149D00CC7023 /* UIButton+AFNetworking.m in Sources */,
 				BCC4167B1B21C7F50031C632 /* AnalyticalNetWorkData.m in Sources */,
 				BCB9AA061B1F149D00CC7023 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				BCADD4B41B258670009E655B /* GroupModel.m in Sources */,
 				BCB9AA181B1F149D00CC7023 /* UIImage+MultiFormat.m in Sources */,
+				BCDBA9351B2B148400E72830 /* DesCountryController.m in Sources */,
 				BCB9AA111B1F149D00CC7023 /* SDWebImageDecoder.m in Sources */,
 				BCB9AA0E1B1F149D00CC7023 /* NSData+ImageContentType.m in Sources */,
 				BCC416771B21C6980031C632 /* DestinationModel.m in Sources */,
+				BCDBA91B1B2AC10F00E72830 /* LocationCollectCell.m in Sources */,
 				BCB9A9FF1B1F149D00CC7023 /* AFSecurityPolicy.m in Sources */,
 				BCB9AA131B1F149D00CC7023 /* SDWebImageDownloaderOperation.m in Sources */,
 				BCBA375E1B29261200B568F9 /* RecommendCellModel.m in Sources */,
@@ -3179,8 +3362,10 @@
 				BCB9AA481B1F2F9A00CC7023 /* RecommendView.m in Sources */,
 				BCB9AA0B1B1F149D00CC7023 /* UIRefreshControl+AFNetworking.m in Sources */,
 				BCB9AA0C1B1F149D00CC7023 /* UIWebView+AFNetworking.m in Sources */,
+				BCDBA92D1B2B04B200E72830 /* DesDiscountModel.m in Sources */,
 				BC7DA29F1B27E87000A37571 /* CoreDataManager.m in Sources */,
 				BCB9A9FD1B1F149D00CC7023 /* AFHTTPSessionManager.m in Sources */,
+				BCDBA90E1B2AC06E00E72830 /* LocationViewController.m in Sources */,
 				BCADD4B11B258149009E655B /* GroupView.m in Sources */,
 				BCB9AA071B1F149D00CC7023 /* UIAlertView+AFNetworking.m in Sources */,
 				BCB9AA121B1F149D00CC7023 /* SDWebImageDownloader.m in Sources */,
@@ -3191,6 +3376,7 @@
 				BCB9AA031B1F149D00CC7023 /* AFURLSessionManager.m in Sources */,
 				BCBA37681B295B1E00B568F9 /* GroupDetailController.m in Sources */,
 				BCC416721B21C4960031C632 /* DestinationView.m in Sources */,
+				BCDBA9271B2B046D00E72830 /* DesCountryModel.m in Sources */,
 				BCB9AA381B1F249300CC7023 /* RecommendModel.m in Sources */,
 				BCB9AA1B1B1F149D00CC7023 /* UIImageView+WebCache.m in Sources */,
 				BC0C55F21B22E18F004BEF5A /* OtherCountryCell.m in Sources */,

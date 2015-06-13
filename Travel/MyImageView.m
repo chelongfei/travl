@@ -10,20 +10,21 @@
 
 @implementation MyImageView
 
--(id)initWithFrame:(CGRect)frame model:(RecommendModel *)model
+-(id)initWithFrame:(CGRect)frame url:(NSString *)urlLink
 {
     if (self=[super initWithFrame:frame]) {
         UITapGestureRecognizer * tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageClick:)];
+        self.backgroundColor=[UIColor purpleColor];
         self.userInteractionEnabled=YES;
         [self addGestureRecognizer:tap];
-        self.model=model;
+        self.url=urlLink;
     }
     return self;
 }
 
 -(void)imageClick:(UITapGestureRecognizer *)tap
 {
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"imageClick" object:self.model];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"DetailVCWithUrl" object:self.url];
 }
 
 @end

@@ -18,6 +18,8 @@
 #import "GroupView.h"
 #import "CoreDataManager.h"
 #import "GroupDetailController.h"
+#import "LocationViewController.h"
+#import "DesCountryController.h"
 
 
 #define COLLECTIONVIEW_CELLID @"collectionViewCellId"
@@ -72,8 +74,8 @@
     [self addHomeCollectionView];
     [self addRecommendView];
     //使用coreData数据渲染
-    [self.recommendView updateHeadView:[[CoreDataManager defaultCoreManager]fetchModelFromCoreDataWithEntityName:@"Entity"]];
-    
+    [self.recommendView updateRecommendView:[[CoreDataManager defaultCoreManager]fetchModelFromCoreDataWithEntityName:@"Entity"]];
+    //使用coreData数据渲染
     [self addDestinationView];
     self.destinationView.dataArray=[[CoreDataManager defaultCoreManager]fetchModelFromCoreDataWithEntityName:@"Entity1"];
 
@@ -86,8 +88,8 @@
 
 -(void)customNavigationBar
 {
-    self.navigationController.navigationBar.backgroundColor=[UIColor clearColor];
-    self.navigationController.navigationBar.backgroundColor=[UIColor redColor];
+ 
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"custom_nav_bar.png"] forBarMetrics:(UIBarMetricsDefault)];
 }
 
 -(void)initView
@@ -107,9 +109,6 @@
     flowLayout.minimumLineSpacing=0;
     flowLayout.scrollDirection=UICollectionViewScrollDirectionHorizontal;
     
-   
-    
-    
     _HomeCollectionView=[[UICollectionView alloc]initWithFrame:CGRectMake(0, 80, self.view.frame.size.width, self.view.frame.size.height-80) collectionViewLayout:flowLayout];
     _HomeCollectionView.pagingEnabled=YES;
     _HomeCollectionView.showsHorizontalScrollIndicator=NO;
@@ -120,40 +119,36 @@
     [self.view addSubview:_HomeCollectionView];
 }
 
-//使用通知中心观察图片点击事件
+//使用通知中心观察带URL连接的ID的点击事件
 -(void)viewWillAppear:(BOOL)animated
 {
     self.navigationController.navigationBarHidden=YES;
     
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter]removeObserver:self];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reciveImageClick:) name:@"imageClick" object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(recommendCellSelected:) name:@"recommendCellClick" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reciveImageClick:) name:@"DetailVCWithUrl" object:nil];
+
 }
 
-//接收到图片点击事件后的处理事件
+//接收到通知中心的点击事件后的处理事件
 -(void)reciveImageClick:(NSNotification *)notify
 {
-    RecommendModel * model=(RecommendModel *)notify.object;
+    NSString *  url=(NSString *)notify.object;
     DetailViewController * detailVC=[[DetailViewController alloc]init];
-    detailVC.url=model.url;
+    detailVC.url=url;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
-
-//点击推荐页面cell后处理事件
--(void)recommendCellSelected:(NSNotification *)notify
-{
-    RecommendCellModel * model=(RecommendCellModel *)notify.object;
-    DetailViewController * detailVC=[[DetailViewController alloc]init];
-    detailVC.url=model.view_url;
-    [self.navigationController pushViewController:detailVC animated:YES];
-}
-
 
 //添加recommendView
 -(void)addRecommendView
 {
     self.recommendView=[[RecommendView alloc]initWithFrame:(CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height))];
+    __weak typeof(self)weakself=self;
+    [self.recommendView setLocationClickBlock:^(RecommendModel * model){
+        LocationViewController * locationVC=[[LocationViewController alloc]init];
+        locationVC.model=model;
+        [weakself.navigationController pushViewController:locationVC animated:YES];
+    }];
     [_HomeCollectionView addSubview:self.recommendView];
 }
 
@@ -161,6 +156,12 @@
 -(void)addDestinationView
 {
     self.destinationView=[[DestinationView alloc]initWithFrame:(CGRectMake(self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height-80))];
+     __weak typeof(self)weakself=self;
+    [self.destinationView setClickCountryBlock:^(DestinationModel * model){
+        DesCountryController * desVC=[[DesCountryController alloc]init];
+        desVC.model=model;
+        [weakself.navigationController pushViewController:desVC animated:YES];
+    }];
     [_HomeCollectionView addSubview:self.destinationView];
 }
 
@@ -185,7 +186,7 @@
         self.recommendDataArray=[AnalyticalNetWorkData parseRecommendData:respondsObject];
       [[CoreDataManager defaultCoreManager]removeAllModelFromCoreDataWithEntityName:@"Entity"];
         [[CoreDataManager defaultCoreManager]addModelFromNetWork:self.recommendDataArray entityName:@"Entity"];
-       [self.recommendView updateHeadView:self.recommendDataArray];
+       [self.recommendView updateRecommendView:self.recommendDataArray];
     } faild:^(NSError *error) {
         
     }];

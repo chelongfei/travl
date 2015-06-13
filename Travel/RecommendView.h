@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+@class RecommendModel;
+typedef void (^ClickBlock)(RecommendModel * model);
 
 @interface RecommendView : UIView
 
-@property(nonatomic)UITableView * tableView;
+@property(nonatomic)UICollectionView * collectionView;
 
--(void)updateHeadView:(NSMutableArray *)dataArray;
+-(void)updateRecommendView:(NSMutableArray *)dataArray;
+
+@property(nonatomic,copy)ClickBlock locationClickBlock;
 
 @end

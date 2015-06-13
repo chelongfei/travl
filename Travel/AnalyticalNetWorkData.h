@@ -7,10 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RecommendModel.h"
-#import "DestinationModel.h"
-#import "GroupModel.h"
-#import "RecommendCellModel.h"
+
 
 
 @interface AnalyticalNetWorkData : NSObject
@@ -29,5 +26,11 @@
 
 //解析社区二级页面全部栏目的cell信息并返回
 +(NSMutableArray *)parseGroupDetailData:(id)responseObject;
+
+//解析推荐页面当地特色栏目信息并返回
++(NSMutableArray *)parseRecommendLocation:(id)responseObject;
+
+//解析目的地界面具体城市信息并返回
++(NSMutableArray *)parseDestinationDetailData:(id)responseObject;
 
 @end

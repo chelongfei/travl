@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@class DestinationModel;
+
+typedef void (^ClickInCountryInDes)(DestinationModel * model);
 
 @interface DestinationView : UIView
 
 @property(nonatomic)NSArray * dataArray;
+
+@property(nonatomic,copy)ClickInCountryInDes clickCountryBlock;
 
 @end

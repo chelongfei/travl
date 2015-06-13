@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RecommendCellModel.h"
 
-@interface RecommendTVCell : UITableViewCell
+@interface RecommendTVCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *cellImageView;
 

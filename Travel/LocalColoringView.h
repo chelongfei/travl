@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RecommendModel.h"
 
-@interface LocalColoringView : UIView
+@interface LocalColoringView : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *MainImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *headOfWriterImageView;

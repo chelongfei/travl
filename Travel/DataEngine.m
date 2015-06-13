@@ -82,7 +82,28 @@
    }];
 }
 
+//获取推荐页面玩当地特色数据
+-(void)requestRecommendLocationDataWithPage:(NSString *)pageID success:(SuccessBlockType)success faild:(FailedBlockType)failed
+{
+    
+    [_manager GET:[NSString stringWithFormat:RECOMMEND_LOCATION_URL,pageID] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        success(responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failed(error);
+    }];
+    
+}
 
+//获取目的地界面具体城市数据
+-(void)requestDestinationDetailDataWithCityID:(NSString *)cityId success:(SuccessBlockType)success faild:(FailedBlockType)failed
+{
+    [_manager GET:[NSString stringWithFormat:DES_DETAIL_URL,cityId] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        success(responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failed(error);
+    }];
+    
+}
 
 
 

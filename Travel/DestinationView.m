@@ -181,7 +181,14 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    //得到具体的类型,是热门国家还是其他国家
+    NSArray * contryArray=[self.dataArray objectAtIndex:indexPath.section+1];
+    //得到和头视图对应的选项的大洲
+    NSArray * areaArray=[contryArray objectAtIndex:_currentAreaInArray];
+    DestinationModel * model=[areaArray objectAtIndex:indexPath.row];
+    if (_clickCountryBlock) {
+        _clickCountryBlock(model);
+    }
 }
 
 

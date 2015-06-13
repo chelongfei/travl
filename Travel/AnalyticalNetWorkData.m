@@ -8,6 +8,15 @@
 
 #import "AnalyticalNetWorkData.h"
 #import "GroupDetailModel.h"
+#import "RecommendModel.h"
+#import "DestinationModel.h"
+#import "GroupModel.h"
+#import "RecommendCellModel.h"
+#import "LocationModel.h"
+#import "DesCountryModel.h"
+#import "DesHotCityModel.h"
+#import "DesDiscountModel.h"
+#import "DesTripModel.h"
 
 @implementation AnalyticalNetWorkData
 
@@ -81,7 +90,7 @@
     //总数组
     NSMutableArray * dataArray=[[NSMutableArray alloc]init];
     
-
+    
     
     NSDictionary * orginDic=(NSDictionary *)responseObject;
     NSArray * orginArray=orginDic[@"data"];
@@ -111,8 +120,8 @@
     NSMutableArray * dataArray=[[NSMutableArray alloc]init];
     
     NSDictionary * orginDic=(NSDictionary *)responseObject;
-     NSArray * orginArray=orginDic[@"data"];
-
+    NSArray * orginArray=orginDic[@"data"];
+    
     for (NSDictionary * dict in orginArray) {
         RecommendCellModel * cellModel=[[RecommendCellModel alloc]init];
         [cellModel setValuesForKeysWithDictionary:dict];
@@ -136,5 +145,62 @@
     return dataArray;
 }
 
+//解析推荐页面当地特色栏目信息并返回
++(NSMutableArray *)parseRecommendLocation:(id)responseObject
+{
+    NSMutableArray * dataArray=[[NSMutableArray alloc]init];
+    NSDictionary * orginDic=(NSDictionary *)responseObject;
+    NSDictionary * orginDict=orginDic[@"data"];
+    NSArray * orginArray=orginDict[@"pois"];
+    for (NSDictionary * dict in orginArray) {
+        LocationModel * model=[[LocationModel alloc]init];
+        [model setValuesForKeysWithDictionary:dict];
+        [dataArray addObject:model];
+    }
+    return dataArray;
+}
+
+//解析目的地界面具体城市信息并返回
++(NSMutableArray *)parseDestinationDetailData:(id)responseObject
+{
+    NSMutableArray * dataArray=[[NSMutableArray alloc]init];
+    NSDictionary * orginDic=(NSDictionary *)responseObject;
+    NSDictionary * dict=orginDic[@"data"];
+    
+    //二层数组
+    NSMutableArray * countryDataArray=[[NSMutableArray alloc]init];
+    NSMutableArray * hotCityDataArray=[[NSMutableArray alloc]init];
+    NSMutableArray * disCountDataArray=[[NSMutableArray alloc]init];
+    NSMutableArray * tripDataArray=[[NSMutableArray alloc]init];
+    
+    DesCountryModel  * model=[[DesCountryModel alloc]init];
+    model.id=dict[@"id"];
+    model.chinesename=dict[@"chinesename"];
+    model.englishname=dict[@"englishname"];
+    [model setValue:dict[@"id"] forKey:model.id];
+    model.photos=dict[@"photos"];
+    [countryDataArray addObject:model];
+    
+    for (NSDictionary * hotDic in dict[@"hot_city"]) {
+        DesHotCityModel * model=[[DesHotCityModel alloc]init];
+        [model setValuesForKeysWithDictionary:hotDic];
+        [hotCityDataArray addObject:model];
+    }
+    for (NSDictionary * disDic in dict[@"new_discount"]) {
+        DesDiscountModel * model=[[DesDiscountModel alloc]init];
+        [model setValuesForKeysWithDictionary:disDic];
+        [disCountDataArray addObject:model];
+    }
+    for (NSDictionary * tripDic in dict[@"new_trip"]) {
+        DesTripModel * model=[[DesTripModel alloc]init];
+        [model setValuesForKeysWithDictionary:tripDic];
+        [tripDataArray addObject:model];
+    }
+    [dataArray addObject:countryDataArray];
+    [dataArray addObject:hotCityDataArray];
+    [dataArray addObject:disCountDataArray];
+    [dataArray addObject:tripDataArray];
+    return dataArray;
+}
 
 @end
