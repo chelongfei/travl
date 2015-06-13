@@ -14,8 +14,8 @@
 @property(nonatomic,copy)NSString * id;
 @property(nonatomic,copy)NSString * cnname;
 @property(nonatomic,copy)NSString * enname;
-@property(nonatomic,copy)NSArray *  hot_country;
-@property(nonatomic,copy)NSArray *  country;
+@property(nonatomic)NSArray *  hot_country;
+@property(nonatomic)NSArray *  country;
 @property(nonatomic,copy)NSString * photo;
 @property(nonatomic,copy)NSString * count;
 @property(nonatomic,copy)NSString * label;

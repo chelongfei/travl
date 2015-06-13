@@ -17,6 +17,9 @@
 #import "DesHotCityModel.h"
 #import "DesDiscountModel.h"
 #import "DesTripModel.h"
+#import "CityModel.h"
+#import "HotMguideModel.h"
+#import "NewDiscountModel.h"
 
 @implementation AnalyticalNetWorkData
 
@@ -201,6 +204,41 @@
     [dataArray addObject:tripDataArray];
     [dataArray addObject:disCountDataArray];
     return dataArray;
+}
+
+//解析目的地界面具体城市信息并返回
++(NSMutableArray *)parseDestinationDetailCityData:(id)responseObject
+{
+    NSMutableArray * dataArray=[[NSMutableArray alloc]init];
+    NSDictionary * orginDic=(NSDictionary *)responseObject;
+    NSDictionary * dict=orginDic[@"data"];
+    //二层数组
+    NSMutableArray * cityDataArray=[[NSMutableArray alloc]init];
+    NSMutableArray * hotMguideDataArray=[[NSMutableArray alloc]init];
+    NSMutableArray * newDiscountDataArray=[[NSMutableArray alloc]init];
+    
+    CityModel  * model=[[CityModel alloc]init];
+    [model setValuesForKeysWithDictionary:dict];
+    [cityDataArray addObject:model];
+
+    for (NSDictionary * hotDic in dict[@"hot_mguide"]) {
+        HotMguideModel * model=[[HotMguideModel alloc]init];
+        [model setValuesForKeysWithDictionary:hotDic];
+        [hotMguideDataArray addObject:model];
+    }
+    for (NSDictionary * disDic in dict[@"new_discount"]) {
+        NewDiscountModel * model=[[NewDiscountModel alloc]init];
+        [model setValuesForKeysWithDictionary:disDic];
+        [newDiscountDataArray addObject:model];
+    }
+
+    [dataArray addObject:cityDataArray];
+    [dataArray addObject:hotMguideDataArray];
+    [dataArray addObject:newDiscountDataArray];
+
+    return dataArray;
+    
+    
 }
 
 @end

@@ -654,6 +654,11 @@
 		BCD4DD091B2BD06100CC389E /* HotCityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD4DD071B2BD06100CC389E /* HotCityCell.m */; };
 		BCD4DD0A1B2BD06100CC389E /* HotCityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD4DD081B2BD06100CC389E /* HotCityCell.xib */; };
 		BCD4DD131B2C08A700CC389E /* DesCityController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD4DD121B2C08A700CC389E /* DesCityController.m */; };
+		BCD4DD181B2C187800CC389E /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD4DD171B2C187800CC389E /* CityModel.m */; };
+		BCD4DD1B1B2C196D00CC389E /* HotMguideModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD4DD1A1B2C196D00CC389E /* HotMguideModel.m */; };
+		BCD4DD1E1B2C197F00CC389E /* NewDiscountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD4DD1D1B2C197F00CC389E /* NewDiscountModel.m */; };
+		BCD4DD231B2C1D1E00CC389E /* CityHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD4DD211B2C1D1E00CC389E /* CityHeadView.m */; };
+		BCD4DD241B2C1D1E00CC389E /* CityHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD4DD221B2C1D1E00CC389E /* CityHeadView.xib */; };
 		BCDBA8FE1B2AADA100E72830 /* SectionFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDBA8FC1B2AADA100E72830 /* SectionFootView.m */; };
 		BCDBA8FF1B2AADA100E72830 /* SectionFootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCDBA8FD1B2AADA100E72830 /* SectionFootView.xib */; };
 		BCDBA9031B2AADB300E72830 /* SectionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDBA9011B2AADB300E72830 /* SectionHeadView.m */; };
@@ -1409,6 +1414,15 @@
 		BCD4DD081B2BD06100CC389E /* HotCityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotCityCell.xib; sourceTree = "<group>"; };
 		BCD4DD111B2C08A700CC389E /* DesCityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesCityController.h; sourceTree = "<group>"; };
 		BCD4DD121B2C08A700CC389E /* DesCityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesCityController.m; sourceTree = "<group>"; };
+		BCD4DD161B2C187800CC389E /* CityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityModel.h; sourceTree = "<group>"; };
+		BCD4DD171B2C187800CC389E /* CityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityModel.m; sourceTree = "<group>"; };
+		BCD4DD191B2C196D00CC389E /* HotMguideModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotMguideModel.h; sourceTree = "<group>"; };
+		BCD4DD1A1B2C196D00CC389E /* HotMguideModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotMguideModel.m; sourceTree = "<group>"; };
+		BCD4DD1C1B2C197F00CC389E /* NewDiscountModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDiscountModel.h; sourceTree = "<group>"; };
+		BCD4DD1D1B2C197F00CC389E /* NewDiscountModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDiscountModel.m; sourceTree = "<group>"; };
+		BCD4DD201B2C1D1E00CC389E /* CityHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityHeadView.h; sourceTree = "<group>"; };
+		BCD4DD211B2C1D1E00CC389E /* CityHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityHeadView.m; sourceTree = "<group>"; };
+		BCD4DD221B2C1D1E00CC389E /* CityHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityHeadView.xib; sourceTree = "<group>"; };
 		BCDBA8FB1B2AADA100E72830 /* SectionFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionFootView.h; sourceTree = "<group>"; };
 		BCDBA8FC1B2AADA100E72830 /* SectionFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionFootView.m; sourceTree = "<group>"; };
 		BCDBA8FD1B2AADA100E72830 /* SectionFootView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionFootView.xib; sourceTree = "<group>"; };
@@ -2480,9 +2494,10 @@
 		BCC4166F1B21C4660031C632 /* 目地页面View */ = {
 			isa = PBXGroup;
 			children = (
-				BCD4DCFF1B2BBDCE00CC389E /* 二级列表 */,
-				BCD4DCFE1B2BBDC200CC389E /* 一级列表 */,
 				BCC4167C1B21D1D70031C632 /* 主页面 */,
+				BCD4DCFE1B2BBDC200CC389E /* 国家概况列表 */,
+				BCD4DCFF1B2BBDCE00CC389E /* 国家具体列表 */,
+				BCD4DD1F1B2C1C8700CC389E /* 城市具体列表 */,
 			);
 			name = "目地页面View";
 			sourceTree = "<group>";
@@ -2525,7 +2540,7 @@
 			name = "目的详情Head";
 			sourceTree = "<group>";
 		};
-		BCD4DCFE1B2BBDC200CC389E /* 一级列表 */ = {
+		BCD4DCFE1B2BBDC200CC389E /* 国家概况列表 */ = {
 			isa = PBXGroup;
 			children = (
 				BC0C55F81B22EEAB004BEF5A /* 头视图 */,
@@ -2533,16 +2548,16 @@
 				BC0C55EB1B22E14C004BEF5A /* 其他国家Cell */,
 				BCC4167D1B21D1E90031C632 /* collectionCell */,
 			);
-			name = "一级列表";
+			name = "国家概况列表";
 			sourceTree = "<group>";
 		};
-		BCD4DCFF1B2BBDCE00CC389E /* 二级列表 */ = {
+		BCD4DCFF1B2BBDCE00CC389E /* 国家具体列表 */ = {
 			isa = PBXGroup;
 			children = (
 				BCD4DD051B2BCC6D00CC389E /* 热门城市cell */,
 				BCD4DCFD1B2BBD8100CC389E /* 目的详情Head */,
 			);
-			name = "二级列表";
+			name = "国家具体列表";
 			sourceTree = "<group>";
 		};
 		BCD4DD051B2BCC6D00CC389E /* 热门城市cell */ = {
@@ -2562,6 +2577,52 @@
 				BCD4DD121B2C08A700CC389E /* DesCityController.m */,
 			);
 			name = "目地点城市进入";
+			sourceTree = "<group>";
+		};
+		BCD4DD141B2C183F00CC389E /* 具体国家界面Model */ = {
+			isa = PBXGroup;
+			children = (
+				BCDBA9251B2B046D00E72830 /* DesCountryModel.h */,
+				BCDBA9261B2B046D00E72830 /* DesCountryModel.m */,
+				BCDBA9281B2B049800E72830 /* DesHotCityModel.h */,
+				BCDBA9291B2B049800E72830 /* DesHotCityModel.m */,
+				BCDBA92B1B2B04B200E72830 /* DesDiscountModel.h */,
+				BCDBA92C1B2B04B200E72830 /* DesDiscountModel.m */,
+				BCDBA92E1B2B04C800E72830 /* DesTripModel.h */,
+				BCDBA92F1B2B04C800E72830 /* DesTripModel.m */,
+			);
+			name = "具体国家界面Model";
+			sourceTree = "<group>";
+		};
+		BCD4DD151B2C185200CC389E /* 具体城市Model */ = {
+			isa = PBXGroup;
+			children = (
+				BCD4DD161B2C187800CC389E /* CityModel.h */,
+				BCD4DD171B2C187800CC389E /* CityModel.m */,
+				BCD4DD191B2C196D00CC389E /* HotMguideModel.h */,
+				BCD4DD1A1B2C196D00CC389E /* HotMguideModel.m */,
+				BCD4DD1C1B2C197F00CC389E /* NewDiscountModel.h */,
+				BCD4DD1D1B2C197F00CC389E /* NewDiscountModel.m */,
+			);
+			name = "具体城市Model";
+			sourceTree = "<group>";
+		};
+		BCD4DD1F1B2C1C8700CC389E /* 城市具体列表 */ = {
+			isa = PBXGroup;
+			children = (
+				BCD4DD251B2C22C700CC389E /* 城市HeadView */,
+			);
+			name = "城市具体列表";
+			sourceTree = "<group>";
+		};
+		BCD4DD251B2C22C700CC389E /* 城市HeadView */ = {
+			isa = PBXGroup;
+			children = (
+				BCD4DD201B2C1D1E00CC389E /* CityHeadView.h */,
+				BCD4DD211B2C1D1E00CC389E /* CityHeadView.m */,
+				BCD4DD221B2C1D1E00CC389E /* CityHeadView.xib */,
+			);
+			name = "城市HeadView";
 			sourceTree = "<group>";
 		};
 		BCDBA8F91B2AAD6B00E72830 /* sectionHead */ = {
@@ -2600,14 +2661,8 @@
 			children = (
 				BCC416751B21C6980031C632 /* DestinationModel.h */,
 				BCC416761B21C6980031C632 /* DestinationModel.m */,
-				BCDBA9251B2B046D00E72830 /* DesCountryModel.h */,
-				BCDBA9261B2B046D00E72830 /* DesCountryModel.m */,
-				BCDBA9281B2B049800E72830 /* DesHotCityModel.h */,
-				BCDBA9291B2B049800E72830 /* DesHotCityModel.m */,
-				BCDBA92B1B2B04B200E72830 /* DesDiscountModel.h */,
-				BCDBA92C1B2B04B200E72830 /* DesDiscountModel.m */,
-				BCDBA92E1B2B04C800E72830 /* DesTripModel.h */,
-				BCDBA92F1B2B04C800E72830 /* DesTripModel.m */,
+				BCD4DD151B2C185200CC389E /* 具体城市Model */,
+				BCD4DD141B2C183F00CC389E /* 具体国家界面Model */,
 			);
 			name = "目的地页面model";
 			sourceTree = "<group>";
@@ -2937,6 +2992,7 @@
 				BCADD33C1B257CB2009E655B /* ic_email.png in Resources */,
 				BCADD4741B257CB2009E655B /* ic_weather_s_38.png in Resources */,
 				BCADD39E1B257CB2009E655B /* ic_map_shopping_planto.png in Resources */,
+				BCD4DD241B2C1D1E00CC389E /* CityHeadView.xib in Resources */,
 				BCADD3731B257CB2009E655B /* ic_map_activity_planto.png in Resources */,
 				BCADD2DA1B257CB2009E655B /* chat_sent_msg_bubble_pressed.9.png in Resources */,
 				BCADD2841B257CB2009E655B /* bg_about_qyer_text2.png in Resources */,
@@ -3376,6 +3432,7 @@
 				BCB9AA101B1F149D00CC7023 /* SDWebImageCompat.m in Sources */,
 				BCB9AA151B1F149D00CC7023 /* SDWebImagePrefetcher.m in Sources */,
 				BCB9AA091B1F149D00CC7023 /* UIImageView+AFNetworking.m in Sources */,
+				BCD4DD1E1B2C197F00CC389E /* NewDiscountModel.m in Sources */,
 				BC88E7021B20857B0087FE0C /* LocalColoringView.m in Sources */,
 				BCB9AA0F1B1F149D00CC7023 /* SDImageCache.m in Sources */,
 				BCD4DD031B2BBE0400CC389E /* DesCountryHeadView.m in Sources */,
@@ -3391,10 +3448,12 @@
 				BCDBA9201B2AC16500E72830 /* LocationModel.m in Sources */,
 				BCB9AA191B1F149D00CC7023 /* UIImage+WebP.m in Sources */,
 				BC7DA2AF1B28257A00A37571 /* Entity.m in Sources */,
+				BCD4DD231B2C1D1E00CC389E /* CityHeadView.m in Sources */,
 				BCDBA9031B2AADB300E72830 /* SectionHeadView.m in Sources */,
 				BCB9A9FE1B1F149D00CC7023 /* AFNetworkReachabilityManager.m in Sources */,
 				BCB9AA021B1F149D00CC7023 /* AFURLResponseSerialization.m in Sources */,
 				BCB9AA001B1F149D00CC7023 /* AFURLConnectionOperation.m in Sources */,
+				BCD4DD1B1B2C196D00CC389E /* HotMguideModel.m in Sources */,
 				BCB9AA421B1F2B3A00CC7023 /* RecommendHeadView.m in Sources */,
 				BCDBA9131B2AC0D200E72830 /* LocationHeadView.m in Sources */,
 				BCB9AA171B1F149D00CC7023 /* UIImage+GIF.m in Sources */,
@@ -3406,6 +3465,7 @@
 				BC88E6F81B205B6C0087FE0C /* DetailViewController.m in Sources */,
 				BCB9AA1C1B1F149D00CC7023 /* UIView+WebCacheOperation.m in Sources */,
 				BCDBA8FE1B2AADA100E72830 /* SectionFootView.m in Sources */,
+				BCD4DD181B2C187800CC389E /* CityModel.m in Sources */,
 				BCB9AA081B1F149D00CC7023 /* UIButton+AFNetworking.m in Sources */,
 				BCC4167B1B21C7F50031C632 /* AnalyticalNetWorkData.m in Sources */,
 				BCB9AA061B1F149D00CC7023 /* UIActivityIndicatorView+AFNetworking.m in Sources */,

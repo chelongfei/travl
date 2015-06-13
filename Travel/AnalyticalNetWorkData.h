@@ -33,6 +33,7 @@
 //解析目的地界面具体国家信息并返回
 +(NSMutableArray *)parseDestinationDetailCountryData:(id)responseObject;
 
-
+//解析目的地界面具体城市信息并返回
++(NSMutableArray *)parseDestinationDetailCityData:(id)responseObject;
 
 @end

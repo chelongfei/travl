@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DesHotCityModel.h"
 
 @interface DesCityController : UIViewController
+
+@property(nonatomic)DesHotCityModel * model;
 
 @end

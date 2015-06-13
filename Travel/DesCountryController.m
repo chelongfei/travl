@@ -18,6 +18,7 @@
 #import "DesTripModel.h"
 #import "DesDiscountModel.h"
 #import "DetailViewController.h"
+#import "DesCityController.h"
 #import "URLDefine.h"
 
 #define COLLECT_HEAD_VIEW_ID @"collectionHeadViewId"
@@ -88,8 +89,6 @@
     
     UINib * localNib=[UINib nibWithNibName:@"LocalColoringView" bundle:nil];
     [self.collectionView registerNib:localNib forCellWithReuseIdentifier:COLLECT_LOCAL_CELL_ID];
-    
-    
     
 }
 
@@ -168,9 +167,11 @@
 {
     switch (indexPath.section) {
         case 1:{
-//            NSArray * detailArray=[self.dataArray objectAtIndex:indexPath.section];
-//            DesHotCityModel * model=[detailArray objectAtIndex:indexPath.row];
-            
+            NSArray * detailArray=[self.dataArray objectAtIndex:indexPath.section];
+            DesHotCityModel * model=[detailArray objectAtIndex:indexPath.row];
+            DesCityController * desCityVC=[[DesCityController alloc]init];
+            desCityVC.model=model;
+            [self.navigationController pushViewController:desCityVC animated:YES];
             break;}
         case 2:{
             NSArray * detailArray=[self.dataArray objectAtIndex:indexPath.section];
