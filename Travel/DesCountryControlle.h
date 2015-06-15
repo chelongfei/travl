@@ -1,16 +1,14 @@
 //
-//  DesCountryController.h
+//  DesCountryControlle.h
 //  Travel
 //
-//  Created by qianfeng on 15/6/12.
+//  Created by qianfeng on 15/6/13.
 //  Copyright (c) 2015年 qianfeng. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "DestinationModel.h"
 
-@interface DesCountryController : UIViewController
-
+@interface DesCountryControlle : UIViewController
 @property(nonatomic)DestinationModel * model;
-
 @end

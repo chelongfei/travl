@@ -65,7 +65,7 @@
 
 -(void)requestRecommendCellDataWithPage:(NSInteger)pageNo success:(SuccessBlockType)success faild:(FailedBlockType)failed
 {
-    [_manager GET:[NSString stringWithFormat:REC_CELL_URL,pageNo] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [_manager GET:[NSString stringWithFormat:REC_CELL_URL,(long)pageNo] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         success(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failed(error);

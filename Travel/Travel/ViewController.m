@@ -19,7 +19,7 @@
 #import "CoreDataManager.h"
 #import "GroupDetailController.h"
 #import "LocationViewController.h"
-#import "DesCountryController.h"
+#import "DesCountryControlle.h"
 
 
 #define COLLECTIONVIEW_CELLID @"collectionViewCellId"
@@ -78,8 +78,8 @@
     //使用coreData数据渲染
     [self addDestinationView];
     self.destinationView.dataArray=[[CoreDataManager defaultCoreManager]fetchModelFromCoreDataWithEntityName:@"Entity1"];
-
-
+    
+    
     [self addGroupView];
     [self loadRecommendData];
     [self loadDestinationData];
@@ -88,7 +88,7 @@
 
 -(void)customNavigationBar
 {
- 
+    
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"custom_nav_bar.png"] forBarMetrics:(UIBarMetricsDefault)];
 }
 
@@ -127,7 +127,7 @@
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter]removeObserver:self];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reciveImageClick:) name:@"DetailVCWithUrl" object:nil];
-
+    
 }
 
 //接收到通知中心的点击事件后的处理事件
@@ -156,11 +156,11 @@
 -(void)addDestinationView
 {
     self.destinationView=[[DestinationView alloc]initWithFrame:(CGRectMake(self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height-80))];
-     __weak typeof(self)weakself=self;
+    __weak typeof(self)weakself=self;
     [self.destinationView setClickCountryBlock:^(DestinationModel * model){
         //如果flag==1表示是国家,否则直接跳转到城市界面
         if (model.flag==1) {
-            DesCountryController * desVC=[[DesCountryController alloc]init];
+            DesCountryControlle * desVC=[[DesCountryControlle alloc]init];
             desVC.model=model;
             [weakself.navigationController pushViewController:desVC animated:YES];
         }else{
@@ -189,9 +189,9 @@
 {
     [[DataEngine shareInstance]requestRecommendData:^(NSData *respondsObject) {
         self.recommendDataArray=[AnalyticalNetWorkData parseRecommendData:respondsObject];
-      [[CoreDataManager defaultCoreManager]removeAllModelFromCoreDataWithEntityName:@"Entity"];
+        [[CoreDataManager defaultCoreManager]removeAllModelFromCoreDataWithEntityName:@"Entity"];
         [[CoreDataManager defaultCoreManager]addModelFromNetWork:self.recommendDataArray entityName:@"Entity"];
-       [self.recommendView updateRecommendView:self.recommendDataArray];
+        [self.recommendView updateRecommendView:self.recommendDataArray];
     } faild:^(NSError *error) {
         
     }];
@@ -202,9 +202,9 @@
 {
     [[DataEngine shareInstance]requestDestinationData:^(NSData *respondsObject) {
         self.destinationDataArray=[AnalyticalNetWorkData parseDestinationData:respondsObject];
-     [[CoreDataManager defaultCoreManager]removeAllModelFromCoreDataWithEntityName:@"Entity1"];
-      [[CoreDataManager defaultCoreManager]addModelFromNetWork:self.destinationDataArray entityName:@"Entity1"];
-      self.destinationView.dataArray=self.destinationDataArray;
+        [[CoreDataManager defaultCoreManager]removeAllModelFromCoreDataWithEntityName:@"Entity1"];
+        [[CoreDataManager defaultCoreManager]addModelFromNetWork:self.destinationDataArray entityName:@"Entity1"];
+        self.destinationView.dataArray=self.destinationDataArray;
     } faild:^(NSError *error) {
         
     }];
@@ -256,8 +256,9 @@
         _currentButton.selected=NO;
         _currentButton=button;
         button.selected=!button.selected;
-        _HomeCollectionView.contentOffset=CGPointMake(self.view.frame.size.width*(button.tag-10000), 0);
         [UIView animateWithDuration:0.5 animations:^{
+            _HomeCollectionView.contentOffset=CGPointMake(self.view.frame.size.width*(button.tag-10000), 0);
+            
             CGRect frame=_currentButton.frame;
             frame.origin.y=_whiteSliderForHeadButton.frame.origin.y;
             self.whiteSliderForHeadButton.frame=frame;

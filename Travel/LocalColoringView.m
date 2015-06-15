@@ -28,4 +28,6 @@
     self.titleLabel.text=model.title;
 }
 
+
+
 @end

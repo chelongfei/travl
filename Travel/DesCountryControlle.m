@@ -1,12 +1,12 @@
 //
-//  DesCountryController.m
+//  DesCountryControlle.m
 //  Travel
 //
-//  Created by qianfeng on 15/6/12.
+//  Created by qianfeng on 15/6/13.
 //  Copyright (c) 2015年 qianfeng. All rights reserved.
 //
 
-#import "DesCountryController.h"
+#import "DesCountryControlle.h"
 #import "DataEngine.h"
 #import "AnalyticalNetWorkData.h"
 #import "SectionFootView.h"
@@ -28,7 +28,7 @@
 #define COLLECT_PRICE_CELL_ID @"collectionPriceCellId"
 #define COLLECT_LOCAL_CELL_ID @"collectionLocationCellId"
 
-@interface DesCountryController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+@interface DesCountryControlle ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 //数组中四个小数组,第一个(一个对象)是model,第二个是hotCountrty数组
 //第三个是disCount数组,第四个是trip数组
 @property(nonatomic)NSMutableArray * dataArray;
@@ -37,7 +37,7 @@
 
 @end
 
-@implementation DesCountryController
+@implementation DesCountryControlle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -60,11 +60,12 @@
     flowLayout.minimumInteritemSpacing=0;
     flowLayout.minimumLineSpacing=0;
     
-    self.collectionView=[[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
+    
+    self.collectionView=[[UICollectionView alloc]initWithFrame:self.view.frame collectionViewLayout:flowLayout];
     self.collectionView.dataSource=self;
     self.collectionView.delegate=self;
     self.collectionView.backgroundColor=[UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1.0];
-    
+    NSLog(@"%f,%f", self.view.frame.size.width,self.view.frame.size.height);
     [self registViewForCollectionView];
     [self.view addSubview:self.collectionView];
 }
@@ -94,14 +95,14 @@
 
 -(void)fetchDataWithUrl
 {
-        [[DataEngine shareInstance]requestDestinationDetailCountryDataWithCountryID:self.model.id success:^(NSData *respondsObject) {
-            self.dataArray=[AnalyticalNetWorkData parseDestinationDetailCountryData:respondsObject];
-            [self.collectionView reloadData];
-            
-        } faild:^(NSError *error) {
-            
-        }];
-    }
+    [[DataEngine shareInstance]requestDestinationDetailCountryDataWithCountryID:self.model.id success:^(NSData *respondsObject) {
+        self.dataArray=[AnalyticalNetWorkData parseDestinationDetailCountryData:respondsObject];
+        [self.collectionView reloadData];
+        
+    } faild:^(NSError *error) {
+        
+    }];
+}
 
 #pragma mark------<UICollectionViewDataSource,UICollectionViewDelegate>
 
@@ -197,7 +198,7 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CGSize size;
-    CGFloat width=(self.collectionView.frame.size.width-20)/2.0;
+    CGFloat width=(self.view.frame.size.width-20)/2.0;
     switch (indexPath.section) {
         case 1:
             size=CGSizeMake(width, 130);
@@ -216,11 +217,10 @@
             return CGSizeZero;
             break;
     }
-    
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    CGFloat width=self.collectionView.frame.size.width-20;
+    CGFloat width=self.view.frame.size.width-20;
     CGSize  size=CGSizeMake(width,70);
     if (section==0) {
         size=CGSizeMake(self.collectionView.frame.size.width,450);
@@ -270,5 +270,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 @end

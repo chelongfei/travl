@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RecommendModel.h"
 #import "DesDiscountModel.h"
+#import "BaseModel.h"
 
 @interface PriceOffView : UICollectionViewCell
 

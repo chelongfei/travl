@@ -96,7 +96,14 @@
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 3;
+    //判断数组是否为空来判断数据,决定section个数
+    NSInteger secNo=3;
+    for (NSArray * arr in self.dataArray) {
+        if (arr.count==0) {
+            secNo--;
+        }
+    }
+    return secNo;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -155,8 +162,8 @@
             return CGSizeZero;
             break;
     }
-    
 }
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
     CGFloat width=self.collectionView.frame.size.width-20;
@@ -182,8 +189,8 @@
     if (indexPath.section==0) {
         if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
             CityHeadView * headView=[self.collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier: COLLECTION_HEAD_VIEW_ID forIndexPath:indexPath];
-            
-//            CityModel * model=[[self.dataArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
+            CityModel * model=[[self.dataArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
+            [headView updateUIWithModel:model];
             return headView;
         }
     }else{
@@ -201,8 +208,5 @@
     }
     return nil;
 }
-
-
-
 
 @end

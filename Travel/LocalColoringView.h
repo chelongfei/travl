@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RecommendModel.h"
 #import "DesTripModel.h"
+#import "BaseModel.h"
 
 @interface LocalColoringView : UICollectionViewCell
 
@@ -20,5 +21,6 @@
 -(void)updateUIWithRecommendModel:(RecommendModel *)model;
 
 -(void)updateUIWithDesTripModel:(DesTripModel *)model;
+
 
 @end

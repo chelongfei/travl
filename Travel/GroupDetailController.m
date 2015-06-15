@@ -67,13 +67,10 @@
 }
 
 -(void)initPostDict
-
 {
     //    Post&page=%ld  &type=%@(&forum_type=6)  &forum_id=%@
     [self.postDict setObject:self.model.id forKey:@"forum_id"];
-    [self.postDict setObject:[NSString stringWithFormat:@"%ld",self.currentPage] forKey:@"page"];
-    
-    //    [self.postDict setObject:@"" forKey:@"forum_type"];
+    [self.postDict setObject:[NSString stringWithFormat:@"%ld",(long)self.currentPage] forKey:@"page"];
 }
 
 -(void)addHeadView
@@ -95,7 +92,6 @@
     self.countLabel.font=[UIFont systemFontOfSize:15];
     self.countLabel.textColor=[UIColor grayColor];
     [self.view addSubview:self.countLabel];
-    
 }
 
 -(void)addSliderForButton

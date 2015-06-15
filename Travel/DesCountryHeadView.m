@@ -25,7 +25,6 @@
     self.cnnameLabel.text=model.chinesename;
     self.ennameLabel.text=model.englishname;
     [self addImageToScrollViewWithArray:model.photos];
-    
 }
 
 -(void)addImageToScrollViewWithArray:(NSArray *)array

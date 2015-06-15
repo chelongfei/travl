@@ -659,6 +659,7 @@
 		BCD4DD1E1B2C197F00CC389E /* NewDiscountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD4DD1D1B2C197F00CC389E /* NewDiscountModel.m */; };
 		BCD4DD231B2C1D1E00CC389E /* CityHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD4DD211B2C1D1E00CC389E /* CityHeadView.m */; };
 		BCD4DD241B2C1D1E00CC389E /* CityHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD4DD221B2C1D1E00CC389E /* CityHeadView.xib */; };
+		BCD4DD281B2C33CA00CC389E /* DesCountryControlle.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD4DD271B2C33CA00CC389E /* DesCountryControlle.m */; };
 		BCDBA8FE1B2AADA100E72830 /* SectionFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDBA8FC1B2AADA100E72830 /* SectionFootView.m */; };
 		BCDBA8FF1B2AADA100E72830 /* SectionFootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCDBA8FD1B2AADA100E72830 /* SectionFootView.xib */; };
 		BCDBA9031B2AADB300E72830 /* SectionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDBA9011B2AADB300E72830 /* SectionHeadView.m */; };
@@ -674,7 +675,6 @@
 		BCDBA92A1B2B049800E72830 /* DesHotCityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDBA9291B2B049800E72830 /* DesHotCityModel.m */; };
 		BCDBA92D1B2B04B200E72830 /* DesDiscountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDBA92C1B2B04B200E72830 /* DesDiscountModel.m */; };
 		BCDBA9301B2B04C800E72830 /* DesTripModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDBA92F1B2B04C800E72830 /* DesTripModel.m */; };
-		BCDBA9351B2B148400E72830 /* DesCountryController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDBA9331B2B148400E72830 /* DesCountryController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1423,6 +1423,8 @@
 		BCD4DD201B2C1D1E00CC389E /* CityHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityHeadView.h; sourceTree = "<group>"; };
 		BCD4DD211B2C1D1E00CC389E /* CityHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityHeadView.m; sourceTree = "<group>"; };
 		BCD4DD221B2C1D1E00CC389E /* CityHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityHeadView.xib; sourceTree = "<group>"; };
+		BCD4DD261B2C33CA00CC389E /* DesCountryControlle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesCountryControlle.h; sourceTree = "<group>"; };
+		BCD4DD271B2C33CA00CC389E /* DesCountryControlle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesCountryControlle.m; sourceTree = "<group>"; };
 		BCDBA8FB1B2AADA100E72830 /* SectionFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionFootView.h; sourceTree = "<group>"; };
 		BCDBA8FC1B2AADA100E72830 /* SectionFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionFootView.m; sourceTree = "<group>"; };
 		BCDBA8FD1B2AADA100E72830 /* SectionFootView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionFootView.xib; sourceTree = "<group>"; };
@@ -1448,8 +1450,6 @@
 		BCDBA92C1B2B04B200E72830 /* DesDiscountModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesDiscountModel.m; sourceTree = "<group>"; };
 		BCDBA92E1B2B04C800E72830 /* DesTripModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesTripModel.h; sourceTree = "<group>"; };
 		BCDBA92F1B2B04C800E72830 /* DesTripModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesTripModel.m; sourceTree = "<group>"; };
-		BCDBA9321B2B148400E72830 /* DesCountryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesCountryController.h; sourceTree = "<group>"; };
-		BCDBA9331B2B148400E72830 /* DesCountryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesCountryController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2737,8 +2737,8 @@
 		BCDBA9311B2B146000E72830 /* 目地点国家进入 */ = {
 			isa = PBXGroup;
 			children = (
-				BCDBA9321B2B148400E72830 /* DesCountryController.h */,
-				BCDBA9331B2B148400E72830 /* DesCountryController.m */,
+				BCD4DD261B2C33CA00CC389E /* DesCountryControlle.h */,
+				BCD4DD271B2C33CA00CC389E /* DesCountryControlle.m */,
 			);
 			name = "目地点国家进入";
 			sourceTree = "<group>";
@@ -3471,7 +3471,6 @@
 				BCB9AA061B1F149D00CC7023 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				BCADD4B41B258670009E655B /* GroupModel.m in Sources */,
 				BCB9AA181B1F149D00CC7023 /* UIImage+MultiFormat.m in Sources */,
-				BCDBA9351B2B148400E72830 /* DesCountryController.m in Sources */,
 				BCB9AA111B1F149D00CC7023 /* SDWebImageDecoder.m in Sources */,
 				BCB9AA0E1B1F149D00CC7023 /* NSData+ImageContentType.m in Sources */,
 				BCC416771B21C6980031C632 /* DestinationModel.m in Sources */,
@@ -3504,6 +3503,7 @@
 				BC88E6FC1B2075A80087FE0C /* PriceOffView.m in Sources */,
 				BCD4DD131B2C08A700CC389E /* DesCityController.m in Sources */,
 				BCB9A5291B1F137600CC7023 /* AppDelegate.m in Sources */,
+				BCD4DD281B2C33CA00CC389E /* DesCountryControlle.m in Sources */,
 				BCB9A5261B1F137600CC7023 /* main.m in Sources */,
 				BCB9AA1E1B1F149D00CC7023 /* SVIndefiniteAnimatedView.m in Sources */,
 				BCADD4B91B258AB4009E655B /* MyCollectionViewCell.m in Sources */,

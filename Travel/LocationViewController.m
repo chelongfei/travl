@@ -38,8 +38,6 @@
 -(void)addCollectionView
 {
     UICollectionViewFlowLayout * flowLayout=[[UICollectionViewFlowLayout alloc]init];
-//    flowLayout.headerReferenceSize=CGSizeMake(self.view.frame.size.width, 500);
-    //    flowLayout.itemSize=CGSizeMake(self.view.frame.size.width-30, 500);
     flowLayout.sectionInset=UIEdgeInsetsMake(10, 15, 10, 15);
     
     self.collectionView=[[UICollectionView alloc]initWithFrame:self.view.frame collectionViewLayout:flowLayout];
@@ -53,7 +51,6 @@
     UINib * nib=[UINib nibWithNibName:@"LocationHeadView" bundle:nil];
     [self.collectionView registerNib:nib forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:COLLECT_HEAD_VIEW_CELL];
     
-    
     [self.view addSubview:self.collectionView];
 }
 
@@ -66,7 +63,6 @@
     } faild:^(NSError *error) {
         
     }];
-    
 }
 
 #pragma mark----<UICollectionViewDataSource,UICollectionViewDelegate>
@@ -96,7 +92,7 @@
 }
 
 #pragma mark--<UICollectionViewDelegateFlowLayout>
-//-(CGFloat)getHeadHeightWithModel:(RecommendModel *)model width:(CGFloat)width
+
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.dataArray>0) {
