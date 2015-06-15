@@ -11,6 +11,7 @@
 #import "LocationCollectCell.h"
 #import "DataEngine.h"
 #import "AnalyticalNetWorkData.h"
+#import "LocationHeadModel.h"
 
 #define COLLECT_HEAD_VIEW_CELL @"collectionHeadViewCellID"
 #define COLLECT_VIEW_CELL @"collectionViewCellID"
@@ -19,6 +20,7 @@
 
 @property(nonatomic)UICollectionView * collectionView;
 @property(nonatomic)NSMutableArray * dataArray;
+@property(nonatomic)LocationHeadModel * model;
 
 @end
 
@@ -56,10 +58,11 @@
 
 -(void)fetchDataWithUrl
 {
-    [[DataEngine shareInstance]requestRecommendLocationDataWithPage:self.model.id success:^(NSData *respondsObject) {
-        self.dataArray=[AnalyticalNetWorkData parseRecommendLocation:respondsObject];
+    [[DataEngine shareInstance]requestRecommendLocationDataWithPage:self.id success:^(NSData *respondsObject) {
+        NSMutableArray * reciveArray=[AnalyticalNetWorkData parseRecommendLocation:respondsObject];
+        self.dataArray=reciveArray[1];
+        self.model=[reciveArray objectAtIndex:0];
         [self.collectionView reloadData];
-        
     } faild:^(NSError *error) {
         
     }];
@@ -68,8 +71,8 @@
 #pragma mark----<UICollectionViewDataSource,UICollectionViewDelegate>
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    return self.dataArray.count;
+{;
+    return [self.dataArray count];
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -86,7 +89,7 @@
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     LocationHeadView * headView=[self.collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:COLLECT_HEAD_VIEW_CELL forIndexPath:indexPath];
-    [headView updateHeadViewWithModel:self.model];
+     [headView updateHeadViewWithModel:self.model];
     
     return headView;
 }
@@ -109,14 +112,14 @@
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
     LocationHeadView * headView=[[LocationHeadView alloc]init];
-  CGFloat height= [headView getHeadHeightWithModel:self.model width:self.view.frame.size.width-55];
+    CGFloat height= [headView getHeadHeightWithModel:self.model width:self.view.frame.size.width-55];
     CGSize size=CGSizeMake(self.view.frame.size.width, height);
     return size;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 
 

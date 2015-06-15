@@ -17,6 +17,10 @@
 #import "NewDiscountModel.h"
 #import "SectionFootView.h"
 #import "SectionHeadView.h"
+#import "DetailViewController.h"
+#import "LocationViewController.h"
+#import "URLDefine.h"
+#import "CircleButtonController.h"
 
 
 
@@ -189,6 +193,13 @@
     if (indexPath.section==0) {
         if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
             CityHeadView * headView=[self.collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier: COLLECTION_HEAD_VIEW_ID forIndexPath:indexPath];
+            
+            __weak typeof(self)weakself=self;
+            [headView setCircleBlock:^(NSString * categoryID){
+                CircleButtonController * VC=[[CircleButtonController alloc]init];
+                VC.categoryID=categoryID;
+                [weakself.navigationController pushViewController:VC animated:YES];
+            }];
             CityModel * model=[[self.dataArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
             [headView updateUIWithModel:model];
             return headView;
@@ -207,6 +218,29 @@
         }
     }
     return nil;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.section) {
+        case 1:{
+            NSArray * detailArray=[self.dataArray objectAtIndex:indexPath.section];
+            HotMguideModel * model=[detailArray objectAtIndex:indexPath.row];
+            LocationViewController * locationVC=[[LocationViewController alloc]init];
+            locationVC.id=model.id;
+            [self.navigationController pushViewController:locationVC animated:YES];
+            break;}
+        case 2:{
+            NSArray * detailArray=[self.dataArray objectAtIndex:indexPath.section];
+            NewDiscountModel * model=[detailArray objectAtIndex:indexPath.row];
+            NSString * url=[NSString stringWithFormat:DISCOUNT_URL,model.id];
+            DetailViewController * detailVC=[[DetailViewController alloc]init];
+            detailVC.url=url;
+            [self.navigationController pushViewController:detailVC animated:YES];
+            break;}
+        default:
+            break;
+    }
 }
 
 @end

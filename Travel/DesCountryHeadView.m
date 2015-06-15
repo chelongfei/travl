@@ -22,8 +22,8 @@
 
 -(void)updateUIWithModel:(DesCountryModel *)model
 {
-    self.cnnameLabel.text=model.chinesename;
-    self.ennameLabel.text=model.englishname;
+    self.cnnameLabel.text=model.cnname;
+    self.ennameLabel.text=model.enname;
     [self addImageToScrollViewWithArray:model.photos];
 }
 
@@ -38,6 +38,7 @@
         [imageView sd_setImageWithURL:[NSURL URLWithString:array[index]] placeholderImage:[UIImage imageNamed:@"zbg_p9_cover_def_mid_round_corner.9.png"]];
         [self.scrollView addSubview:imageView];
     }
+    [self insertSubview:self.backgroundView aboveSubview:self.scrollView];
 }
 
 - (IBAction)buttonClick:(UIButton *)sender {

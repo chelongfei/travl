@@ -20,6 +20,7 @@
 #import "DetailViewController.h"
 #import "DesCityController.h"
 #import "URLDefine.h"
+#import "LocationViewController.h"
 
 #define COLLECT_HEAD_VIEW_ID @"collectionHeadViewId"
 #define COLLECT_SECTION_HEAD_ID @"collectionSectionHeadId"
@@ -65,7 +66,6 @@
     self.collectionView.dataSource=self;
     self.collectionView.delegate=self;
     self.collectionView.backgroundColor=[UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1.0];
-    NSLog(@"%f,%f", self.view.frame.size.width,self.view.frame.size.height);
     [self registViewForCollectionView];
     [self.view addSubview:self.collectionView];
 }
@@ -177,14 +177,14 @@
         case 2:{
             NSArray * detailArray=[self.dataArray objectAtIndex:indexPath.section];
             DesTripModel * model=[detailArray objectAtIndex:indexPath.row];
-            DetailViewController * detailVC=[[DetailViewController alloc]init];
-            detailVC.url=model.view_url;
-            [self.navigationController pushViewController:detailVC animated:YES];
-            break;}
+            LocationViewController * locationVC=[[LocationViewController alloc]init];
+            locationVC.id=model.id;
+            [self.navigationController pushViewController:locationVC animated:YES];
+        break;}
         case 3:{
             NSArray * detailArray=[self.dataArray objectAtIndex:indexPath.section];
             DesDiscountModel * model=[detailArray objectAtIndex:indexPath.row];
-            NSString * url=[NSString stringWithFormat:RECOMMEND_DISCOUNT_URL,model.id];
+            NSString * url=[NSString stringWithFormat:DISCOUNT_URL,model.id];
             DetailViewController * detailVC=[[DetailViewController alloc]init];
             detailVC.url=url;
             [self.navigationController pushViewController:detailVC animated:YES];

@@ -11,8 +11,8 @@
 @interface DesCountryModel : BaseModel
 
 @property(nonatomic,copy)NSString * id;
-@property(nonatomic,copy)NSString * chinesename;
-@property(nonatomic,copy)NSString * englishname;
+@property(nonatomic,copy)NSString * cnname;
+@property(nonatomic,copy)NSString * enname;
 //@property(nonatomic,copy)NSString * planto;
 //@property(nonatomic,copy)NSString * beento;
 @property(nonatomic)NSArray *  photos;

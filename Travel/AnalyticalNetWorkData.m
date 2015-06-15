@@ -20,6 +20,9 @@
 #import "CityModel.h"
 #import "HotMguideModel.h"
 #import "NewDiscountModel.h"
+#import "LocationHeadModel.h"
+#import "TypeModel.h"
+#import "EntryModel.h"
 
 @implementation AnalyticalNetWorkData
 
@@ -152,14 +155,21 @@
 +(NSMutableArray *)parseRecommendLocation:(id)responseObject
 {
     NSMutableArray * dataArray=[[NSMutableArray alloc]init];
+    
+    NSMutableArray * cellArray=[[NSMutableArray alloc]init];
     NSDictionary * orginDic=(NSDictionary *)responseObject;
     NSDictionary * orginDict=orginDic[@"data"];
+    LocationHeadModel * model=[[LocationHeadModel alloc]init];
+    [model setValuesForKeysWithDictionary:orginDict];
     NSArray * orginArray=orginDict[@"pois"];
     for (NSDictionary * dict in orginArray) {
         LocationModel * model=[[LocationModel alloc]init];
         [model setValuesForKeysWithDictionary:dict];
-        [dataArray addObject:model];
+        [cellArray addObject:model];
     }
+    [dataArray addObject:model];
+    [dataArray addObject:cellArray];
+    
     return dataArray;
 }
 
@@ -177,8 +187,8 @@
     
     DesCountryModel  * model=[[DesCountryModel alloc]init];
     
-    model.chinesename=dict[@"chinesename"];
-    model.englishname=dict[@"englishname"];
+    model.cnname=dict[@"cnname"];
+    model.enname=dict[@"enname"];
     model.photos=dict[@"photos"];
     model.id=dict[@"id"];
     [countryDataArray addObject:model];
@@ -194,7 +204,7 @@
         [model setValuesForKeysWithDictionary:disDic];
         [disCountDataArray addObject:model];
     }
-    for (NSDictionary * tripDic in dict[@"new_trip"]) {
+    for (NSDictionary * tripDic in dict[@"hot_mguide"]) {
         DesTripModel * model=[[DesTripModel alloc]init];
         [model setValuesForKeysWithDictionary:tripDic];
         [tripDataArray addObject:model];
@@ -237,8 +247,31 @@
     [dataArray addObject:newDiscountDataArray];
 
     return dataArray;
+}
+
+//解析具体城市页面圆形button数据并返回
++(NSMutableArray *)parseDetailCityCircleButtonData:(id)responseObject
+{
+    NSMutableArray * dataArray=[[NSMutableArray alloc]init];
+    NSDictionary * orginDic=(NSDictionary *)responseObject;
+    NSDictionary * dict=orginDic[@"data"];
+    //二层数组
+    NSMutableArray * typeModelArray=[[NSMutableArray alloc]init];
+    NSMutableArray * entryModelArray=[[NSMutableArray alloc]init];
     
-    
+    for (NSDictionary * hotDic in dict[@"types"]) {
+        TypeModel * model=[[TypeModel alloc]init];
+        [model setValuesForKeysWithDictionary:hotDic];
+        [typeModelArray addObject:model];
+    }
+    for (NSDictionary * disDic in dict[@"entry"]) {
+        EntryModel * model=[[EntryModel alloc]init];
+        [model setValuesForKeysWithDictionary:disDic];
+        [entryModelArray addObject:model];
+    }
+    [dataArray addObject:typeModelArray];
+    [dataArray addObject:entryModelArray];
+    return dataArray;
 }
 
 @end

@@ -19,7 +19,8 @@
 //*ennameLabel;
 -(void)updateCellUIWithModel:(DesHotCityModel *)model
 {
-    self.cnnameLabel.text=model.name;
+    self.cnnameLabel.text=model.cnname;
+    self.ennameLabel.text=model.enname;
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:model.photo] placeholderImage:[UIImage imageNamed:@"zbg_p9_cover_def_mid_round_corner.9.png"]];
 }
 

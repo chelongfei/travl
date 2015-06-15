@@ -36,4 +36,8 @@
 //解析目的地界面具体城市信息并返回
 +(NSMutableArray *)parseDestinationDetailCityData:(id)responseObject;
 
+//解析具体城市页面圆形button数据并返回
++(NSMutableArray *)parseDetailCityCircleButtonData:(id)responseObject;
+
+
 @end

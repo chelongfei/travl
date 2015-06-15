@@ -20,6 +20,7 @@
 #import "GroupDetailController.h"
 #import "LocationViewController.h"
 #import "DesCountryControlle.h"
+#import "DesCityController.h"
 
 
 #define COLLECTIONVIEW_CELLID @"collectionViewCellId"
@@ -114,6 +115,7 @@
     _HomeCollectionView.showsHorizontalScrollIndicator=NO;
     _HomeCollectionView.delegate=self;
     _HomeCollectionView.dataSource=self;
+    _HomeCollectionView.bounces=NO;
     //注册cell
     [self.HomeCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:COLLECTIONVIEW_CELLID];
     [self.view addSubview:_HomeCollectionView];
@@ -146,7 +148,7 @@
     __weak typeof(self)weakself=self;
     [self.recommendView setLocationClickBlock:^(RecommendModel * model){
         LocationViewController * locationVC=[[LocationViewController alloc]init];
-        locationVC.model=model;
+        locationVC.id=model.id;
         [weakself.navigationController pushViewController:locationVC animated:YES];
     }];
     [_HomeCollectionView addSubview:self.recommendView];

@@ -247,7 +247,7 @@
     switch (indexPath.section) {
         case 1:{
             RecommendModel * model=[self.discountDataArray objectAtIndex:indexPath.row];
-            NSString * url=[NSString stringWithFormat:RECOMMEND_DISCOUNT_URL,model.id];
+            NSString * url=[NSString stringWithFormat:DISCOUNT_URL,model.id];
         [[NSNotificationCenter defaultCenter]postNotificationName:@"DetailVCWithUrl" object:url];
             break;}
         case 2:{

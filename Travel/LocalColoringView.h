@@ -22,5 +22,4 @@
 
 -(void)updateUIWithDesTripModel:(DesTripModel *)model;
 
-
 @end

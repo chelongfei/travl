@@ -13,7 +13,6 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="WhT-LL-WIb">
                     <rect key="frame" x="10" y="10" width="155" height="120"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.2964093968" green="1" blue="0.94325906280000005" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HgO-EW-eLZ">
                     <rect key="frame" x="70" y="133" width="97" height="15"/>

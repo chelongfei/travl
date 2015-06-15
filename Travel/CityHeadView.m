@@ -32,4 +32,13 @@
     }
 }
 
+//8800~8803
+- (IBAction)circleButtonClick:(UIButton *)sender {
+    NSArray * categoryIDArray=@[@"32",@"78",@"147",@"148"];
+    NSInteger index=sender.tag-8800;
+    if (_circleBlock) {
+        _circleBlock(categoryIDArray[index]);
+    }
+}
+
 @end

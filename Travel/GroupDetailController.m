@@ -154,6 +154,7 @@
             frame.origin.x=button.frame.origin.x;
             self.sliderForButton.frame=frame;
         }];
+        self.tableView.contentOffset=CGPointMake(0,0);
         self.currentPage=1;
         [self.postDict removeObjectForKey:@"forum_type"];
         [self.postDict removeObjectForKey:@"type"];
@@ -234,7 +235,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    return 80;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -258,15 +259,15 @@
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
     float height = scrollView.contentSize.height > _tableView.frame.size.height ?_tableView.frame.size.height : scrollView.contentSize.height;
-    if (_isLoading==NO) {
-        _isLoading=YES;
-        if ((height - scrollView.contentSize.height + scrollView.contentOffset.y) / height > 0.1) {
-            self.currentPage++;
-            // 调用上拉刷新方法
-            [self refreshCell];
+        if (_isLoading==NO) {
+            if ((height - scrollView.contentSize.height + scrollView.contentOffset.y) / height > 0.1) {
+                _isLoading=YES;
+                self.currentPage++;
+                // 调用上拉刷新方法
+                [self refreshCell];
+            }
             _isLoading=NO;
         }
-    }
 }
 
 -(void)refreshCell

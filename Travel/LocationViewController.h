@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RecommendModel.h"
 
 @interface LocationViewController : UIViewController
 
-@property(nonatomic)RecommendModel * model;
+@property(nonatomic)NSString * id;
 
 @end

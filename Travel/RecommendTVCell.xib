@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tcO-w4-Tm5">
-                        <rect key="frame" x="93.000000100074459" y="5" width="247" height="38"/>
+                        <rect key="frame" x="93.000000155695716" y="5" width="247" height="38"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

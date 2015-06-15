@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RecommendModel.h"
+#import "LocationHeadModel.h"
 
 @interface LocationHeadView : UICollectionReusableView
 
@@ -18,8 +18,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *countLabel;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 
--(void)updateHeadViewWithModel:(RecommendModel *)model;
+-(void)updateHeadViewWithModel:(LocationHeadModel *)model;
+//
+-(CGFloat)getHeadHeightWithModel:(LocationHeadModel *)model width:(CGFloat)width;
 
--(CGFloat)getHeadHeightWithModel:(RecommendModel *)model width:(CGFloat)width;
 
 @end

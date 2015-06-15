@@ -15,17 +15,11 @@
     
 }
 
-//@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-//@property (weak, nonatomic) IBOutlet UITextView *textView;
-//@property (weak, nonatomic) IBOutlet UILabel *placeNameLabel;
-
 -(void)updateCollectionCellWithModel:(LocationModel *)model
 {
     [ self.imageView sd_setImageWithURL:[NSURL URLWithString:model.photo] placeholderImage:[UIImage imageNamed:@"zbg_p9_cover_def_mid_round_corner.9.png"]];
     self.textView.text=model.description;
     self.placeNameLabel.text=model.firstname;
-    
-    
 }
 
 -(CGFloat)getCellHeightWithModel:(LocationModel *)model width:(CGFloat)width
@@ -35,7 +29,6 @@
 }
 
 #pragma mark
-
 
 - (float) heightForString:(NSString *)value fontSize:(CGFloat)fontSize andWidth:(CGFloat)width
 {

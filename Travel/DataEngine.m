@@ -86,7 +86,7 @@
 -(void)requestRecommendLocationDataWithPage:(NSString *)pageID success:(SuccessBlockType)success faild:(FailedBlockType)failed
 {
     
-    [_manager GET:[NSString stringWithFormat:RECOMMEND_LOCATION_URL,pageID] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [_manager GET:[NSString stringWithFormat:LOCATION_URL,pageID] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         success(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failed(error);
@@ -94,7 +94,7 @@
     
 }
 
-//获取目的地界面具体城市数据
+//获取目的地界面具体国家数据
 -(void)requestDestinationDetailCountryDataWithCountryID:(NSString *)countryId success:(SuccessBlockType)success faild:(FailedBlockType)failed
 {
     NSString * url=[NSString stringWithFormat:DES_DETAIL_COUNTRY_URL,countryId];
@@ -114,9 +114,20 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failed(error);
     }];
-    
 }
 
+
+//获取目的地具体城市页面圆形按钮点击数据
+-(void)requestDetailCityCricleButtonWithCategoryId:(NSString *)categoryId success:(SuccessBlockType)success faile:(FailedBlockType)failed
+{
+    NSString * url=[NSString stringWithFormat:DES_DETAIL_CITY_CORCLE_BUTTON_URL,categoryId];
+    [_manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        success(responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failed(error);
+    }];
+
+}
 
 
 @end

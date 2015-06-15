@@ -11,27 +11,21 @@
 
 @implementation LocationHeadView
 
-//@property (weak, nonatomic) IBOutlet UIImageView *bigImageView;
-//@property (weak, nonatomic) IBOutlet UIImageView *userImageView;
-//@property (weak, nonatomic) IBOutlet UILabel *userName;
-//@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-//@property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
-
 - (void)awakeFromNib {
-    // Initialization code
+    
 }
 
--(void)updateHeadViewWithModel:(RecommendModel *)model
+-(void)updateHeadViewWithModel:(LocationHeadModel *)model
 {
     [self.bigImageView sd_setImageWithURL:[NSURL URLWithString:model.photo] placeholderImage:[UIImage imageNamed:@"zbg_p9_cover_def_mid_round_corner.9.png"]];
     [self.userImageView sd_setImageWithURL:[NSURL URLWithString:model.avatar] placeholderImage:[UIImage imageNamed:@"zbg_p9_cover_def_mid_round_corner.9.png"]];
     self.userName.text=model.username;
     self.titleLabel.text=model.title;
     self.countLabel.text=model.count;
-    self.descriptionTextView.text=model.debugDescription;
+    self.descriptionTextView.text=model.description;
 }
 
--(CGFloat)getHeadHeightWithModel:(RecommendModel *)model width:(CGFloat)width
+-(CGFloat)getHeadHeightWithModel:(LocationHeadModel *)model width:(CGFloat)width
 {
     CGFloat height=[self heightForString:model.description fontSize:16 andWidth:width];
     return 357+height;
