@@ -198,6 +198,7 @@
             [headView setCircleBlock:^(NSString * categoryID){
                 CircleButtonController * VC=[[CircleButtonController alloc]init];
                 VC.categoryID=categoryID;
+                VC.cityID=self.model.id;
                 [weakself.navigationController pushViewController:VC animated:YES];
             }];
             CityModel * model=[[self.dataArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];

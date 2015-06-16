@@ -89,8 +89,9 @@
 
 -(void)customNavigationBar
 {
-    
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"custom_nav_bar.png"] forBarMetrics:(UIBarMetricsDefault)];
+    self.navigationController.navigationBar.tintColor=[UIColor purpleColor];
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"custom_nav_bar.png"] forBarMetrics:(UIBarMetricsDefault)];
+    self.navigationController.navigationBar.translucent=NO;
 }
 
 -(void)initView

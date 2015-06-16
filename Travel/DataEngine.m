@@ -118,9 +118,9 @@
 
 
 //获取目的地具体城市页面圆形按钮点击数据
--(void)requestDetailCityCricleButtonWithCategoryId:(NSString *)categoryId success:(SuccessBlockType)success faile:(FailedBlockType)failed
+-(void)requestDetailCityCricleButtonWithCategoryId:(NSString *)categoryId cityID:(NSString *)cityId success:(SuccessBlockType)success faile:(FailedBlockType)failed
 {
-    NSString * url=[NSString stringWithFormat:DES_DETAIL_CITY_CORCLE_BUTTON_URL,categoryId];
+    NSString * url=[NSString stringWithFormat:DES_DETAIL_CITY_CORCLE_BUTTON_URL,cityId,categoryId];
     [_manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         success(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

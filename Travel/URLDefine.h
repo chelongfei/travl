@@ -37,7 +37,7 @@
 #define DES_DETAIL_CITY_URL  @"http://open.qyer.com/qyer/footprint/city_detail?client_id=qyer_android&client_secret=9fcaae8aefc4f9ac4915&v=1&track_app_version=6.3&track_app_channel=qq&track_device_info=dior&city_id=%@&oauth_token="
 
 //点击具体城市页面圆形button   
-#define DES_DETAIL_CITY_CORCLE_BUTTON_URL @"http://open.qyer.com/qyer/onroad/poi_list?client_id=qyer_android&client_secret=9fcaae8aefc4f9ac4915&v=1&track_app_version=6.3&page=1&city_id=50&category_id=%@&count=20&types=&orderby=popular&oauth_token="
+#define DES_DETAIL_CITY_CORCLE_BUTTON_URL @"http://open.qyer.com/qyer/onroad/poi_list?client_id=qyer_android&client_secret=9fcaae8aefc4f9ac4915&v=1&track_app_version=6.3&page=1&city_id=%@&category_id=%@&count=20&types=&orderby=popular&oauth_token="
 
 
 

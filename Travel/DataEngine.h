@@ -38,6 +38,6 @@ typedef void(^FailedBlockType)(NSError * error);
 -(void)requestDestinationDetailCityDataWithCityID:(NSString *)cityId success:(SuccessBlockType)success faild:(FailedBlockType)failed;
 
 //获取目的地具体城市页面圆形按钮点击数据
--(void)requestDetailCityCricleButtonWithCategoryId:(NSString *)categoryId success:(SuccessBlockType)success faile:(FailedBlockType)failed;
+-(void)requestDetailCityCricleButtonWithCategoryId:(NSString *)categoryId cityID:(NSString *)cityId success:(SuccessBlockType)success faile:(FailedBlockType)failed;
 
 @end

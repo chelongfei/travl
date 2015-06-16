@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EntryModel.h"
 
 @interface CircleButtonCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UIImageView *picImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *beentoCountLabel;
+
+-(void)initUIWithModel:(EntryModel *)model;
 
 @end

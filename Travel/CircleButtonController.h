@@ -11,5 +11,6 @@
 @interface CircleButtonController : UIViewController
 
 @property(nonatomic,copy)NSString * categoryID;
+@property(nonatomic,copy)NSString * cityID;
 
 @end
