@@ -13,7 +13,7 @@
 #import "TypeModel.h"
 #import "EntryModel.h"
 #import "CircleButtonCell.h"
-#import "ViewController.h"
+#import "CustomNavBarController.h"
 
 #define TBL_CELL_ID @"tableViewCellId"
 
@@ -39,7 +39,8 @@
     [super viewWillAppear:animated];
     switch ([self.categoryID integerValue]) {
         case 32:
-            self.navigationController.navigationBar.backgroundColor=[UIColor colorWithRed:194/255.0 green:124/255.0 blue:208/255.0 alpha:1.0];
+           
+            
             break;
         
         case 78:
@@ -58,7 +59,7 @@
 
 -(void)addTableView
 {
-    self.tableView=[[UITableView alloc]initWithFrame:self.view.frame];
+    self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 70, self.view.frame.size.width, self.view.frame.size.height-70)];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
     self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
@@ -126,7 +127,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    //CustomNavBarController * VC=[[CustomNavBarController alloc]init];
+   // [self.navigationController pushViewController:VC animated:YES];
 }
 
 @end

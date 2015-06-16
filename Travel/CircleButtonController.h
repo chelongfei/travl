@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomNavBarController.h"
 
-@interface CircleButtonController : UIViewController
+@interface CircleButtonController : CustomNavBarController
 
 @property(nonatomic,copy)NSString * categoryID;
+
 @property(nonatomic,copy)NSString * cityID;
 
 @end

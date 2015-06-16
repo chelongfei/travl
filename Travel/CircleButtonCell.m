@@ -13,12 +13,14 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    
+
 }
 
 
 -(void)initUIWithModel:(EntryModel *)model
 {
-    [self.picImageView sd_setImageWithURL:[NSURL URLWithString:model.photo]placeholderImage:[UIImage imageNamed:@"zbg_p9_cover_def_mid_round_corner.9.png"]];
+    [self.picImageView sd_setImageWithURL:[NSURL URLWithString:model.photo] placeholderImage:[UIImage imageNamed:@"zbg_p9_cover_def_mid_round_corner.9.png"]];
     self.picImageView.layer.masksToBounds=YES;
     self.nameLabel.text=model.firstname;
     self.beentoCountLabel.text=model.beenstr;

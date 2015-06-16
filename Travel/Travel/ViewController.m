@@ -89,9 +89,9 @@
 
 -(void)customNavigationBar
 {
-    self.navigationController.navigationBar.tintColor=[UIColor purpleColor];
-//    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"custom_nav_bar.png"] forBarMetrics:(UIBarMetricsDefault)];
-    self.navigationController.navigationBar.translucent=NO;
+//    self.navigationController.navigationBar.tintColor=[UIColor purpleColor];
+////    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"custom_nav_bar.png"] forBarMetrics:(UIBarMetricsDefault)];
+//    self.navigationController.navigationBar.translucent=NO;
 }
 
 -(void)initView
@@ -111,7 +111,7 @@
     flowLayout.minimumLineSpacing=0;
     flowLayout.scrollDirection=UICollectionViewScrollDirectionHorizontal;
     
-    _HomeCollectionView=[[UICollectionView alloc]initWithFrame:CGRectMake(0, 80, self.view.frame.size.width, self.view.frame.size.height-80) collectionViewLayout:flowLayout];
+    _HomeCollectionView=[[UICollectionView alloc]initWithFrame:CGRectMake(0, 70, self.view.frame.size.width, self.view.frame.size.height-70) collectionViewLayout:flowLayout];
     _HomeCollectionView.pagingEnabled=YES;
     _HomeCollectionView.showsHorizontalScrollIndicator=NO;
     _HomeCollectionView.delegate=self;
@@ -145,7 +145,7 @@
 //添加recommendView
 -(void)addRecommendView
 {
-    self.recommendView=[[RecommendView alloc]initWithFrame:(CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height))];
+    self.recommendView=[[RecommendView alloc]initWithFrame:(CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-70))];
     __weak typeof(self)weakself=self;
     [self.recommendView setLocationClickBlock:^(RecommendModel * model){
         LocationViewController * locationVC=[[LocationViewController alloc]init];
@@ -158,7 +158,7 @@
 //添加DestinationView
 -(void)addDestinationView
 {
-    self.destinationView=[[DestinationView alloc]initWithFrame:(CGRectMake(self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height-80))];
+    self.destinationView=[[DestinationView alloc]initWithFrame:(CGRectMake(self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height-70))];
     __weak typeof(self)weakself=self;
     [self.destinationView setClickCountryBlock:^(DestinationModel * model){
         //如果flag==1表示是国家,否则直接跳转到城市界面
@@ -176,7 +176,7 @@
 //添加GroupView
 -(void)addGroupView
 {
-    self.groupView=[[GroupView alloc]initWithFrame:(CGRectMake(self.view.frame.size.width*2, 0, self.view.frame.size.width, self.view.frame.size.height-80))];
+    self.groupView=[[GroupView alloc]initWithFrame:(CGRectMake(self.view.frame.size.width*2, 0, self.view.frame.size.width, self.view.frame.size.height-70))];
     __weak typeof(self)weakself=self;
     [self.groupView setGroupBlock:^(GroupModel * model){
         GroupDetailController * controller=[[GroupDetailController alloc]init];

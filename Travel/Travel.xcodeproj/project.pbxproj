@@ -655,6 +655,8 @@
 		BCC4167B1B21C7F50031C632 /* AnalyticalNetWorkData.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC4167A1B21C7F50031C632 /* AnalyticalNetWorkData.m */; };
 		BCC416811B21D2180031C632 /* DestinationCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC4167F1B21D2180031C632 /* DestinationCollectionViewCell.m */; };
 		BCC416821B21D2180031C632 /* DestinationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC416801B21D2180031C632 /* DestinationCollectionViewCell.xib */; };
+		BCD2AFE21B2FCC48006BFB9E /* CustomNavBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD2AFE11B2FCC48006BFB9E /* CustomNavBarController.m */; };
+		BCD2AFE61B2FFC93006BFB9E /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD2AFE51B2FFC93006BFB9E /* MapViewController.m */; };
 		BCD4DD031B2BBE0400CC389E /* DesCountryHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD4DD011B2BBE0400CC389E /* DesCountryHeadView.m */; };
 		BCD4DD041B2BBE0400CC389E /* DesCountryHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD4DD021B2BBE0400CC389E /* DesCountryHeadView.xib */; };
 		BCD4DD091B2BD06100CC389E /* HotCityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD4DD071B2BD06100CC389E /* HotCityCell.m */; };
@@ -1423,6 +1425,10 @@
 		BCC4167E1B21D2180031C632 /* DestinationCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationCollectionViewCell.h; sourceTree = "<group>"; };
 		BCC4167F1B21D2180031C632 /* DestinationCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationCollectionViewCell.m; sourceTree = "<group>"; };
 		BCC416801B21D2180031C632 /* DestinationCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DestinationCollectionViewCell.xib; sourceTree = "<group>"; };
+		BCD2AFE01B2FCC48006BFB9E /* CustomNavBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavBarController.h; sourceTree = "<group>"; };
+		BCD2AFE11B2FCC48006BFB9E /* CustomNavBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavBarController.m; sourceTree = "<group>"; };
+		BCD2AFE41B2FFC93006BFB9E /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		BCD2AFE51B2FFC93006BFB9E /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		BCD4DD001B2BBE0400CC389E /* DesCountryHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesCountryHeadView.h; sourceTree = "<group>"; };
 		BCD4DD011B2BBE0400CC389E /* DesCountryHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesCountryHeadView.m; sourceTree = "<group>"; };
 		BCD4DD021B2BBE0400CC389E /* DesCountryHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesCountryHeadView.xib; sourceTree = "<group>"; };
@@ -2397,6 +2403,8 @@
 		BCB9AA211B1F14A500CC7023 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BCD2AFE31B2FFC7F006BFB9E /* 地图选点界面 */,
+				BCD2AFDF1B2FCC22006BFB9E /* 自定义NavagationBar */,
 				BCBA5AD81B2F003400598794 /* 具体城市景点等点击进入 */,
 				BCD4DD0B1B2C072D00CC389E /* 目地点城市进入 */,
 				BCDBA9311B2B146000E72830 /* 目地点国家进入 */,
@@ -2578,6 +2586,24 @@
 				BCC416801B21D2180031C632 /* DestinationCollectionViewCell.xib */,
 			);
 			name = collectionCell;
+			sourceTree = "<group>";
+		};
+		BCD2AFDF1B2FCC22006BFB9E /* 自定义NavagationBar */ = {
+			isa = PBXGroup;
+			children = (
+				BCD2AFE01B2FCC48006BFB9E /* CustomNavBarController.h */,
+				BCD2AFE11B2FCC48006BFB9E /* CustomNavBarController.m */,
+			);
+			name = "自定义NavagationBar";
+			sourceTree = "<group>";
+		};
+		BCD2AFE31B2FFC7F006BFB9E /* 地图选点界面 */ = {
+			isa = PBXGroup;
+			children = (
+				BCD2AFE41B2FFC93006BFB9E /* MapViewController.h */,
+				BCD2AFE51B2FFC93006BFB9E /* MapViewController.m */,
+			);
+			name = "地图选点界面";
 			sourceTree = "<group>";
 		};
 		BCD4DCFD1B2BBD8100CC389E /* 目的详情Head */ = {
@@ -3519,6 +3545,7 @@
 				BC88E6F81B205B6C0087FE0C /* DetailViewController.m in Sources */,
 				BCB9AA1C1B1F149D00CC7023 /* UIView+WebCacheOperation.m in Sources */,
 				BCDBA8FE1B2AADA100E72830 /* SectionFootView.m in Sources */,
+				BCD2AFE61B2FFC93006BFB9E /* MapViewController.m in Sources */,
 				BCD4DD181B2C187800CC389E /* CityModel.m in Sources */,
 				BCB9AA081B1F149D00CC7023 /* UIButton+AFNetworking.m in Sources */,
 				BCC4167B1B21C7F50031C632 /* AnalyticalNetWorkData.m in Sources */,
@@ -3554,6 +3581,7 @@
 				BCC416721B21C4960031C632 /* DestinationView.m in Sources */,
 				BCDBA9271B2B046D00E72830 /* DesCountryModel.m in Sources */,
 				BCB9AA381B1F249300CC7023 /* RecommendModel.m in Sources */,
+				BCD2AFE21B2FCC48006BFB9E /* CustomNavBarController.m in Sources */,
 				BCBA5ADB1B2F006700598794 /* CircleButtonController.m in Sources */,
 				BCB9AA1B1B1F149D00CC7023 /* UIImageView+WebCache.m in Sources */,
 				BC0C55F21B22E18F004BEF5A /* OtherCountryCell.m in Sources */,
