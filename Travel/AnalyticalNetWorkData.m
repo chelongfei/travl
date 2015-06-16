@@ -23,6 +23,7 @@
 #import "LocationHeadModel.h"
 #import "TypeModel.h"
 #import "EntryModel.h"
+#import "CityMapModel.h"
 
 @implementation AnalyticalNetWorkData
 
@@ -273,5 +274,20 @@
     [dataArray addObject:entryModelArray];
     return dataArray;
 }
+
+//解析圆形button具体地图数据并返回
++(NSMutableArray *)parseCircleButtonMapData:(id)responseObject
+{
+    NSMutableArray * dataArray=[[NSMutableArray alloc]init];
+    NSDictionary * orginDic=(NSDictionary *)responseObject;
+    NSArray * orginArray=orginDic[@"data"];
+    for (NSDictionary * dict in orginArray) {
+        CityMapModel * model=[[CityMapModel alloc]init];
+        [model setValuesForKeysWithDictionary:dict];
+        [dataArray addObject:model];
+    }
+    return dataArray;
+}
+
 
 @end

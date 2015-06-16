@@ -11,6 +11,4 @@
 
 @interface MapViewController : CustomNavBarController
 
-
-
 @end

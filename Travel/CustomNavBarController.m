@@ -70,6 +70,8 @@
 -(void)map:(UIButton *)button
 {
     MapViewController * mapVC=[[MapViewController alloc]init];
+    mapVC.categoryID=self.categoryID;
+    mapVC.cityID=self.cityID;
     [self.navigationController pushViewController:mapVC animated:YES];
 }
 

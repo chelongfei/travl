@@ -129,5 +129,15 @@
 
 }
 
+//获取圆形具体按钮进入后点击地图
+-(void)requestCityCricleButtonMapWithcityID:(NSString *)cityId CategoryId:(NSString *)categoryId success:(SuccessBlockType)success faile:(FailedBlockType)failed
+{
+    [_manager GET:[NSString stringWithFormat:CIRCLE_BUTTON_MAP_URL,cityId,categoryId] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        success(responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failed(error);
+    }];
+}
+
 
 @end

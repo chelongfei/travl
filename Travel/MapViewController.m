@@ -8,12 +8,15 @@
 
 #import "MapViewController.h"
 #import <MapKit/MapKit.h>
+#import "DataEngine.h"
+#import "AnalyticalNetWorkData.h"
 
 
 @interface MapViewController ()
 
 @property(nonatomic)MKMapView * mapView;
 
+@property(nonatomic)NSMutableArray * dataArray;
 
 @end
 
@@ -22,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addMapView];
+    [self fetchDataWithUrl];
     
 }
 
@@ -34,6 +38,28 @@
     [self.mapView setRegion:region animated:YES];
     [self.view addSubview:self.mapView];
 }
+
+-(void)fetchDataWithUrl
+{
+    NSLog(@"%@----%@",self.cityID,self.categoryID);
+    [[DataEngine shareInstance]requestCityCricleButtonMapWithcityID:self.cityID CategoryId:self.categoryID success:^(NSData *respondsObject) {
+        self.dataArray=[AnalyticalNetWorkData parseCircleButtonMapData:respondsObject];
+        
+    } faile:^(NSError *error) {
+        
+    }];
+}
+
+#pragma mark----懒加载
+
+-(NSMutableArray *)dataArray
+{
+    if (_dataArray==nil) {
+        _dataArray=[[NSMutableArray alloc]init];
+    }
+    return _dataArray;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

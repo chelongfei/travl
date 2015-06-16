@@ -657,6 +657,8 @@
 		BCC416821B21D2180031C632 /* DestinationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC416801B21D2180031C632 /* DestinationCollectionViewCell.xib */; };
 		BCD2AFE21B2FCC48006BFB9E /* CustomNavBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD2AFE11B2FCC48006BFB9E /* CustomNavBarController.m */; };
 		BCD2AFE61B2FFC93006BFB9E /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD2AFE51B2FFC93006BFB9E /* MapViewController.m */; };
+		BCD2AFEA1B300E87006BFB9E /* MyAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD2AFE91B300E87006BFB9E /* MyAnnotationView.m */; };
+		BCD2AFEE1B300F0B006BFB9E /* CityMapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD2AFED1B300F0B006BFB9E /* CityMapModel.m */; };
 		BCD4DD031B2BBE0400CC389E /* DesCountryHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD4DD011B2BBE0400CC389E /* DesCountryHeadView.m */; };
 		BCD4DD041B2BBE0400CC389E /* DesCountryHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD4DD021B2BBE0400CC389E /* DesCountryHeadView.xib */; };
 		BCD4DD091B2BD06100CC389E /* HotCityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD4DD071B2BD06100CC389E /* HotCityCell.m */; };
@@ -1429,6 +1431,10 @@
 		BCD2AFE11B2FCC48006BFB9E /* CustomNavBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavBarController.m; sourceTree = "<group>"; };
 		BCD2AFE41B2FFC93006BFB9E /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		BCD2AFE51B2FFC93006BFB9E /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		BCD2AFE81B300E87006BFB9E /* MyAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotationView.h; sourceTree = "<group>"; };
+		BCD2AFE91B300E87006BFB9E /* MyAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotationView.m; sourceTree = "<group>"; };
+		BCD2AFEC1B300F0B006BFB9E /* CityMapModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityMapModel.h; sourceTree = "<group>"; };
+		BCD2AFED1B300F0B006BFB9E /* CityMapModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityMapModel.m; sourceTree = "<group>"; };
 		BCD4DD001B2BBE0400CC389E /* DesCountryHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesCountryHeadView.h; sourceTree = "<group>"; };
 		BCD4DD011B2BBE0400CC389E /* DesCountryHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesCountryHeadView.m; sourceTree = "<group>"; };
 		BCD4DD021B2BBE0400CC389E /* DesCountryHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesCountryHeadView.xib; sourceTree = "<group>"; };
@@ -2418,6 +2424,7 @@
 		BCB9AA221B1F14AD00CC7023 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BCD2AFE71B300E63006BFB9E /* 地图标注及其他View */,
 				BCBA5ADC1B2F01F100598794 /* 景点活动等具体Cell */,
 				BCDBA90F1B2AC0AF00E72830 /* 当地页面View */,
 				BCDBA8F91B2AAD6B00E72830 /* sectionHead */,
@@ -2434,6 +2441,7 @@
 		BCB9AA231B1F14B500CC7023 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BCD2AFEB1B300EEC006BFB9E /* 地图Model */,
 				BCBA5AD11B2EF32500598794 /* 具体城市圆buttonModel */,
 				BCDBA9211B2AC16F00E72830 /* 基类model */,
 				BCDBA91D1B2AC14A00E72830 /* 当地页面model */,
@@ -2604,6 +2612,24 @@
 				BCD2AFE51B2FFC93006BFB9E /* MapViewController.m */,
 			);
 			name = "地图选点界面";
+			sourceTree = "<group>";
+		};
+		BCD2AFE71B300E63006BFB9E /* 地图标注及其他View */ = {
+			isa = PBXGroup;
+			children = (
+				BCD2AFE81B300E87006BFB9E /* MyAnnotationView.h */,
+				BCD2AFE91B300E87006BFB9E /* MyAnnotationView.m */,
+			);
+			name = "地图标注及其他View";
+			sourceTree = "<group>";
+		};
+		BCD2AFEB1B300EEC006BFB9E /* 地图Model */ = {
+			isa = PBXGroup;
+			children = (
+				BCD2AFEC1B300F0B006BFB9E /* CityMapModel.h */,
+				BCD2AFED1B300F0B006BFB9E /* CityMapModel.m */,
+			);
+			name = "地图Model";
 			sourceTree = "<group>";
 		};
 		BCD4DCFD1B2BBD8100CC389E /* 目的详情Head */ = {
@@ -3572,9 +3598,11 @@
 				BCB9AA071B1F149D00CC7023 /* UIAlertView+AFNetworking.m in Sources */,
 				BCB9AA121B1F149D00CC7023 /* SDWebImageDownloader.m in Sources */,
 				BCBA5AD71B2EF36300598794 /* EntryModel.m in Sources */,
+				BCD2AFEE1B300F0B006BFB9E /* CityMapModel.m in Sources */,
 				BCB9AA011B1F149D00CC7023 /* AFURLRequestSerialization.m in Sources */,
 				BC7DA2AC1B28255C00A37571 /* Model.xcdatamodeld in Sources */,
 				BCB9AA051B1F149D00CC7023 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				BCD2AFEA1B300E87006BFB9E /* MyAnnotationView.m in Sources */,
 				BCB9AA3C1B1F275C00CC7023 /* DataEngine.m in Sources */,
 				BCB9AA031B1F149D00CC7023 /* AFURLSessionManager.m in Sources */,
 				BCBA37681B295B1E00B568F9 /* GroupDetailController.m in Sources */,
