@@ -15,13 +15,26 @@
 #import "CircleButtonCell.h"
 #import "CustomNavBarController.h"
 
-#define TBL_CELL_ID @"tableViewCellId"
+#define WIDTH self.view.frame.size.width
+#define HEIGHT self.view.frame.size.height
 
-@interface CircleButtonController ()<UITableViewDataSource,UITableViewDelegate>
+#define TBL_CELL_ID @"tableViewCellId"
+#define COLLCETION_VIEW_CELL_ID @"collectionViewCellId"
+
+@interface CircleButtonController ()<UITableViewDataSource,UITableViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
 @property(nonatomic)UITableView * tableView;
 @property(nonatomic)NSMutableArray * entryArray;
 @property(nonatomic)NSMutableArray * typeArray;
+
+@property(nonatomic,copy)NSString * imageName;
+@property(nonatomic,copy)NSString * rightImage;
+
+@property(nonatomic)UIView * backView;
+@property(nonatomic)UIView * filterView;
+@property(nonatomic)UIView * sortView;
+
+@property(nonatomic)UICollectionView * filterCollectionView;
 
 @end
 
@@ -30,36 +43,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addTableView];
-    [self addBottomView];
     [self fetchDataWithUrl];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    switch ([self.categoryID integerValue]) {
-        case 32:
-           
-            
-            break;
-        
-        case 78:
-            
-            break;
-        case 147:
-            
-            break;
-        case 148:
-            
-            break;
-        default:
-            break;
-    }
+    NSArray * categoryIDArray=@[@"32",@"78",@"147",@"148"];
+    NSUInteger index=[categoryIDArray indexOfObject:self.categoryID];
+    NSArray * imageNameArray=@[@"view",@"food",@"shopping",@"act"];
+    self.imageName=[imageNameArray objectAtIndex:index];
+    
+    [self addBottomViewWithImageName:self.imageName];
+    
+    UIColor * firstColor=[UIColor colorWithRed:208/255.0 green:147/255.0 blue:215/255.0 alpha:1.0];
+    UIColor * secondColor=[UIColor colorWithRed:249/255.0 green:132/255.0 blue:116/255.0 alpha:1.0];
+    UIColor * thirdColor=[UIColor colorWithRed:255/255.0 green:216/255.0 blue:111/255.0 alpha:1.0];
+    UIColor * fourthColor=[UIColor colorWithRed:100/255.0 green:216/255.0 blue:229/255.0 alpha:1.0];
+    NSArray * colorArray=@[firstColor,secondColor,thirdColor,fourthColor];
+    self.bar.barTintColor=[colorArray objectAtIndex:index];
+    
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
 }
 
 -(void)addTableView
 {
-    self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 70, self.view.frame.size.width, self.view.frame.size.height-70)];
+    self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 70, WIDTH, HEIGHT-120)];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
     self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
@@ -70,10 +82,100 @@
     [self.view addSubview:self.tableView];
 }
 
--(void)addBottomView
+-(void)addBottomViewWithImageName:(NSString *)imageName
+{
+    self.bottomView=[[UIView alloc]initWithFrame:(CGRectMake(0, HEIGHT-50, WIDTH, 50))];
+    self.bottomView.backgroundColor=[UIColor whiteColor];
+    
+    UIView * topView=[[UIView alloc]initWithFrame:(CGRectMake(0, 0, WIDTH, 1))];
+    topView.backgroundColor=[UIColor  grayColor];
+    [self.bottomView addSubview:topView];
+    
+    
+    CGFloat buttonWidth=(WIDTH-1)/2.0;
+    UIButton * leftButton=[UIButton buttonWithType:(UIButtonTypeCustom)];
+    [leftButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"ic_poilist_filter_%@",imageName]] forState:(UIControlStateNormal)];
+    [leftButton setTitle:@"筛选" forState:(UIControlStateNormal)];
+    [leftButton setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
+    leftButton.frame=CGRectMake(0, 0, buttonWidth, 50);
+    leftButton.imageEdgeInsets=UIEdgeInsetsMake(10, ((buttonWidth-30)/5)*2, 10, ((buttonWidth-30)/5)*3);
+    leftButton.titleEdgeInsets=UIEdgeInsetsMake(5,0, 10, ((buttonWidth-30)/5));
+    [leftButton addTarget:self action:@selector(filter) forControlEvents:(UIControlEventTouchUpInside)];
+    [self.bottomView addSubview:leftButton];
+    
+    UIView * middileView=[[UIView alloc]initWithFrame:(CGRectMake(buttonWidth, 10, 1, 30))];
+    middileView.backgroundColor=[UIColor  grayColor];
+    [self.bottomView addSubview:middileView];
+    
+    UIButton * rightButton=[UIButton buttonWithType:(UIButtonTypeCustom)];
+    [rightButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"ic_poilist_sort_%@",imageName]] forState:(UIControlStateNormal)];
+    [rightButton setTitle:@"排序" forState:(UIControlStateNormal)];
+    [rightButton setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
+    rightButton.imageEdgeInsets=UIEdgeInsetsMake(10, ((buttonWidth-30)/5)*2, 10, ((buttonWidth-30)/5)*3);
+    rightButton.frame=CGRectMake((WIDTH-1)/2.0+1, 0, (WIDTH-1)/2.0, 50);
+    rightButton .titleEdgeInsets=UIEdgeInsetsMake(5,0, 10, ((buttonWidth-30)/5));
+    [rightButton addTarget:self action:@selector(sort) forControlEvents:(UIControlEventTouchUpInside)];
+    
+    [self.bottomView addSubview:rightButton];
+    [self.view addSubview:self.bottomView];
+}
+
+-(void)filter
+{
+    //添加筛选背景半透明图
+    [self addFilterBackView];
+    
+    self.filterView=[[UIView alloc]initWithFrame:(CGRectMake(20, 100, WIDTH-40, HEIGHT-200))];
+    self.filterView.layer.cornerRadius=4;
+    self.filterView.backgroundColor=[UIColor whiteColor];
+    //添加筛选title
+    [self addFilterTitleLabel];
+    //添加filterCollectionView
+    [self addFilterCollectionView];
+    
+    [self.view addSubview:self.filterView];
+    
+    
+}
+//添加筛选背景半透明图
+-(void)addFilterBackView
+{
+    self.backView=[[UIView alloc]initWithFrame:(CGRectMake(0, 0, WIDTH, HEIGHT))];
+    self.backView.backgroundColor=[UIColor blackColor];
+    self.backView.alpha=0.5;
+    [self.view addSubview:self.backView];
+}
+//添加筛选title
+-(void)addFilterTitleLabel
+{
+    UILabel * label=[[UILabel alloc]initWithFrame:(CGRectMake(20, 20, 100, 30))];
+    label.text=@"筛选";
+    label.font=[UIFont boldSystemFontOfSize:18];
+    [self.filterView addSubview:label];
+}
+
+//添加filterCollectionView
+-(void)addFilterCollectionView
+{
+    UICollectionViewFlowLayout * flowLayout=[[UICollectionViewFlowLayout alloc]init];
+    flowLayout.minimumInteritemSpacing=10;
+    flowLayout.minimumLineSpacing=10;
+    flowLayout.sectionInset=UIEdgeInsetsMake(10, 10, 10, 10);
+    
+    self.filterCollectionView=[[UICollectionView alloc]initWithFrame:CGRectMake(0, 50, WIDTH-40,self.filterView.self.frame.size.height-100) collectionViewLayout:flowLayout];
+    self.filterCollectionView.backgroundColor=[UIColor whiteColor];
+    self.filterCollectionView.delegate=self;
+    self.filterCollectionView.dataSource=self;
+    [self.filterCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:COLLCETION_VIEW_CELL_ID];
+    [self.filterView addSubview:self.filterCollectionView];
+}
+
+-(void)sort
 {
     
 }
+
+
 
 -(void)fetchDataWithUrl
 {
@@ -125,10 +227,45 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark----<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    //CustomNavBarController * VC=[[CustomNavBarController alloc]init];
-   // [self.navigationController pushViewController:VC animated:YES];
+    return self.typeArray.count;
 }
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+     TypeModel * model=[self.typeArray objectAtIndex:indexPath.row];
+    UILabel * label=[[UILabel alloc]initWithFrame:CGRectZero];
+    label.font=[UIFont systemFontOfSize:20];
+    label.backgroundColor=[UIColor grayColor];
+    label.text=model.name;
+    CGSize desize=[label sizeThatFits:CGSizeMake(CGFLOAT_MAX,40)];
+    return CGSizeMake(desize.width+20, 40);
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell * cell=[self.filterCollectionView dequeueReusableCellWithReuseIdentifier:COLLCETION_VIEW_CELL_ID forIndexPath:indexPath];
+    TypeModel * model=[self.typeArray objectAtIndex:indexPath.row];
+    UILabel * label=[[UILabel alloc]initWithFrame:CGRectZero];
+    label.font=[UIFont systemFontOfSize:20];
+    label.textAlignment=NSTextAlignmentCenter;
+    label.backgroundColor=[UIColor colorWithRed:224/255.0 green:224/255.0 blue:224/255.0 alpha:1.0];
+    label.text=model.name;
+    cell.backgroundView=label;
+    return cell;
+}
+
+//UITextView *detailTextView = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, width, 0)];
+//detailTextView.font = [UIFont boldSystemFontOfSize:fontSize];
+//detailTextView.text = value;
+//CGSize deSize = [detailTextView sizeThatFits:CGSizeMake(width,CGFLOAT_MAX)];
+//self.textView.frame=CGRectMake(self.textView.frame.origin.x, self.textView.frame.origin.y, self.frame.size.width, deSize.height);
+//return deSize.height;
+
+
+
 
 @end

@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CustomNavBarController.h"
+#import "CircleButtonController.h"
 
-@interface MapViewController : CustomNavBarController
+@interface MapViewController : CircleButtonController
 
 @end

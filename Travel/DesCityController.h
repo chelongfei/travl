@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "DesHotCityModel.h"
+#import "LucencyNavBarBaseController.h"
 
-@interface DesCityController : UIViewController
+@interface DesCityController : LucencyNavBarBaseController
 
 @property(nonatomic)DesHotCityModel * model;
 

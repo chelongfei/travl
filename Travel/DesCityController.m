@@ -32,7 +32,7 @@
 #define COLLECT_LOCAL_CELL_ID @"collectionLocationCellId"
 
 
-@interface DesCityController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+@interface DesCityController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate>
 
 //数组中三个小数组,第一个(一个对象)是model,第二个是hotMguideModel数组
 //第三个是new_disCount数组
@@ -47,7 +47,16 @@
     [super viewDidLoad];
     [self addCollectionView];
     [self fetchDataWithUrl];
+    [self.view insertSubview:self.collectionView atIndex:0];
     
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden=YES;
+    self.collectionView.contentOffset=CGPointMake(0, 20);
+    self.bar.alpha=0.0;
 }
 
 -(void)addCollectionView
@@ -57,12 +66,12 @@
     flowLayout.minimumInteritemSpacing=0;
     flowLayout.minimumLineSpacing=0;
     
-    self.collectionView=[[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
+    self.collectionView=[[UICollectionView alloc]initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height-20) collectionViewLayout:flowLayout];
     self.collectionView.dataSource=self;
     self.collectionView.delegate=self;
     self.collectionView.backgroundColor=[UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1.0];
     
-        [self registViewForCollectionView];
+    [self registViewForCollectionView];
     [self.view addSubview:self.collectionView];
 }
 
@@ -243,5 +252,17 @@
             break;
     }
 }
+
+#pragma mark----<UIScrollViewDelegate>
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (self.collectionView.contentOffset.y<20) {
+        self.collectionView.contentOffset=CGPointMake(0, 20);
+    }
+    
+    self.bar.alpha=(self.collectionView.contentOffset.y-20)/200;
+}
+
 
 @end

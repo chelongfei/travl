@@ -7,7 +7,10 @@
 //
 
 #import <MapKit/MapKit.h>
+#import "CityMapModel.h"
 
 @interface MyAnnotationView : MKAnnotationView
+
+@property(nonatomic)CityMapModel * model;
 
 @end

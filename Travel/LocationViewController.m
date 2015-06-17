@@ -13,13 +13,16 @@
 #import "AnalyticalNetWorkData.h"
 #import "LocationHeadModel.h"
 
+#define WIDTH self.view.frame.size.width
+#define HEIGHT self.view.frame.size.height
 #define COLLECT_HEAD_VIEW_CELL @"collectionHeadViewCellID"
 #define COLLECT_VIEW_CELL @"collectionViewCellID"
 
-@interface LocationViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+@interface LocationViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate>
 
 @property(nonatomic)UICollectionView * collectionView;
 @property(nonatomic)NSMutableArray * dataArray;
+@property(nonatomic)UIButton * shareButton;
 @property(nonatomic)LocationHeadModel * model;
 
 @end
@@ -30,11 +33,35 @@
     [super viewDidLoad];
     [self addCollectionView];
     [self fetchDataWithUrl];
+    [self addShareItem];
+    [self.view insertSubview:self.collectionView atIndex:0];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    self.navigationController.navigationBarHidden=NO;
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden=YES;
+    self.collectionView.contentOffset=CGPointMake(0, 20);
+    self.bar.alpha=0.0;
+}
+
+-(void)addShareItem
+{
+    self.shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [self.shareButton setFrame:CGRectMake(WIDTH-100, 10, 30, 30)];
+    
+    [self.shareButton setImage:[UIImage imageNamed:@"ic_share_white.png"] forState:(UIControlStateNormal)];
+    
+    [self.shareButton addTarget:self action:@selector(share) forControlEvents:UIControlEventTouchUpInside];
+    
+    [ self.lucencyView addSubview:self.shareButton];
+}
+
+-(void)share
+{
+    
 }
 
 -(void)addCollectionView
@@ -42,7 +69,7 @@
     UICollectionViewFlowLayout * flowLayout=[[UICollectionViewFlowLayout alloc]init];
     flowLayout.sectionInset=UIEdgeInsetsMake(10, 15, 10, 15);
     
-    self.collectionView=[[UICollectionView alloc]initWithFrame:self.view.frame collectionViewLayout:flowLayout];
+    self.collectionView=[[UICollectionView alloc]initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height-20) collectionViewLayout:flowLayout];
     self.collectionView.backgroundColor=[UIColor whiteColor];
     self.collectionView.delegate=self;
     self.collectionView.dataSource=self;
@@ -117,9 +144,21 @@
     return size;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    
+
+#pragma mark----<UIScrollViewDelegate>
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (self.collectionView.contentOffset.y<20) {
+        self.collectionView.contentOffset=CGPointMake(0, 20);
+    }
+    self.bar.alpha=(self.collectionView.contentOffset.y-20)/200;
+}
+
+
+-(void)dealloc
+{
+    [self.shareButton removeFromSuperview];
 }
 
 

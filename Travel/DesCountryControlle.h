@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "DestinationModel.h"
+#import "LucencyNavBarBaseController.h"
 
-@interface DesCountryControlle : UIViewController
+@interface DesCountryControlle : LucencyNavBarBaseController
+
 @property(nonatomic)DestinationModel * model;
+
 @end

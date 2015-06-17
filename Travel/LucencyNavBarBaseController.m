@@ -1,31 +1,39 @@
 //
-//  CustomNavBarController.m
+//  lucencyNavBarBaseController.m
 //  Travel
 //
-//  Created by qianfeng on 15/6/16.
+//  Created by qianfeng on 15/6/17.
 //  Copyright (c) 2015年 qianfeng. All rights reserved.
 //
 
-#import "CustomNavBarController.h"
-#import "MapViewController.h"
+#import "lucencyNavBarBaseController.h"
+
 #define WIDTH self.view.frame.size.width
 #define HEIGHT self.view.frame.size.height
 
-@interface CustomNavBarController ()
+@interface LucencyNavBarBaseController ()
 
 @end
 
-@implementation CustomNavBarController
+@implementation LucencyNavBarBaseController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addCustomNavgationBar];
+    [self addLucencyNavBar];
+    
+}
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden=YES;
+    self.bar.alpha=0.0;
 }
 
 -(void)addCustomNavgationBar
 {
-  self.view.backgroundColor=[UIColor colorWithRed:224/255.0 green:224/255.0 blue:224/255.0 alpha:1.0];
+    self.view.backgroundColor=[UIColor colorWithRed:224/255.0 green:224/255.0 blue:224/255.0 alpha:1.0];
     
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     
@@ -33,21 +41,25 @@
     
     self.bar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 20,WIDTH, 50)];
     
-    self.bar.barTintColor=[UIColor purpleColor];
+    self.bar.barTintColor=[UIColor colorWithRed:35/255.0 green:169/255.0 blue:118/255.0 alpha:1.0];
     
-    UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:nil];
+    [self.view addSubview:self.bar];
+}
+
+-(void)addLucencyNavBar
+{
+    self.lucencyView = [[UIView alloc] initWithFrame:CGRectMake(0, 20,WIDTH, 50)];
+    
+    self.lucencyView.backgroundColor=[UIColor clearColor];
+    
     
     UIButton *left = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    [left setFrame:CGRectMake(0, 10, 30, 30)];
+    [left setFrame:CGRectMake(10, 10, 30, 30)];
     
     [left setImage:[UIImage imageNamed:@"ic_back_white.png"] forState:(UIControlStateNormal)];
     
     [left addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithCustomView:left];
-
-    [item setLeftBarButtonItem:leftButton];
     
     UIButton *right = [UIButton buttonWithType:UIButtonTypeCustom];
     
@@ -57,13 +69,10 @@
     
     [right addTarget:self action:@selector(map:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:right];
+    [ self.lucencyView addSubview:left];
+    [ self.lucencyView addSubview:right];
+    [self.view addSubview: self.lucencyView];
     
-    [item setRightBarButtonItem:rightButton];
-    
-    [self.bar pushNavigationItem:item animated:NO];
-    
-    [self.view addSubview:self.bar];
 }
 
 - (void)back{
@@ -72,17 +81,7 @@
 
 -(void)map:(UIButton *)button
 {
-    MapViewController * mapVC=[[MapViewController alloc]init];
-    mapVC.categoryID=self.categoryID;
-    mapVC.cityID=self.cityID;
-    [self.navigationController pushViewController:mapVC animated:YES];
-}
-
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 
 @end

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LucencyNavBarBaseController.h"
 
-@interface LocationViewController : UIViewController
+@interface LocationViewController :LucencyNavBarBaseController
 
 @property(nonatomic)NSString * id;
 

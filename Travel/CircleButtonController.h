@@ -11,6 +11,8 @@
 
 @interface CircleButtonController : CustomNavBarController
 
+@property(nonatomic)UIView * bottomView;
 
+-(void)addBottomViewWithImageName:(NSString *)imageName;
 
 @end

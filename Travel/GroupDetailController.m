@@ -57,8 +57,6 @@
     [self addTableView];
     [self updateHeadViewWithModel:self.model];
     [self loadGroupAllData];
-    
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated

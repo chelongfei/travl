@@ -29,7 +29,7 @@
 #define COLLECT_PRICE_CELL_ID @"collectionPriceCellId"
 #define COLLECT_LOCAL_CELL_ID @"collectionLocationCellId"
 
-@interface DesCountryControlle ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+@interface DesCountryControlle ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate>
 //数组中四个小数组,第一个(一个对象)是model,第二个是hotCountrty数组
 //第三个是disCount数组,第四个是trip数组
 @property(nonatomic)NSMutableArray * dataArray;
@@ -44,14 +44,15 @@
     [super viewDidLoad];
     [self addCollectionView];
     [self fetchDataWithUrl];
-    
+    [self.view insertSubview:self.collectionView atIndex:0];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden=NO;
-    
+    self.navigationController.navigationBarHidden=YES;
+    self.bar.alpha=0.0;
+    self.collectionView.contentOffset=CGPointMake(0, 20);
 }
 
 -(void)addCollectionView
@@ -62,7 +63,7 @@
     flowLayout.minimumLineSpacing=0;
     
     
-    self.collectionView=[[UICollectionView alloc]initWithFrame:self.view.frame collectionViewLayout:flowLayout];
+    self.collectionView=[[UICollectionView alloc]initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height-20) collectionViewLayout:flowLayout];
     self.collectionView.dataSource=self;
     self.collectionView.delegate=self;
     self.collectionView.backgroundColor=[UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1.0];
@@ -243,7 +244,6 @@
     if (indexPath.section==0) {
         if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
             DesCountryHeadView * headView=[self.collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier: COLLECT_HEAD_VIEW_ID forIndexPath:indexPath];
-            
             DesCountryModel * model=[[self.dataArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
             
             [headView updateUIWithModel:model];
@@ -265,10 +265,15 @@
     return nil;
 }
 
+#pragma mark----<UIScrollViewDelegate>
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (self.collectionView.contentOffset.y<20) {
+         self.collectionView.contentOffset=CGPointMake(0, 20);
+    }
+
+    self.bar.alpha=(self.collectionView.contentOffset.y-20)/200;
 }
 
 

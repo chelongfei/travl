@@ -8,6 +8,7 @@
 
 #import "DetailViewController.h"
 #import <WebKit/WebKit.h>
+#import "SVProgressHUD.h"
 
 @interface DetailViewController ()<WKNavigationDelegate>
 
@@ -32,4 +33,22 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden=NO;
 }
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [SVProgressHUD dismiss];
+}
+
+-(void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation
+{
+     [SVProgressHUD showWithStatus:@"努力加载中"];
+}
+
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
+{
+    [SVProgressHUD showSuccessWithStatus:@"加载完成"];
+}
+
+
+
 @end
