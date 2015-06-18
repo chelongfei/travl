@@ -33,7 +33,7 @@
     
     self.bar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 20,WIDTH, 50)];
     
-    self.bar.barTintColor=[UIColor purpleColor];
+    self.bar.barTintColor=[UIColor colorWithRed:35/255.0 green:169/255.0 blue:118/255.0 alpha:1.0];
     
     UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:nil];
     

@@ -12,13 +12,17 @@
 #import "DataEngine.h"
 #import "AnalyticalNetWorkData.h"
 #import "LocationHeadModel.h"
+#import "MapWithoutURLController.h"
+#import "UMSocial.h"
+
+
 
 #define WIDTH self.view.frame.size.width
 #define HEIGHT self.view.frame.size.height
 #define COLLECT_HEAD_VIEW_CELL @"collectionHeadViewCellID"
 #define COLLECT_VIEW_CELL @"collectionViewCellID"
 
-@interface LocationViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate>
+@interface LocationViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate,UMSocialUIDelegate>
 
 @property(nonatomic)UICollectionView * collectionView;
 @property(nonatomic)NSMutableArray * dataArray;
@@ -59,9 +63,21 @@
     [ self.lucencyView addSubview:self.shareButton];
 }
 
+-(void)map:(UIButton *)button
+{
+    MapWithoutURLController * VC=[[MapWithoutURLController alloc]init];
+    VC.dataArray=self.dataArray;
+    [self.navigationController pushViewController:VC animated:YES];
+}
+
 -(void)share
 {
-    
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                         appKey:@"55555dc167e58e7bb20054bc"
+                                      shareText:@"友盟社会化分享让您快速实现分享等社会化功能，http://umeng.com/social"
+                                     shareImage:[UIImage imageNamed:@"icon"]
+                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToTencent,UMShareToRenren,nil]
+                                       delegate:self];
 }
 
 -(void)addCollectionView
@@ -79,7 +95,6 @@
     
     UINib * nib=[UINib nibWithNibName:@"LocationHeadView" bundle:nil];
     [self.collectionView registerNib:nib forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:COLLECT_HEAD_VIEW_CELL];
-    
     [self.view addSubview:self.collectionView];
 }
 
@@ -116,7 +131,7 @@
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     LocationHeadView * headView=[self.collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:COLLECT_HEAD_VIEW_CELL forIndexPath:indexPath];
-     [headView updateHeadViewWithModel:self.model];
+    [headView updateHeadViewWithModel:self.model];
     
     return headView;
 }
@@ -144,7 +159,6 @@
     return size;
 }
 
-
 #pragma mark----<UIScrollViewDelegate>
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -155,12 +169,9 @@
     self.bar.alpha=(self.collectionView.contentOffset.y-20)/200;
 }
 
-
 -(void)dealloc
 {
     [self.shareButton removeFromSuperview];
 }
-
-
 
 @end

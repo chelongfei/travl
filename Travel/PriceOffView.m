@@ -10,6 +10,8 @@
 #import "UIImageView+WebCache.h"
 @implementation PriceOffView
 
+
+
 -(void)updateUIWithRecommendModel:(RecommendModel *)model
 {
     

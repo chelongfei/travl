@@ -14,4 +14,6 @@
 
 @property(nonatomic)UIView * lucencyView;
 
+-(void)map:(UIButton *)button;
+
 @end

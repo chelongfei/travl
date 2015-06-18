@@ -48,10 +48,6 @@
 {
     self.mapView=[[MKMapView alloc]initWithFrame:CGRectMake(0, 70, self.view.frame.size.width, self.view.frame.size.height-70)];
     self.mapView.delegate=self;
-    CLLocationCoordinate2D coordinate=CLLocationCoordinate2DMake(22.290245,114.165092);
-    MKCoordinateSpan span=MKCoordinateSpanMake(0.3, 0.3);
-    MKCoordinateRegion region=MKCoordinateRegionMake(coordinate, span);
-    [self.mapView setRegion:region animated:YES];
     [self.view addSubview:self.mapView];
 }
 
@@ -59,19 +55,30 @@
 {
     [[DataEngine shareInstance]requestCityCricleButtonMapWithcityID:self.cityID CategoryId:self.categoryID success:^(NSData *respondsObject) {
         self.dataArray=[AnalyticalNetWorkData parseCircleButtonMapData:respondsObject];
+        [self setCoordinateForMap];
         [self addAnnotation];
     } faile:^(NSError *error) {
         
     }];
 }
 
+-(void)setCoordinateForMap
+{
+    CityMapModel * model=[self.dataArray objectAtIndex:0];
+    CLLocationCoordinate2D coordinate=CLLocationCoordinate2DMake([model.lat floatValue], [model.lng floatValue]);
+    MKCoordinateSpan span=MKCoordinateSpanMake(0.3, 0.3);
+    MKCoordinateRegion region=MKCoordinateRegionMake(coordinate, span);
+    [self.mapView setRegion:region animated:YES];
+}
+
 -(void)addAnnotation
 {
+    
     int index=0;
     for (CityMapModel * model in self.dataArray) {
         MKPointAnnotation * annotation=[[MKPointAnnotation alloc]init];
         annotation.coordinate=CLLocationCoordinate2DMake([model.lat floatValue], [model.lng floatValue]);
-       annotation.title=model.cnname;
+        annotation.title=model.cnname;
         objc_setAssociatedObject(annotation, "model", model, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         objc_setAssociatedObject(annotation, "index", [NSNumber numberWithInt:index], OBJC_ASSOCIATION_ASSIGN);
         [self.mapView addAnnotation:annotation];

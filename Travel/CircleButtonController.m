@@ -258,14 +258,5 @@
     return cell;
 }
 
-//UITextView *detailTextView = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, width, 0)];
-//detailTextView.font = [UIFont boldSystemFontOfSize:fontSize];
-//detailTextView.text = value;
-//CGSize deSize = [detailTextView sizeThatFits:CGSizeMake(width,CGFLOAT_MAX)];
-//self.textView.frame=CGRectMake(self.textView.frame.origin.x, self.textView.frame.origin.y, self.frame.size.width, deSize.height);
-//return deSize.height;
-
-
-
 
 @end
