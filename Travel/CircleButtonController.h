@@ -13,6 +13,5 @@
 
 @property(nonatomic)UIView * bottomView;
 
--(void)addBottomViewWithImageName:(NSString *)imageName;
 
 @end

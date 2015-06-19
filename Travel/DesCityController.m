@@ -47,7 +47,6 @@
     [self addCollectionView];
     [self fetchDataWithUrl];
     [self.view insertSubview:self.collectionView atIndex:0];
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated

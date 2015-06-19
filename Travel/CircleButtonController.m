@@ -14,6 +14,7 @@
 #import "EntryModel.h"
 #import "CircleButtonCell.h"
 #import "CustomNavBarController.h"
+#import "MapViewController.h"
 
 #define WIDTH self.view.frame.size.width
 #define HEIGHT self.view.frame.size.height
@@ -24,15 +25,23 @@
 @interface CircleButtonController ()<UITableViewDataSource,UITableViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
 @property(nonatomic)UITableView * tableView;
+@property(nonatomic)UIView * backView;
+@property(nonatomic)UIView * filterView;
+@property(nonatomic)UIView * sortView;
+
 @property(nonatomic)NSMutableArray * entryArray;
 @property(nonatomic)NSMutableArray * typeArray;
+
 
 @property(nonatomic,copy)NSString * imageName;
 @property(nonatomic,copy)NSString * rightImage;
 
-@property(nonatomic)UIView * backView;
-@property(nonatomic)UIView * filterView;
-@property(nonatomic)UIView * sortView;
+@property(nonatomic)NSInteger index;
+
+
+
+
+
 
 @property(nonatomic)UICollectionView * filterCollectionView;
 
@@ -43,28 +52,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addTableView];
+    [self initUIWithCategory];
+    [self addBottomViewWithImageName:self.imageName];
     [self fetchDataWithUrl];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    NSArray * categoryIDArray=@[@"32",@"78",@"147",@"148"];
-    NSUInteger index=[categoryIDArray indexOfObject:self.categoryID];
-    NSArray * imageNameArray=@[@"view",@"food",@"shopping",@"act"];
-    self.imageName=[imageNameArray objectAtIndex:index];
-    
-    [self addBottomViewWithImageName:self.imageName];
-    
-    UIColor * firstColor=[UIColor colorWithRed:208/255.0 green:147/255.0 blue:215/255.0 alpha:1.0];
-    UIColor * secondColor=[UIColor colorWithRed:249/255.0 green:132/255.0 blue:116/255.0 alpha:1.0];
-    UIColor * thirdColor=[UIColor colorWithRed:255/255.0 green:216/255.0 blue:111/255.0 alpha:1.0];
-    UIColor * fourthColor=[UIColor colorWithRed:100/255.0 green:216/255.0 blue:229/255.0 alpha:1.0];
-    NSArray * colorArray=@[firstColor,secondColor,thirdColor,fourthColor];
-    self.bar.barTintColor=[colorArray objectAtIndex:index];
-    
+    [self addRightButton];
 }
 
+-(void)initUIWithCategory
+{
+    NSArray * categoryIDArray=@[@"32",@"78",@"147",@"148"];
+    self.index=[categoryIDArray indexOfObject:self.categoryID];
+    NSArray * imageNameArray=@[@"view",@"food",@"shopping",@"act"];
+    self.imageName=[imageNameArray objectAtIndex:self.index];
+    self.bar.barTintColor=[self.colorArray objectAtIndex:self.index];
+}
 
 -(void)addTableView
 {
@@ -77,6 +83,13 @@
     [self.tableView registerNib:nib forCellReuseIdentifier:TBL_CELL_ID];
     
     [self.view addSubview:self.tableView];
+}
+
+-(void)addRightButton
+{
+    UIBarButtonItem * rightItem=self.rightButtonDict[@"map"];
+    [self.navItem setRightBarButtonItem:rightItem];
+    [self.bar pushNavigationItem:self.navItem animated:YES];
 }
 
 -(void)addBottomViewWithImageName:(NSString *)imageName
@@ -117,6 +130,15 @@
     [self.view addSubview:self.bottomView];
 }
 
+-(void)map
+{
+    MapViewController * mapVC=[[MapViewController alloc]init];
+    mapVC.categoryID=self.categoryID;
+    mapVC.cityID=self.cityID;
+    mapVC.index=self.index;
+    [self.navigationController pushViewController:mapVC animated:YES];
+}
+
 -(void)filter
 {
     //添加筛选背景半透明图
@@ -129,7 +151,7 @@
     [self addFilterTitleLabel];
     //添加filterCollectionView
     [self addFilterCollectionView];
-    
+
     [self.view addSubview:self.filterView];
     
     
@@ -171,8 +193,6 @@
 {
     
 }
-
-
 
 -(void)fetchDataWithUrl
 {
@@ -233,7 +253,7 @@
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-     TypeModel * model=[self.typeArray objectAtIndex:indexPath.row];
+    TypeModel * model=[self.typeArray objectAtIndex:indexPath.row];
     UILabel * label=[[UILabel alloc]initWithFrame:CGRectZero];
     label.font=[UIFont systemFontOfSize:20];
     label.backgroundColor=[UIColor grayColor];

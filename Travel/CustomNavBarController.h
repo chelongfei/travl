@@ -18,6 +18,11 @@
 
 @property(nonatomic,copy)NSString * cityID;
 
+@property(nonatomic)NSMutableDictionary * rightButtonDict;
+
+@property(nonatomic)NSArray * colorArray;
+
+@property(nonatomic)NSArray * annotationImageArray;
 
 -(void)addCustomNavgationBar;
 

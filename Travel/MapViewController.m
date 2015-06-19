@@ -18,21 +18,14 @@
 #import <objc/message.h>
 #import <objc/runtime.h>
 
-#define SCREEN_WIDTH self.view.frame.size.width
-#define SCREEN_HEIGHT self.view.frame.size.height
 
-#define ANNOTATION_ID  @"annotationId"
 
 
 @interface MapViewController ()<MKMapViewDelegate>
 
-@property(nonatomic)MKMapView * mapView;
-
-@property(nonatomic)MKAnnotationView * currentView;
-
-@property(nonatomic)NSMutableArray * dataArray;
-
 @property(nonatomic)CircleBottomView * bottomView;
+
+@property(nonatomic,copy)NSString * imageName;
 
 @end
 
@@ -40,13 +33,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self addMapView];
-    [self addBottomViewWithImageName:@""];
     [self fetchDataWithUrl];
 }
 
--(void)addBottomViewWithImageName:(NSString *)imageName
+-(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    self.bar.barTintColor=[self.colorArray objectAtIndexedSubscript:self.index];
+    self.imageName=[self.annotationImageArray objectAtIndex:self.index];
     
 }
 
@@ -79,7 +73,6 @@
 
 -(void)addAnnotation
 {
-    
     int index=0;
     for (CityMapModel * model in self.dataArray) {
         MKPointAnnotation * annotation=[[MKPointAnnotation alloc]init];
@@ -92,15 +85,6 @@
     }
 }
 
-#pragma mark----懒加载
-
--(NSMutableArray *)dataArray
-{
-    if (_dataArray==nil) {
-        _dataArray=[[NSMutableArray alloc]init];
-    }
-    return _dataArray;
-}
 
 #pragma mark----<MKMapViewDelegate>
 
@@ -113,11 +97,11 @@
     myAnnotationView.canShowCallout = YES;
     int index=[objc_getAssociatedObject(annotation, "index") intValue];
     if (index<10) {
-        myAnnotationView.image=[UIImage imageNamed:@"ic_map_scenic_recommend"];
+        myAnnotationView.image=[UIImage imageNamed:[NSString stringWithFormat:@"ic_map_%@_recommend",_imageName]];
         myAnnotationView.frame=CGRectMake(0, 0, 21, 28);
         
     }else{
-        myAnnotationView.image=[UIImage imageNamed:@"ic_map_poi_scenic"];
+        myAnnotationView.image=[UIImage imageNamed:[NSString stringWithFormat:@"ic_map_poi_%@",_imageName]];
         myAnnotationView.frame=CGRectMake(0, 0, 10, 10);
     }
     return myAnnotationView;
@@ -125,39 +109,40 @@
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
+    NSString * pressedName=[NSString stringWithFormat:@"ic_map_%@_recommend_pressed",self.imageName];
+    NSString * normalName=[NSString stringWithFormat:@"ic_map_%@_recommend",self.imageName];
     MKPointAnnotation * annotation=(MKPointAnnotation *)view.annotation;
     int index=[objc_getAssociatedObject(annotation, "index") intValue];
     CityMapModel * model=objc_getAssociatedObject(annotation, "model");
     if (index<10) {
         if (self.currentView==nil) {
             self.currentView=view;
-            view.image=[UIImage imageNamed:@"ic_map_scenic_recommend_pressed.png"];
+            view.image=[UIImage imageNamed:pressedName];
             view.frame=CGRectMake(0, 0, 21, 28);
         }else if(self.currentView!=view){
             self.currentView.selected=NO;
-            self.currentView.image=[UIImage imageNamed:@"ic_map_scenic_recommend.png"];
+            self.currentView.image=[UIImage imageNamed:normalName];
             self.currentView.frame=CGRectMake(0, 0, 21, 28);
             self.currentView=view;
             self.currentView.selected=YES;
-            view.image=[UIImage imageNamed:@"ic_map_scenic_recommend_pressed.png"];
+            view.image=[UIImage imageNamed:pressedName];
             view.frame=CGRectMake(0, 0, 21, 28);
         }
         
     }else{
         if (self.currentView==nil) {
             self.currentView=view;
-            view.image=[UIImage imageNamed:@"ic_map_poi_scenic_pressed.png"];
+            view.image=[UIImage imageNamed:pressedName];
             view.frame=CGRectMake(0, 0, 10, 10);
         }else if(self.currentView!=view){
             self.currentView.selected=NO;
-            self.currentView.image=[UIImage imageNamed:@"ic_map_poi_scenic.png"];
+            self.currentView.image=[UIImage imageNamed:normalName];
             self.currentView.frame=CGRectMake(0, 0, 10, 10);
             self.currentView=view;
             self.currentView.selected=YES;
-            view.image=[UIImage imageNamed:@"ic_map_poi_scenic_pressed.png"];
+            view.image=[UIImage imageNamed:pressedName];
             view.frame=CGRectMake(0, 0, 10, 10);
         }
-        
     }
     [self changeRegionOfMap:model];
     [self callDetailViewAboutAnnotation:model];

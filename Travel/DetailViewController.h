@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-@interface DetailViewController : UIViewController
+#import "CustomNavBarController.h"
+
+@interface DetailViewController : CustomNavBarController
 
 @property(nonatomic)NSString * url;
 

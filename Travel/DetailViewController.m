@@ -20,18 +20,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor=[UIColor orangeColor];
-    self.webView=[[WKWebView alloc]initWithFrame:(CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height))];
+    self.webView=[[WKWebView alloc]initWithFrame:(CGRectMake(0, 70, self.view.frame.size.width, self.view.frame.size.height-70))];
     self.webView.navigationDelegate=self;
     NSURLRequest * request=[[NSURLRequest alloc]initWithURL:[NSURL URLWithString:_url]];
     [self.webView loadRequest:request];
     [self.view addSubview:self.webView];
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden=NO;
 }
 
 -(void)viewWillDisappear:(BOOL)animated

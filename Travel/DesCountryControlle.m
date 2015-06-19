@@ -174,7 +174,7 @@
             LocationViewController * locationVC=[[LocationViewController alloc]init];
             locationVC.id=model.id;
             [self.navigationController pushViewController:locationVC animated:YES];
-        break;}
+            break;}
         case 3:{
             NSArray * detailArray=[self.dataArray objectAtIndex:indexPath.section];
             PriceOffModel * model=[detailArray objectAtIndex:indexPath.row];
@@ -263,9 +263,9 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     if (self.collectionView.contentOffset.y<20) {
-         self.collectionView.contentOffset=CGPointMake(0, 20);
+        self.collectionView.contentOffset=CGPointMake(0, 20);
     }
-
+    
     self.bar.alpha=(self.collectionView.contentOffset.y-20)/200;
 }
 

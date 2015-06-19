@@ -13,15 +13,83 @@
 
 @interface CustomNavBarController ()
 
+
+
 @end
 
 @implementation CustomNavBarController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initRightButtonDict];
+    [self initColorArray];
+    [self initAnnotationImageNameArray];
     [self addCustomNavgationBar];
 
 }
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self.navItem  setRightBarButtonItem:nil];
+}
+
+-(void)initRightButtonDict
+{
+    self.rightButtonDict=[[NSMutableDictionary alloc]init];
+    NSArray * imageNameArray=@[@"share",@"map",@"heart"];
+    for (int index=0; index<imageNameArray.count; index++) {
+        UIBarButtonItem * barButton=[self addRightButtonWithImage:imageNameArray[index]];
+        [self.rightButtonDict setValue:barButton forKey:imageNameArray[index]];
+    }
+}
+
+-(void)initColorArray
+{
+    UIColor * firstColor=[UIColor colorWithRed:208/255.0 green:147/255.0 blue:215/255.0 alpha:1.0];
+    UIColor * secondColor=[UIColor colorWithRed:249/255.0 green:132/255.0 blue:116/255.0 alpha:1.0];
+    UIColor * thirdColor=[UIColor colorWithRed:255/255.0 green:216/255.0 blue:111/255.0 alpha:1.0];
+    UIColor * fourthColor=[UIColor colorWithRed:100/255.0 green:216/255.0 blue:229/255.0 alpha:1.0];
+    self.colorArray=@[firstColor,secondColor,thirdColor,fourthColor];
+}
+
+-(void)initAnnotationImageNameArray
+{
+    self.annotationImageArray=@[@"scenic",@"food",@"shopping",@"activity"];
+}
+
+-(UIBarButtonItem *)addRightButtonWithImage:(NSString *)imageName
+{
+    UIButton *right = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [right setFrame:CGRectMake(WIDTH-50, -100, 30, 30)];
+    
+    [right setImage:[UIImage imageNamed:[NSString stringWithFormat:@"ic_%@_white.png",imageName]] forState:(UIControlStateNormal)];
+    
+    [right addTarget:self action:NSSelectorFromString(imageName) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:right];
+    
+    return rightButton;
+}
+
+-(void)share
+{
+    
+}
+
+-(void)map
+{
+
+}
+
+-(void)heart
+{
+    
+    
+}
+
+
 
 -(void)addCustomNavgationBar
 {
@@ -49,18 +117,6 @@
 
     [self.navItem setLeftBarButtonItem:leftButton];
     
-    UIButton *right = [UIButton buttonWithType:UIButtonTypeCustom];
-    
-    [right setFrame:CGRectMake(WIDTH-50, 10, 30, 30)];
-    
-    [right setImage:[UIImage imageNamed:@"ic_map_white.png"] forState:(UIControlStateNormal)];
-    
-    [right addTarget:self action:@selector(map:) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:right];
-    
-    [self.navItem setRightBarButtonItem:rightButton];
-    
     [self.bar pushNavigationItem:self.navItem animated:NO];
     
     [self.view addSubview:self.bar];
@@ -68,14 +124,6 @@
 
 - (void)back{
     [self.navigationController popViewControllerAnimated:YES];
-}
-
--(void)map:(UIButton *)button
-{
-    MapViewController * mapVC=[[MapViewController alloc]init];
-    mapVC.categoryID=self.categoryID;
-    mapVC.cityID=self.cityID;
-    [self.navigationController pushViewController:mapVC animated:YES];
 }
 
 

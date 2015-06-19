@@ -44,6 +44,7 @@
 		BC88E6FE1B2075B50087FE0C /* PriceOffView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC88E6FD1B2075B50087FE0C /* PriceOffView.xib */; };
 		BC88E7021B20857B0087FE0C /* LocalColoringView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC88E7011B20857B0087FE0C /* LocalColoringView.m */; };
 		BC88E7041B20858D0087FE0C /* LocalColoringView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC88E7031B20858D0087FE0C /* LocalColoringView.xib */; };
+		BC8ECD6D1B33C75C008AF13F /* BaseMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8ECD6C1B33C75C008AF13F /* BaseMapViewController.m */; };
 		BCA5B13A1B32566D002B0342 /* MapWithoutURLController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA5B1391B32566D002B0342 /* MapWithoutURLController.m */; };
 		BCADD27F1B257CB2009E655B /* bg_about_qyer_img1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BCADD0511B257CAE009E655B /* bg_about_qyer_img1.jpg */; };
 		BCADD2801B257CB2009E655B /* bg_about_qyer_img2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BCADD0521B257CAE009E655B /* bg_about_qyer_img2.jpg */; };
@@ -790,6 +791,8 @@
 		BC88E7001B20857B0087FE0C /* LocalColoringView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalColoringView.h; sourceTree = "<group>"; };
 		BC88E7011B20857B0087FE0C /* LocalColoringView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalColoringView.m; sourceTree = "<group>"; };
 		BC88E7031B20858D0087FE0C /* LocalColoringView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocalColoringView.xib; sourceTree = "<group>"; };
+		BC8ECD6B1B33C75C008AF13F /* BaseMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMapViewController.h; sourceTree = "<group>"; };
+		BC8ECD6C1B33C75C008AF13F /* BaseMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseMapViewController.m; sourceTree = "<group>"; };
 		BCA5B1381B32566D002B0342 /* MapWithoutURLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapWithoutURLController.h; sourceTree = "<group>"; };
 		BCA5B1391B32566D002B0342 /* MapWithoutURLController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapWithoutURLController.m; sourceTree = "<group>"; };
 		BCADD0511B257CAE009E655B /* bg_about_qyer_img1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_about_qyer_img1.jpg; sourceTree = "<group>"; };
@@ -1794,18 +1797,19 @@
 		BC8ECD681B33AA31008AF13F /* 基类NavBars */ = {
 			isa = PBXGroup;
 			children = (
-				BC8ECD691B33AA5E008AF13F /* 普通NavBar */,
-				BCD2AFDF1B2FCC22006BFB9E /* 变色NavBar */,
+				BCD2AFDF1B2FCC22006BFB9E /* 绿色NavBar */,
 				BC0FCE2D1B315D2B000C879F /* 透明基类NavBar */,
 			);
 			name = "基类NavBars";
 			sourceTree = "<group>";
 		};
-		BC8ECD691B33AA5E008AF13F /* 普通NavBar */ = {
+		BC8ECD6A1B33C73A008AF13F /* 地图基类 */ = {
 			isa = PBXGroup;
 			children = (
+				BC8ECD6B1B33C75C008AF13F /* BaseMapViewController.h */,
+				BC8ECD6C1B33C75C008AF13F /* BaseMapViewController.m */,
 			);
-			name = "普通NavBar";
+			name = "地图基类";
 			sourceTree = "<group>";
 		};
 		BCA5B1371B325462002B0342 /* 无URL地图地图 */ = {
@@ -2632,6 +2636,7 @@
 		BCB9AA211B1F14A500CC7023 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BC8ECD6A1B33C73A008AF13F /* 地图基类 */,
 				BC8ECD681B33AA31008AF13F /* 基类NavBars */,
 				BCA5B1371B325462002B0342 /* 无URL地图地图 */,
 				BCD2AFE31B2FFC7F006BFB9E /* 有URL地图 */,
@@ -2826,13 +2831,13 @@
 			name = collectionCell;
 			sourceTree = "<group>";
 		};
-		BCD2AFDF1B2FCC22006BFB9E /* 变色NavBar */ = {
+		BCD2AFDF1B2FCC22006BFB9E /* 绿色NavBar */ = {
 			isa = PBXGroup;
 			children = (
 				BCD2AFE01B2FCC48006BFB9E /* CustomNavBarController.h */,
 				BCD2AFE11B2FCC48006BFB9E /* CustomNavBarController.m */,
 			);
-			name = "变色NavBar";
+			name = "绿色NavBar";
 			sourceTree = "<group>";
 		};
 		BCD2AFE31B2FFC7F006BFB9E /* 有URL地图 */ = {
@@ -3797,6 +3802,7 @@
 				BCD4DD231B2C1D1E00CC389E /* CityHeadView.m in Sources */,
 				BCDBA9031B2AADB300E72830 /* SectionHeadView.m in Sources */,
 				BCB9A9FE1B1F149D00CC7023 /* AFNetworkReachabilityManager.m in Sources */,
+				BC8ECD6D1B33C75C008AF13F /* BaseMapViewController.m in Sources */,
 				BCB9AA021B1F149D00CC7023 /* AFURLResponseSerialization.m in Sources */,
 				BCB9AA001B1F149D00CC7023 /* AFURLConnectionOperation.m in Sources */,
 				BCB9AA421B1F2B3A00CC7023 /* RecommendHeadView.m in Sources */,

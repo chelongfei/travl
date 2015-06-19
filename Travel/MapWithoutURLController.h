@@ -7,11 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseMapViewController.h"
 
-@interface MapWithoutURLController : UIViewController
-
-@property(nonatomic)UINavigationBar * bar;
-
-@property(nonatomic)NSMutableArray * dataArray;
+@interface MapWithoutURLController : BaseMapViewController
 
 @end

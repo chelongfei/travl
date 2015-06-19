@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CircleButtonController.h"
+#import "BaseMapViewController.h"
 
-@interface MapViewController : CircleButtonController
+@interface MapViewController : BaseMapViewController
+
+@property(nonatomic)NSInteger index;
 
 @end

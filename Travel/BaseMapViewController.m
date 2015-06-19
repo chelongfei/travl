@@ -1,53 +1,43 @@
 //
-//  MapWithoutURLController.m
+//  BaseMapViewController.m
 //  Travel
 //
-//  Created by qianfeng on 15/6/18.
+//  Created by qianfeng on 15/6/19.
 //  Copyright (c) 2015年 qianfeng. All rights reserved.
 //
 
-#import "MapWithoutURLController.h"
+#import "BaseMapViewController.h"
 
-@interface MapWithoutURLController ()<MKMapViewDelegate>
+@interface BaseMapViewController ()<MKMapViewDelegate>
 
 
 
 @end
 
-@implementation MapWithoutURLController
+@implementation BaseMapViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setCoordinateForMap];
-    [self addAnnotation];
-    
+    [self addMapView];
+}
+
+-(void)addMapView
+{
+    self.mapView=[[MKMapView alloc]initWithFrame:CGRectMake(0, 70, self.view.frame.size.width, self.view.frame.size.height-70)];
+    self.mapView.delegate=self;
+    [self.view addSubview:self.mapView];
 }
 
 
+#pragma mark-----
 
--(void)setCoordinateForMap
+-(NSMutableArray *)dataArray
 {
-    LocationModel * model=[self.dataArray objectAtIndex:0];
-    CLLocationCoordinate2D coordinate=CLLocationCoordinate2DMake([model.lat floatValue], [model.lng floatValue]);
-    MKCoordinateSpan span=MKCoordinateSpanMake(0.2, 0.2);
-    MKCoordinateRegion region=MKCoordinateRegionMake(coordinate, span);
-    [self.mapView setRegion:region animated:YES];
-}
-
--(void)addAnnotation
-{
-    int index=0;
-    for (LocationModel * model in self.dataArray) {
-        MKPointAnnotation * annotation=[[MKPointAnnotation alloc]init];
-        annotation.coordinate=CLLocationCoordinate2DMake([model.lat floatValue], [model.lng floatValue]);
-        annotation.title=model.chinesename;
-        objc_setAssociatedObject(annotation, "model", model, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        objc_setAssociatedObject(annotation, "index", [NSNumber numberWithInt:index], OBJC_ASSOCIATION_ASSIGN);
-        [self.mapView addAnnotation:annotation];
-        index++;
+    if (_dataArray==nil) {
+        _dataArray=[[NSMutableArray alloc]init];
     }
+    return _dataArray;
 }
-
 
 #pragma mark----<MKMapViewDelegate>
 
@@ -58,7 +48,7 @@
         myAnnotationView = [[MKAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:ANNOTATION_ID];
     }
     myAnnotationView.canShowCallout = YES;
-    myAnnotationView.image=[UIImage imageNamed:@"ic_map_recommend"];
+    myAnnotationView.image=[UIImage imageNamed:@"ic_map_scenic_recommend"];
     myAnnotationView.frame=CGRectMake(0, 0, 21, 28);
     return myAnnotationView;
 }
@@ -69,15 +59,15 @@
     LocationModel * model=objc_getAssociatedObject(annotation, "model");
     if (self.currentView==nil) {
         self.currentView=view;
-        view.image=[UIImage imageNamed:@"ic_map_recommend_pressed.png"];
+        view.image=[UIImage imageNamed:@"ic_map_scenic_recommend_pressed.png"];
         view.frame=CGRectMake(0, 0, 21, 28);
     }else if(self.currentView!=view){
         self.currentView.selected=NO;
-        self.currentView.image=[UIImage imageNamed:@"ic_map_recommend.png"];
+        self.currentView.image=[UIImage imageNamed:@"ic_map_scenic_recommend.png"];
         self.currentView.frame=CGRectMake(0, 0, 21, 28);
         self.currentView=view;
         self.currentView.selected=YES;
-        view.image=[UIImage imageNamed:@"ic_map_recommend_pressed.png"];
+        view.image=[UIImage imageNamed:@"ic_map_scenic_recommend_pressed.png"];
         view.frame=CGRectMake(0, 0, 21, 28);
     }
     [self changeRegionOfMap:model];
