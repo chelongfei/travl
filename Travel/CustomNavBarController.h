@@ -12,9 +12,12 @@
 
 @property(nonatomic)UINavigationBar * bar;
 
+@property(nonatomic)UINavigationItem * navItem;
+
 @property(nonatomic,copy)NSString * categoryID;
 
 @property(nonatomic,copy)NSString * cityID;
+
 
 -(void)addCustomNavgationBar;
 

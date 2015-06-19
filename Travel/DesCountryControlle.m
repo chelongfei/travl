@@ -15,12 +15,11 @@
 #import "LocalColoringView.h"
 #import "DesCountryHeadView.h"
 #import "HotCityCell.h"
-#import "DesTripModel.h"
-#import "DesDiscountModel.h"
 #import "DetailViewController.h"
 #import "DesCityController.h"
 #import "URLDefine.h"
 #import "LocationViewController.h"
+#import "LocalModel.h"
 
 #define COLLECT_HEAD_VIEW_ID @"collectionHeadViewId"
 #define COLLECT_SECTION_HEAD_ID @"collectionSectionHeadId"
@@ -135,8 +134,6 @@
         case 1:{
             NSArray * detailArray=[self.dataArray objectAtIndex:indexPath.section];
             HotCityCell * cell=[self.collectionView dequeueReusableCellWithReuseIdentifier:COLLECT_HOTCITY_CELL_ID forIndexPath:indexPath];
-            cell.layer.borderColor=[UIColor lightGrayColor].CGColor;
-            cell.layer.borderWidth=0.5;
             DesHotCityModel * model=[detailArray objectAtIndex:indexPath.row];
             [cell updateCellUIWithModel:model];
             return cell;
@@ -144,19 +141,15 @@
         case 2:{
             NSArray * detailArray=[self.dataArray objectAtIndex:indexPath.section];
             LocalColoringView * locationCell=[self.collectionView dequeueReusableCellWithReuseIdentifier:COLLECT_LOCAL_CELL_ID forIndexPath:indexPath];
-            DesTripModel * model=[detailArray objectAtIndex:indexPath.row];
-            [locationCell updateUIWithDesTripModel:model];
-            locationCell.layer.borderColor=[UIColor lightGrayColor].CGColor;
-            locationCell.layer.borderWidth=0.5;
+            LocalModel * model=[detailArray objectAtIndex:indexPath.row];
+            [locationCell updateUIWithRecommendModel:model];
             return locationCell;
             break;}
         case 3:{
             NSArray * detailArray=[self.dataArray objectAtIndex:indexPath.section];
             PriceOffView * priceCell=[self.collectionView dequeueReusableCellWithReuseIdentifier:COLLECT_PRICE_CELL_ID forIndexPath:indexPath];
-            DesDiscountModel * model=[detailArray objectAtIndex:indexPath.row];
-            [priceCell updateUIWithDesDiscountModel:model];
-            priceCell.layer.borderColor=[UIColor lightGrayColor].CGColor;
-            priceCell.layer.borderWidth=0.5;
+            PriceOffModel * model=[detailArray objectAtIndex:indexPath.row];
+            [priceCell updateUIWithModel:model flag:2];
             return priceCell;
             break;}
         default:
@@ -177,14 +170,14 @@
             break;}
         case 2:{
             NSArray * detailArray=[self.dataArray objectAtIndex:indexPath.section];
-            DesTripModel * model=[detailArray objectAtIndex:indexPath.row];
+            LocalModel * model=[detailArray objectAtIndex:indexPath.row];
             LocationViewController * locationVC=[[LocationViewController alloc]init];
             locationVC.id=model.id;
             [self.navigationController pushViewController:locationVC animated:YES];
         break;}
         case 3:{
             NSArray * detailArray=[self.dataArray objectAtIndex:indexPath.section];
-            DesDiscountModel * model=[detailArray objectAtIndex:indexPath.row];
+            PriceOffModel * model=[detailArray objectAtIndex:indexPath.row];
             NSString * url=[NSString stringWithFormat:DISCOUNT_URL,model.id];
             DetailViewController * detailVC=[[DetailViewController alloc]init];
             detailVC.url=url;
@@ -224,7 +217,7 @@
     CGFloat width=self.view.frame.size.width-20;
     CGSize  size=CGSizeMake(width,70);
     if (section==0) {
-        size=CGSizeMake(self.collectionView.frame.size.width,450);
+        size=CGSizeMake(self.collectionView.frame.size.width,300);
     }
     return size;
 }

@@ -7,98 +7,16 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="DesCountryHeadView">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="450"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <view contentMode="scaleToFill" id="6Gb-xx-GHp">
-                    <rect key="frame" x="10" y="320" width="355" height="130"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <button opaque="NO" tag="7801" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qyP-zG-hhI">
-                            <rect key="frame" x="186" y="0.0" width="169" height="60"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
-                            <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="30" maxY="0.0"/>
-                            <inset key="imageEdgeInsets" minX="20" minY="15" maxX="120" maxY="15"/>
-                            <state key="normal" title="实用信息" image="ic_dest_info_tieshi_normal.png">
-                                <color key="titleColor" red="0.2666666667" green="0.76470588240000004" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="buttonClick:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="TXn-lV-oyR"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" tag="7802" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gJd-HN-cDY">
-                            <rect key="frame" x="0.0" y="69" width="178" height="60"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
-                            <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="30" maxY="0.0"/>
-                            <inset key="imageEdgeInsets" minX="20" minY="15" maxX="120" maxY="15"/>
-                            <state key="normal" title="精选游记" image="ic_dest_info_youji_normal.png">
-                                <color key="titleColor" red="0.2666666667" green="0.76470588240000004" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="buttonClick:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="AI0-vy-sYm"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" tag="7803" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DeG-Q5-NAu">
-                            <rect key="frame" x="186" y="69" width="169" height="61"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
-                            <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="30" maxY="0.0"/>
-                            <inset key="imageEdgeInsets" minX="20" minY="15" maxX="120" maxY="15"/>
-                            <state key="normal" title="推荐行程" image="ic_dest_info_plan_normal.png">
-                                <color key="titleColor" red="0.2666666667" green="0.76470588240000004" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="buttonClick:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="eRv-Ma-QOe"/>
-                            </connections>
-                        </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Ege-SH-ZfR">
-                            <rect key="frame" x="18" y="63" width="318" height="1"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="y1q-l8-NYG">
-                            <rect key="frame" x="182" y="9" width="1" height="41"/>
-                            <autoresizingMask key="autoresizingMask" heightSizable="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="oZX-7p-wv2">
-                            <rect key="frame" x="182" y="78" width="1" height="41"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES"/>
-                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                        </imageView>
-                        <button opaque="NO" tag="7800" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SHw-2r-GnY">
-                            <rect key="frame" x="0.0" y="0.0" width="178" height="60"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
-                            <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="30" maxY="0.0"/>
-                            <inset key="imageEdgeInsets" minX="20" minY="15" maxX="120" maxY="15"/>
-                            <state key="normal" title="穷游锦囊" image="ic_dest_info_jinnang_normal.png">
-                                <color key="titleColor" red="0.26666666666666666" green="0.76470588235294112" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="buttonClick:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="d0g-Co-k8a"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" id="BTR-tb-nB6">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" id="RY8-bc-BPW">
                             <rect key="frame" x="0.0" y="219" width="375" height="81"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中国" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fcp-R1-Axr">
                                     <rect key="frame" x="28" y="12" width="192" height="35"/>
@@ -156,15 +74,11 @@
                 <outlet property="ennameLabel" destination="JzW-bN-Ygk" id="1L2-R9-M3f"/>
                 <outlet property="scrollView" destination="BTR-tb-nB6" id="tVI-dd-J7h"/>
             </connections>
-            <point key="canvasLocation" x="273.5" y="255"/>
+            <point key="canvasLocation" x="273.5" y="180"/>
         </collectionReusableView>
     </objects>
     <resources>
         <image name="ic_beento_white_normal.png" width="72" height="72"/>
-        <image name="ic_dest_info_jinnang_normal.png" width="72" height="72"/>
-        <image name="ic_dest_info_plan_normal.png" width="72" height="72"/>
-        <image name="ic_dest_info_tieshi_normal.png" width="72" height="72"/>
-        <image name="ic_dest_info_youji_normal.png" width="72" height="72"/>
         <image name="ic_heart_white.png" width="72" height="72"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -7,9 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RecommendModel.h"
-#import "DesDiscountModel.h"
-#import "BaseModel.h"
+#import "PriceOffModel.h"
 
 @interface PriceOffView : UICollectionViewCell
 
@@ -19,8 +17,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceOffLabel;
 
--(void)updateUIWithRecommendModel:(RecommendModel *)model;
 
--(void)updateUIWithDesDiscountModel:(DesDiscountModel *)model;
+-(void)updateUIWithModel:(PriceOffModel *)model flag:(int)flag;
+//
+//-(void)updateUIWithRecommendModel:(RecommendModel *)model;
+//
+//-(void)updateUIWithDesDiscountModel:(DesDiscountModel *)model;
 
 @end

@@ -13,14 +13,13 @@
 #import "LocalColoringView.h"
 #import "PriceOffView.h"
 #import "CityModel.h"
-#import "HotMguideModel.h"
-#import "NewDiscountModel.h"
 #import "SectionFootView.h"
 #import "SectionHeadView.h"
 #import "DetailViewController.h"
 #import "LocationViewController.h"
 #import "URLDefine.h"
 #import "CircleButtonController.h"
+#import "LocalModel.h"
 
 
 
@@ -135,19 +134,15 @@
         case 1:{
             NSArray * detailArray=[self.dataArray objectAtIndex:indexPath.section];
             LocalColoringView * locationCell=[self.collectionView dequeueReusableCellWithReuseIdentifier:COLLECT_LOCAL_CELL_ID forIndexPath:indexPath];
-            DesTripModel * model=[detailArray objectAtIndex:indexPath.row];
-            [locationCell updateUIWithDesTripModel:model];
-            locationCell.layer.borderColor=[UIColor lightGrayColor].CGColor;
-            locationCell.layer.borderWidth=0.5;
+            LocalModel * model= [detailArray objectAtIndex:indexPath.row];;
+            [locationCell updateUIWithRecommendModel:model];
             return locationCell;
             break;}
         case 2:{
             NSArray * detailArray=[self.dataArray objectAtIndex:indexPath.section];
             PriceOffView * priceCell=[self.collectionView dequeueReusableCellWithReuseIdentifier:COLLECT_PRICE_CELL_ID forIndexPath:indexPath];
-            DesDiscountModel * model=[detailArray objectAtIndex:indexPath.row];
-            [priceCell updateUIWithDesDiscountModel:model];
-            priceCell.layer.borderColor=[UIColor lightGrayColor].CGColor;
-            priceCell.layer.borderWidth=0.5;
+            PriceOffModel * model=[detailArray objectAtIndex:indexPath.row];
+            [priceCell updateUIWithModel:model flag:1];
             return priceCell;
             break;}
         default:
@@ -182,7 +177,7 @@
     CGFloat width=self.collectionView.frame.size.width-20;
     CGSize  size=CGSizeMake(width,70);
     if (section==0) {
-        size=CGSizeMake(self.collectionView.frame.size.width,860);
+        size=CGSizeMake(self.collectionView.frame.size.width,720);
     }
     return size;
 }
@@ -235,14 +230,14 @@
     switch (indexPath.section) {
         case 1:{
             NSArray * detailArray=[self.dataArray objectAtIndex:indexPath.section];
-            HotMguideModel * model=[detailArray objectAtIndex:indexPath.row];
+            LocalModel * model=[detailArray objectAtIndex:indexPath.row];
             LocationViewController * locationVC=[[LocationViewController alloc]init];
             locationVC.id=model.id;
             [self.navigationController pushViewController:locationVC animated:YES];
             break;}
         case 2:{
             NSArray * detailArray=[self.dataArray objectAtIndex:indexPath.section];
-            NewDiscountModel * model=[detailArray objectAtIndex:indexPath.row];
+            PriceOffModel * model=[detailArray objectAtIndex:indexPath.row];
             NSString * url=[NSString stringWithFormat:DISCOUNT_URL,model.id];
             DetailViewController * detailVC=[[DetailViewController alloc]init];
             detailVC.url=url;

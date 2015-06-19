@@ -18,6 +18,7 @@ typedef void (^CircleClickBlockHandler)(NSString * category_id);
 @property (weak, nonatomic) IBOutlet UILabel *ennameLabel;
 
 -(void)updateUIWithModel:(CityModel *)model;
+
 @property(nonatomic,copy)CircleClickBlockHandler circleBlock;
 
 @end

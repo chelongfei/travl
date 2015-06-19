@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RecommendModel.h"
-#import "DesTripModel.h"
-#import "BaseModel.h"
+#import "LocalModel.h"
+
 
 @interface LocalColoringView : UICollectionViewCell
 
@@ -18,8 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *writerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
--(void)updateUIWithRecommendModel:(RecommendModel *)model;
+-(void)updateUIWithRecommendModel:(LocalModel *)model;
 
--(void)updateUIWithDesTripModel:(DesTripModel *)model;
+
 
 @end

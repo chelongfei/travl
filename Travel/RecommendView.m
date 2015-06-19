@@ -17,6 +17,8 @@
 #import "SectionFootView.h"
 #import "SectionHeadView.h"
 #import "URLDefine.h"
+#import "LocalModel.h"
+#import <objc/message.h>
 
 #define COLLECT_VIEW_HEAD @"headViewForAllViewId"
 #define COLLECT_VIEW_SECTION_HEAD @"headForSectionId"
@@ -143,18 +145,16 @@
     switch (indexPath.section) {
         case 1:{
             PriceOffView * priceCell=[self.collectionView dequeueReusableCellWithReuseIdentifier:COLLECT_PRICE_OFF_ID forIndexPath:indexPath];
-            RecommendModel * model=[self.discountDataArray objectAtIndex:indexPath.row];
-            [priceCell updateUIWithRecommendModel:model];
-            priceCell.layer.borderColor=[UIColor lightGrayColor].CGColor;
-            priceCell.layer.borderWidth=0.5;
+            RecommendModel * recommendModel=[self.discountDataArray objectAtIndex:indexPath.row];
+            PriceOffModel * model=(PriceOffModel *)recommendModel;
+            [priceCell updateUIWithModel:model flag:1];
             return priceCell;
             break;}
         case 2:{
             LocalColoringView * locationCell=[self.collectionView dequeueReusableCellWithReuseIdentifier:COLLECT_LOCAL_OFF_ID forIndexPath:indexPath];
-            RecommendModel * model=[self.locationDataArray objectAtIndex:indexPath.row];
+            RecommendModel * recommendModel=[self.locationDataArray objectAtIndex:indexPath.row];
+            LocalModel * model=(LocalModel *)recommendModel;
             [locationCell updateUIWithRecommendModel:model];
-            locationCell.layer.borderColor=[UIColor lightGrayColor].CGColor;
-            locationCell.layer.borderWidth=0.5;
             return locationCell;
             break;}
         case 3:{
@@ -246,9 +246,9 @@
 {
     switch (indexPath.section) {
         case 1:{
-            RecommendModel * model=[self.discountDataArray objectAtIndex:indexPath.row];
+            PriceOffModel * model=[self.discountDataArray objectAtIndex:indexPath.row];
             NSString * url=[NSString stringWithFormat:DISCOUNT_URL,model.id];
-        [[NSNotificationCenter defaultCenter]postNotificationName:@"DetailVCWithUrl" object:url];
+           [[NSNotificationCenter defaultCenter]postNotificationName:@"DetailVCWithUrl" object:url];
             break;}
         case 2:{
             RecommendModel * model=[self.locationDataArray objectAtIndex:indexPath.row];

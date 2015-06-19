@@ -1,20 +1,20 @@
 //
-//  DesTripModel.h
+//  LocalModel.h
 //  Travel
 //
-//  Created by qianfeng on 15/6/12.
+//  Created by qianfeng on 15/6/18.
 //  Copyright (c) 2015年 qianfeng. All rights reserved.
 //
 
 #import "BaseModel.h"
 
-@interface DesTripModel :BaseModel
+@interface LocalModel : BaseModel
 
-@property(nonatomic,copy)NSString * id;
 @property(nonatomic,copy)NSString * photo;
+@property(nonatomic,copy)NSString * avatar;
+@property(nonatomic,copy)NSString * username;
 @property(nonatomic,copy)NSString * title;
 @property(nonatomic,copy)NSString * user_id;
-@property(nonatomic,copy)NSString * username;
-@property(nonatomic,copy)NSString * avatar;
+@property(nonatomic,copy)NSString * id;
 
 @end

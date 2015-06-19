@@ -13,8 +13,13 @@
 #import "CityMapModel.h"
 #import "MyAnnotationView.h"
 #import "MyAnnotation.h"
+#import "UIImageView+WebCache.h"
+#import "CircleBottomView.h"
 #import <objc/message.h>
 #import <objc/runtime.h>
+
+#define SCREEN_WIDTH self.view.frame.size.width
+#define SCREEN_HEIGHT self.view.frame.size.height
 
 #define ANNOTATION_ID  @"annotationId"
 
@@ -27,6 +32,8 @@
 
 @property(nonatomic)NSMutableArray * dataArray;
 
+@property(nonatomic)CircleBottomView * bottomView;
+
 @end
 
 @implementation MapViewController
@@ -36,7 +43,6 @@
     [self addMapView];
     [self addBottomViewWithImageName:@""];
     [self fetchDataWithUrl];
-    
 }
 
 -(void)addBottomViewWithImageName:(NSString *)imageName
@@ -166,8 +172,12 @@
 
 -(void)callDetailViewAboutAnnotation:(CityMapModel *)model
 {
-    
-    
+    UINib * nib=[UINib nibWithNibName:@"CircleBottomView" bundle:nil];
+    NSArray * array=[nib instantiateWithOwner:nil options:nil];
+    self.bottomView=[array lastObject];
+    self.bottomView.frame=CGRectMake(0, SCREEN_HEIGHT-100, SCREEN_WIDTH, 100);
+    [self.bottomView initUIWithModel:model];
+    [self.view addSubview:self.bottomView];
 }
 
 

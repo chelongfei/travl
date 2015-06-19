@@ -47,7 +47,6 @@
     _isLoading=NO;
     self.postDict=[[NSMutableDictionary alloc]init];
     self.forum_type=[self.model.types objectAtIndex:0][@"id"];
-//    self.currentType=@"all";
     
     self.view.backgroundColor=[UIColor whiteColor];
     [self initPostDict];
@@ -61,6 +60,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden=NO;
 }
 
@@ -79,7 +79,7 @@
     
     frame.origin.x=CGRectGetMaxX(frame)+20;
     frame.origin.y=frame.origin.y+10;
-    frame.size.width=100;
+    frame.size.width=200;
     frame.size.height=20;
     self.titleLabel=[[UILabel alloc]initWithFrame:frame];
     self.titleLabel.font=[UIFont boldSystemFontOfSize:20];

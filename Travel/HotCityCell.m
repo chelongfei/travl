@@ -12,11 +12,10 @@
 @implementation HotCityCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    self.layer.borderColor=[UIColor lightGrayColor].CGColor;
+    self.layer.borderWidth=0.5;
 }
-//iew *imageView;
-//*cnnameLabel;
-//*ennameLabel;
+
 -(void)updateCellUIWithModel:(DesHotCityModel *)model
 {
     self.cnnameLabel.text=model.cnname;

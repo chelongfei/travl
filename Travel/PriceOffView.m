@@ -10,17 +10,50 @@
 #import "UIImageView+WebCache.h"
 @implementation PriceOffView
 
-
-
--(void)updateUIWithRecommendModel:(RecommendModel *)model
+-(void)awakeFromNib
 {
-    
+    self.layer.borderColor=[UIColor lightGrayColor].CGColor;
+    self.layer.borderWidth=0.5;
+}
+
+
+-(void)setSelected:(BOOL)selected
+{
+    [super setSelected:YES];
+}
+
+-(void)updateUIWithModel:(PriceOffModel *)model flag:(int)flag
+{
+    if (flag==1) {
+         _dateLabel.text=model.end_date;
+    }else{
+      _dateLabel.text=model.expire_date;  
+    }
     [_priceOffImageView sd_setImageWithURL:[NSURL URLWithString:model.photo]placeholderImage:[UIImage imageNamed:@"zbg_p9_cover_def_mid_round_corner.9.png"]];
     _titleLabel.text=model.title;
     _dateLabel.text=model.end_date;
     _priceLabel.attributedText=[self attributedStringOfPriceLabel:model.price];
     _priceOffLabel.attributedText=[self attributedStringOfPriceOffLabel:model.priceoff];
 }
+//-(void)updateUIWithRecommendModel:(RecommendModel *)model
+//{
+//    
+//    [_priceOffImageView sd_setImageWithURL:[NSURL URLWithString:model.photo]placeholderImage:[UIImage imageNamed:@"zbg_p9_cover_def_mid_round_corner.9.png"]];
+//    _titleLabel.text=model.title;
+//    _dateLabel.text=model.end_date;
+//    _priceLabel.attributedText=[self attributedStringOfPriceLabel:model.price];
+//    _priceOffLabel.attributedText=[self attributedStringOfPriceOffLabel:model.priceoff];
+//}
+//
+//-(void)updateUIWithDesDiscountModel:(DesDiscountModel *)model
+//{
+//    
+//    [_priceOffImageView sd_setImageWithURL:[NSURL URLWithString:model.photo]placeholderImage:[UIImage imageNamed:@"zbg_p9_cover_def_mid_round_corner.9.png"]];
+//    _titleLabel.text=model.title;
+//    _dateLabel.text=model.expire_date;
+//    _priceLabel.attributedText=[self attributedStringOfPriceLabel:model.price];
+//    _priceOffLabel.attributedText=[self attributedStringOfPriceOffLabel:model.priceoff];
+//}
 
 -(NSMutableAttributedString *)attributedStringOfPriceLabel:(NSString *)string
 {
@@ -44,15 +77,8 @@
     return nil;
 }
 
--(void)updateUIWithDesDiscountModel:(DesDiscountModel *)model
-{
-    
-    [_priceOffImageView sd_setImageWithURL:[NSURL URLWithString:model.photo]placeholderImage:[UIImage imageNamed:@"zbg_p9_cover_def_mid_round_corner.9.png"]];
-    _titleLabel.text=model.title;
-    _dateLabel.text=model.expire_date;
-    _priceLabel.attributedText=[self attributedStringOfPriceLabel:model.price];
-    _priceOffLabel.attributedText=[self attributedStringOfPriceOffLabel:model.priceoff];
-}
+
+
 
 
 @end

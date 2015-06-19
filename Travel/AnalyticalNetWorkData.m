@@ -15,15 +15,13 @@
 #import "LocationModel.h"
 #import "DesCountryModel.h"
 #import "DesHotCityModel.h"
-#import "DesDiscountModel.h"
-#import "DesTripModel.h"
 #import "CityModel.h"
-#import "HotMguideModel.h"
-#import "NewDiscountModel.h"
 #import "LocationHeadModel.h"
 #import "TypeModel.h"
 #import "EntryModel.h"
 #import "CityMapModel.h"
+#import "LocalModel.h"
+#import "PriceOffModel.h"
 
 @implementation AnalyticalNetWorkData
 
@@ -201,12 +199,12 @@
         [hotCityDataArray addObject:model];
     }
     for (NSDictionary * disDic in dict[@"new_discount"]) {
-        DesDiscountModel * model=[[DesDiscountModel alloc]init];
+        PriceOffModel * model=[[PriceOffModel alloc]init];
         [model setValuesForKeysWithDictionary:disDic];
         [disCountDataArray addObject:model];
     }
     for (NSDictionary * tripDic in dict[@"hot_mguide"]) {
-        DesTripModel * model=[[DesTripModel alloc]init];
+        LocalModel * model=[[LocalModel alloc]init];
         [model setValuesForKeysWithDictionary:tripDic];
         [tripDataArray addObject:model];
     }
@@ -233,12 +231,12 @@
     [cityDataArray addObject:model];
 
     for (NSDictionary * hotDic in dict[@"hot_mguide"]) {
-        HotMguideModel * model=[[HotMguideModel alloc]init];
+        LocalModel * model=[[LocalModel alloc]init];
         [model setValuesForKeysWithDictionary:hotDic];
         [hotMguideDataArray addObject:model];
     }
     for (NSDictionary * disDic in dict[@"new_discount"]) {
-        NewDiscountModel * model=[[NewDiscountModel alloc]init];
+        PriceOffModel * model=[[PriceOffModel alloc]init];
         [model setValuesForKeysWithDictionary:disDic];
         [newDiscountDataArray addObject:model];
     }

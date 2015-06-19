@@ -65,9 +65,6 @@
     
 }
 
--(void)viewWillDisappear:(BOOL)animated
-{
-}
 
 -(void)addTableView
 {

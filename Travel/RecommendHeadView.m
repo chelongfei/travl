@@ -103,11 +103,11 @@
                 [self addImageViewToSubjectViewWithModel:model frame:frame];
                 break;}
             case 1:{
-                CGRect frame=CGRectMake(8, 197, 165,117);
+                CGRect frame=CGRectMake(8, 197, (_SubjiectView.frame.size.width-24)/2.0,117);
                 [self addImageViewToSubjectViewWithModel:model frame:frame];
                 break;}
             case 2:{
-                CGRect frame=CGRectMake(186, 197, 165,117);
+                CGRect frame=CGRectMake((_SubjiectView.frame.size.width-24)/2.0+16, 197, (_SubjiectView.frame.size.width-24)/2.0,117);
                 [self addImageViewToSubjectViewWithModel:model frame:frame];
                 break;}
             default:

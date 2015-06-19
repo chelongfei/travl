@@ -35,7 +35,7 @@
     
     self.bar.barTintColor=[UIColor colorWithRed:35/255.0 green:169/255.0 blue:118/255.0 alpha:1.0];
     
-    UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:nil];
+    self.navItem = [[UINavigationItem alloc] initWithTitle:nil];
     
     UIButton *left = [UIButton buttonWithType:UIButtonTypeCustom];
     
@@ -47,7 +47,7 @@
     
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithCustomView:left];
 
-    [item setLeftBarButtonItem:leftButton];
+    [self.navItem setLeftBarButtonItem:leftButton];
     
     UIButton *right = [UIButton buttonWithType:UIButtonTypeCustom];
     
@@ -59,9 +59,9 @@
     
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:right];
     
-    [item setRightBarButtonItem:rightButton];
+    [self.navItem setRightBarButtonItem:rightButton];
     
-    [self.bar pushNavigationItem:item animated:NO];
+    [self.bar pushNavigationItem:self.navItem animated:NO];
     
     [self.view addSubview:self.bar];
 }
