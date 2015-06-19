@@ -55,7 +55,7 @@
 
 -(void)initAnnotationImageNameArray
 {
-    self.annotationImageArray=@[@"scenic",@"food",@"shopping",@"activity"];
+    self.annotationImageArray=@[@"_scenic",@"_food",@"_shopping",@"_activity"];
 }
 
 -(UIBarButtonItem *)addRightButtonWithImage:(NSString *)imageName

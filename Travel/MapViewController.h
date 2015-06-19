@@ -13,4 +13,8 @@
 
 @property(nonatomic)NSInteger index;
 
+@property(nonatomic)NSDictionary * dict;
+
+@property(nonatomic,copy)NSString * type;
+
 @end

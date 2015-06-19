@@ -40,6 +40,6 @@
 +(NSMutableArray *)parseDetailCityCircleButtonData:(id)responseObject;
 
 //解析圆形button具体地图数据并返回
-+(NSMutableArray *)parseCircleButtonMapData:(id)responseObject;
++(NSMutableArray *)parseMapData:(id)responseObject;
 
 @end

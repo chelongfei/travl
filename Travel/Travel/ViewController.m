@@ -70,7 +70,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self customNavigationBar];
     [self initView];
     [self addHomeCollectionView];
     [self addRecommendView];
@@ -80,18 +79,10 @@
     [self addDestinationView];
     self.destinationView.dataArray=[[CoreDataManager defaultCoreManager]fetchModelFromCoreDataWithEntityName:@"Entity1"];
     
-    
     [self addGroupView];
     [self loadRecommendData];
     [self loadDestinationData];
     [self loadGroupData];
-}
-
--(void)customNavigationBar
-{
-//    self.navigationController.navigationBar.tintColor=[UIColor purpleColor];
-////    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"custom_nav_bar.png"] forBarMetrics:(UIBarMetricsDefault)];
-//    self.navigationController.navigationBar.translucent=NO;
 }
 
 -(void)initView

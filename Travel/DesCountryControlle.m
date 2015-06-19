@@ -20,6 +20,7 @@
 #import "URLDefine.h"
 #import "LocationViewController.h"
 #import "LocalModel.h"
+#import "MapViewController.h"
 
 #define COLLECT_HEAD_VIEW_ID @"collectionHeadViewId"
 #define COLLECT_SECTION_HEAD_ID @"collectionSectionHeadId"
@@ -102,6 +103,16 @@
     } faild:^(NSError *error) {
         
     }];
+}
+
+-(void)map:(UIButton *)button
+{
+    DesCountryModel * model=[[self.dataArray objectAtIndex:0]objectAtIndex:0];
+    MapViewController * mapVC=[[MapViewController alloc]init];
+    mapVC.dict=[[NSDictionary alloc]initWithObjects:@[model.id] forKeys:@[@"country_id"]];
+    mapVC.index=4;
+    mapVC.type=@"city";
+    [self.navigationController pushViewController:mapVC animated:YES];
 }
 
 #pragma mark------<UICollectionViewDataSource,UICollectionViewDelegate>

@@ -222,13 +222,12 @@
     NSDictionary * orginDic=(NSDictionary *)responseObject;
     NSDictionary * dict=orginDic[@"data"];
     //二层数组
-    NSMutableArray * cityDataArray=[[NSMutableArray alloc]init];
     NSMutableArray * hotMguideDataArray=[[NSMutableArray alloc]init];
     NSMutableArray * newDiscountDataArray=[[NSMutableArray alloc]init];
     
     CityModel  * model=[[CityModel alloc]init];
     [model setValuesForKeysWithDictionary:dict];
-    [cityDataArray addObject:model];
+
 
     for (NSDictionary * hotDic in dict[@"hot_mguide"]) {
         LocalModel * model=[[LocalModel alloc]init];
@@ -241,7 +240,7 @@
         [newDiscountDataArray addObject:model];
     }
 
-    [dataArray addObject:cityDataArray];
+    [dataArray addObject:model];
     [dataArray addObject:hotMguideDataArray];
     [dataArray addObject:newDiscountDataArray];
 
@@ -274,7 +273,7 @@
 }
 
 //解析圆形button具体地图数据并返回
-+(NSMutableArray *)parseCircleButtonMapData:(id)responseObject
++(NSMutableArray *)parseMapData:(id)responseObject
 {
     NSMutableArray * dataArray=[[NSMutableArray alloc]init];
     NSDictionary * orginDic=(NSDictionary *)responseObject;

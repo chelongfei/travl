@@ -13,5 +13,4 @@
 
 @property(nonatomic)UIView * bottomView;
 
-
 @end

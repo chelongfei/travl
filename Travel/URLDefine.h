@@ -40,8 +40,7 @@
 #define DES_DETAIL_CITY_CORCLE_BUTTON_URL @"http://open.qyer.com/qyer/onroad/poi_list?client_id=qyer_android&client_secret=9fcaae8aefc4f9ac4915&v=1&track_app_version=6.3&page=1&city_id=%@&category_id=%@&count=20&types=&orderby=popular&oauth_token="
 
 //点击具体城市页面圆形button进入后点击地图
-
-#define  CIRCLE_BUTTON_MAP_URL   @"http://open.qyer.com/qyer/map/poi_list?client_id=qyer_android&client_secret=9fcaae8aefc4f9ac4915&v=1&track_app_version=6.3&lat=34.786481&lon=113.671396&city_id=%@&cate_id=%@&oauth_token="
+#define  MAP_URL   @"http://open.qyer.com/qyer/map/%@_list?client_id=qyer_android&client_secret=9fcaae8aefc4f9ac4915&v=1&track_app_version=6.3&lat=34.786481&lon=113.671396"
 
 #endif
 

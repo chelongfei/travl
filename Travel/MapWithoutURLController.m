@@ -46,8 +46,7 @@
         [self.mapView addAnnotation:annotation];
         index++;
     }
-}
-
+} 
 
 #pragma mark----<MKMapViewDelegate>
 

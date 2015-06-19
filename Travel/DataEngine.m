@@ -168,12 +168,12 @@
     
 }
 
-//获取圆形具体按钮进入后点击地图
--(void)requestCityCricleButtonMapWithcityID:(NSString *)cityId CategoryId:(NSString *)categoryId success:(SuccessBlockType)success faile:(FailedBlockType)failed
+//按钮点击进入地图
+-(void)requestMapWithDict:(NSDictionary *)dict type:(NSString *)type success:(SuccessBlockType)success faile:(FailedBlockType)failed
 {
     [SVProgressHUD setBackgroundColor:[UIColor colorWithRed:224/255.0 green:224/255.0 blue:224/255.0 alpha:1.0]];
     [SVProgressHUD showWithStatus:@"努力加载中"];
-    [_manager GET:[NSString stringWithFormat:CIRCLE_BUTTON_MAP_URL,cityId,categoryId] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [_manager POST:[NSString stringWithFormat:MAP_URL,type] parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [SVProgressHUD showSuccessWithStatus:@"加载完成"];
         success(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

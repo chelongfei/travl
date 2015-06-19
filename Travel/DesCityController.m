@@ -20,6 +20,7 @@
 #import "URLDefine.h"
 #import "CircleButtonController.h"
 #import "LocalModel.h"
+#import "MapViewController.h"
 
 
 
@@ -103,16 +104,27 @@
     }];
 }
 
+-(void)map:(UIButton *)button
+{
+    CityModel * model=[self.dataArray objectAtIndex:0];
+    MapViewController * mapVC=[[MapViewController alloc]init];
+    mapVC.dict=[[NSDictionary alloc]initWithObjects:@[model.id] forKeys:@[@"city_id"]];
+    mapVC.index=4;
+    mapVC.type=@"poi";
+    [self.navigationController pushViewController:mapVC animated:YES];
+}
+
 #pragma mark --<UICollectionViewDataSource,UICollectionViewDelegate>
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     //判断数组是否为空来判断数据,决定section个数
     NSInteger secNo=3;
-    for (NSArray * arr in self.dataArray) {
-        if (arr.count==0) {
-            secNo--;
-        }
+    if ([self.dataArray objectAtIndex:1]==0) {
+        secNo--;
+    }
+    if ([self.dataArray objectAtIndex:2]==0) {
+        secNo--;
     }
     return secNo;
 }
@@ -176,7 +188,7 @@
     CGFloat width=self.collectionView.frame.size.width-20;
     CGSize  size=CGSizeMake(width,70);
     if (section==0) {
-        size=CGSizeMake(self.collectionView.frame.size.width,720);
+        size=CGSizeMake(self.collectionView.frame.size.width,750);
     }
     return size;
 }
@@ -204,7 +216,7 @@
                 VC.cityID=self.model.id;
                 [weakself.navigationController pushViewController:VC animated:YES];
             }];
-            CityModel * model=[[self.dataArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
+            CityModel * model=[self.dataArray objectAtIndex:indexPath.section];
             [headView updateUIWithModel:model];
             return headView;
         }

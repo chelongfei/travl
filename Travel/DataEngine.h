@@ -40,7 +40,7 @@ typedef void(^FailedBlockType)(NSError * error);
 //获取目的地具体城市页面圆形按钮点击数据
 -(void)requestDetailCityCricleButtonWithCategoryId:(NSString *)categoryId cityID:(NSString *)cityId success:(SuccessBlockType)success faile:(FailedBlockType)failed;
 
-//获取圆形具体按钮进入后点击地图
--(void)requestCityCricleButtonMapWithcityID:(NSString *)cityId CategoryId:(NSString *)categoryId success:(SuccessBlockType)success faile:(FailedBlockType)failed;
+//按钮点击进入地图
+-(void)requestMapWithDict:(NSDictionary *)dict type:(NSString *)type  success:(SuccessBlockType)success faile:(FailedBlockType)failed;
 
 @end

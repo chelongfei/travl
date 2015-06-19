@@ -65,9 +65,9 @@
 
 -(void)initUIWithCategory
 {
-    NSArray * categoryIDArray=@[@"32",@"78",@"147",@"148"];
+    NSArray * categoryIDArray=@[@"32",@"78",@"147",@"148",@""];
     self.index=[categoryIDArray indexOfObject:self.categoryID];
-    NSArray * imageNameArray=@[@"view",@"food",@"shopping",@"act"];
+    NSArray * imageNameArray=@[@"view",@"food",@"shopping",@"act",@""];
     self.imageName=[imageNameArray objectAtIndex:self.index];
     self.bar.barTintColor=[self.colorArray objectAtIndex:self.index];
 }
@@ -132,10 +132,11 @@
 
 -(void)map
 {
+    NSDictionary * dic=[[NSDictionary alloc]initWithObjects:@[self.categoryID,self.cityID] forKeys:@[@"cate_id",@"city_id"]];
     MapViewController * mapVC=[[MapViewController alloc]init];
-    mapVC.categoryID=self.categoryID;
-    mapVC.cityID=self.cityID;
+    mapVC.dict=dic;
     mapVC.index=self.index;
+    mapVC.type=@"poi";
     [self.navigationController pushViewController:mapVC animated:YES];
 }
 

@@ -39,9 +39,12 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.bar.barTintColor=[self.colorArray objectAtIndexedSubscript:self.index];
-    self.imageName=[self.annotationImageArray objectAtIndex:self.index];
-    
+    if (self.index<4) {
+        self.bar.barTintColor=[self.colorArray objectAtIndexedSubscript:self.index];
+        self.imageName=[self.annotationImageArray objectAtIndex:self.index];
+    }else{
+        self.imageName=@"";
+    }
 }
 
 -(void)addMapView
@@ -53,12 +56,11 @@
 
 -(void)fetchDataWithUrl
 {
-    [[DataEngine shareInstance]requestCityCricleButtonMapWithcityID:self.cityID CategoryId:self.categoryID success:^(NSData *respondsObject) {
-        self.dataArray=[AnalyticalNetWorkData parseCircleButtonMapData:respondsObject];
+    [[DataEngine shareInstance]requestMapWithDict:self.dict type:self.type success:^(NSData *respondsObject) {
+        self.dataArray=[AnalyticalNetWorkData parseMapData:respondsObject];
         [self setCoordinateForMap];
         [self addAnnotation];
     } faile:^(NSError *error) {
-        
     }];
 }
 
@@ -66,7 +68,12 @@
 {
     CityMapModel * model=[self.dataArray objectAtIndex:0];
     CLLocationCoordinate2D coordinate=CLLocationCoordinate2DMake([model.lat floatValue], [model.lng floatValue]);
-    MKCoordinateSpan span=MKCoordinateSpanMake(0.3, 0.3);
+    MKCoordinateSpan span;
+    if ([self.type isEqualToString:@"city"]) {
+       span=MKCoordinateSpanMake(10, 10);
+    }else{
+       span=MKCoordinateSpanMake(0.3, 0.3);
+    }
     MKCoordinateRegion region=MKCoordinateRegionMake(coordinate, span);
     [self.mapView setRegion:region animated:YES];
 }
@@ -85,7 +92,6 @@
     }
 }
 
-
 #pragma mark----<MKMapViewDelegate>
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
@@ -97,11 +103,11 @@
     myAnnotationView.canShowCallout = YES;
     int index=[objc_getAssociatedObject(annotation, "index") intValue];
     if (index<10) {
-        myAnnotationView.image=[UIImage imageNamed:[NSString stringWithFormat:@"ic_map_%@_recommend",_imageName]];
+        myAnnotationView.image=[UIImage imageNamed:[NSString stringWithFormat:@"ic_map%@_recommend",_imageName]];
         myAnnotationView.frame=CGRectMake(0, 0, 21, 28);
         
     }else{
-        myAnnotationView.image=[UIImage imageNamed:[NSString stringWithFormat:@"ic_map_poi_%@",_imageName]];
+        myAnnotationView.image=[UIImage imageNamed:[NSString stringWithFormat:@"ic_map_poi%@",_imageName]];
         myAnnotationView.frame=CGRectMake(0, 0, 10, 10);
     }
     return myAnnotationView;
@@ -109,8 +115,8 @@
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
-    NSString * pressedName=[NSString stringWithFormat:@"ic_map_%@_recommend_pressed",self.imageName];
-    NSString * normalName=[NSString stringWithFormat:@"ic_map_%@_recommend",self.imageName];
+    NSString * pressedName=[NSString stringWithFormat:@"ic_map%@_recommend_pressed",self.imageName];
+    NSString * normalName=[NSString stringWithFormat:@"ic_map%@_recommend",self.imageName];
     MKPointAnnotation * annotation=(MKPointAnnotation *)view.annotation;
     int index=[objc_getAssociatedObject(annotation, "index") intValue];
     CityMapModel * model=objc_getAssociatedObject(annotation, "model");
