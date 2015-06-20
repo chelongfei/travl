@@ -158,7 +158,9 @@
     [self addFilterTitleLabel];
     //添加filterCollectionView
     [self addFilterCollectionView];
-
+    //添加筛选底部button
+    [self addFilterBottomButton];
+    
     [self.view addSubview:self.filterView];
     
     
@@ -194,6 +196,24 @@
     self.filterCollectionView.dataSource=self;
     [self.filterCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:COLLCETION_VIEW_CELL_ID];
     [self.filterView addSubview:self.filterCollectionView];
+}
+
+//添加筛选底部button
+-(void)addFilterBottomButton
+{
+    UIButton * bottomButton=[UIButton buttonWithType:(UIButtonTypeCustom)];
+    bottomButton.frame=CGRectMake(self.filterView.frame.size.width-70, self.filterView.frame.size.height-40, 60, 30);
+    [bottomButton setTitle:@"确认" forState:(UIControlStateNormal)];
+    [bottomButton setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
+    [bottomButton addTarget:self action:@selector(verify) forControlEvents:(UIControlEventTouchUpInside)];
+    [self.filterView addSubview:bottomButton];
+}
+
+//底部button触发事件
+-(void)verify
+{
+    [self.filterView removeFromSuperview];
+    [self.backView removeFromSuperview];
 }
 
 -(void)sort
