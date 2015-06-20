@@ -42,5 +42,8 @@
 //点击具体城市页面圆形button进入后点击地图
 #define  MAP_URL   @"http://open.qyer.com/qyer/map/%@_list?client_id=qyer_android&client_secret=9fcaae8aefc4f9ac4915&v=1&track_app_version=6.3&lat=34.786481&lon=113.671396"
 
+//热门城市点击查看全部
+#define  ALL_HOT_CITY_URL   @"http://open.qyer.com/place/city/get_city_list?client_id=qyer_android&client_secret=9fcaae8aefc4f9ac4915&v=1&track_app_version=6.3&countryid=%@&page=%@"
+
 #endif
 

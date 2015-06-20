@@ -14,6 +14,7 @@
 #import "GroupDetailModel.h"
 #import "DetailViewController.h"
 
+
 #define TBL_CELL_ID @"groupDetailCellId"
 
 #define BASETAG  110
@@ -45,6 +46,8 @@
     [super viewDidLoad];
     self.currentPage=1;
     _isLoading=NO;
+    self.leftTitle.text=self.model.name;
+    
     self.postDict=[[NSMutableDictionary alloc]init];
     self.forum_type=[self.model.types objectAtIndex:0][@"id"];
     
@@ -58,11 +61,7 @@
     [self loadGroupAllData];
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden=NO;
-}
+
 
 -(void)initPostDict
 {
@@ -249,6 +248,7 @@
     GroupDetailModel * model=[self.allDataArray objectAtIndex:indexPath.row];
     DetailViewController * controller=[[DetailViewController alloc]init];
     controller.url=model.view_url;
+    controller.title=model.title;
     [self.navigationController pushViewController:controller animated:YES];
 }
 

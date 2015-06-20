@@ -12,8 +12,6 @@
 		BC0C55F71B22E605004BEF5A /* HeadViewForSection.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0C55F61B22E605004BEF5A /* HeadViewForSection.m */; };
 		BC0C55FC1B22EED8004BEF5A /* HeadViewForDestinationView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0C55FA1B22EED8004BEF5A /* HeadViewForDestinationView.m */; };
 		BC0C55FD1B22EED8004BEF5A /* HeadViewForDestinationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC0C55FB1B22EED8004BEF5A /* HeadViewForDestinationView.xib */; };
-		BC0FCE2B1B3122AC000C879F /* HelpView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0FCE291B3122AC000C879F /* HelpView.m */; };
-		BC0FCE2C1B3122AC000C879F /* HelpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC0FCE2A1B3122AC000C879F /* HelpView.xib */; };
 		BC0FCE301B315E2C000C879F /* LucencyNavBarBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0FCE2F1B315E2C000C879F /* LucencyNavBarBaseController.m */; };
 		BC3F03F81B326B3400C79C4E /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC3F03CE1B326B3400C79C4E /* UMSocialLocalizable.strings */; };
 		BC3F03F91B326B3400C79C4E /* libUMSocial_Sdk_4.2.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC3F03DC1B326B3400C79C4E /* libUMSocial_Sdk_4.2.3.a */; };
@@ -729,9 +727,6 @@
 		BC0C55F91B22EED8004BEF5A /* HeadViewForDestinationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadViewForDestinationView.h; sourceTree = "<group>"; };
 		BC0C55FA1B22EED8004BEF5A /* HeadViewForDestinationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadViewForDestinationView.m; sourceTree = "<group>"; };
 		BC0C55FB1B22EED8004BEF5A /* HeadViewForDestinationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeadViewForDestinationView.xib; sourceTree = "<group>"; };
-		BC0FCE281B3122AC000C879F /* HelpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpView.h; sourceTree = "<group>"; };
-		BC0FCE291B3122AC000C879F /* HelpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpView.m; sourceTree = "<group>"; };
-		BC0FCE2A1B3122AC000C879F /* HelpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpView.xib; sourceTree = "<group>"; };
 		BC0FCE2E1B315E2B000C879F /* LucencyNavBarBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LucencyNavBarBaseController.h; sourceTree = "<group>"; };
 		BC0FCE2F1B315E2C000C879F /* LucencyNavBarBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LucencyNavBarBaseController.m; sourceTree = "<group>"; };
 		BC3F03CF1B326B3400C79C4E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
@@ -2440,7 +2435,6 @@
 				BCADD0501B257CAE009E655B /* Resoures */,
 				BCC416781B21C7750031C632 /* AnalyticalNetWorkData */,
 				BCB9AA391B1F274600CC7023 /* NetWork */,
-				BCB9AA241B1F14C100CC7023 /* Until */,
 				BCB9AA231B1F14B500CC7023 /* Model */,
 				BCB9AA221B1F14AD00CC7023 /* Views */,
 				BCB9AA211B1F14A500CC7023 /* ViewControllers */,
@@ -2684,13 +2678,6 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		BCB9AA241B1F14C100CC7023 /* Until */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Until;
-			sourceTree = "<group>";
-		};
 		BCB9AA391B1F274600CC7023 /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
@@ -2764,9 +2751,6 @@
 			children = (
 				BCBA5AD91B2F006700598794 /* CircleButtonController.h */,
 				BCBA5ADA1B2F006700598794 /* CircleButtonController.m */,
-				BC0FCE281B3122AC000C879F /* HelpView.h */,
-				BC0FCE291B3122AC000C879F /* HelpView.m */,
-				BC0FCE2A1B3122AC000C879F /* HelpView.xib */,
 			);
 			name = "具体城市景点等点击进入";
 			sourceTree = "<group>";
@@ -3465,7 +3449,6 @@
 				BCADD2B21B257CB2009E655B /* bg_green_round_corner.9.png in Resources */,
 				BCADD2AA1B257CB2009E655B /* bg_dest_tab_map_pop_small_normal.png in Resources */,
 				BCADD4831B257CB2009E655B /* ic_weather_s_9.png in Resources */,
-				BC0FCE2C1B3122AC000C879F /* HelpView.xib in Resources */,
 				BCADD2B71B257CB2009E655B /* bg_item_card_right.9.png in Resources */,
 				BC3F03FD1B326B3400C79C4E /* UMShareEditViewController.xib in Resources */,
 				BCADD3241B257CB2009E655B /* ic_dest_poi_star_dark_small.png in Resources */,
@@ -3849,7 +3832,6 @@
 				BCB9AA051B1F149D00CC7023 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				BCD2AFEA1B300E87006BFB9E /* MyAnnotationView.m in Sources */,
 				BCB9AA3C1B1F275C00CC7023 /* DataEngine.m in Sources */,
-				BC0FCE2B1B3122AC000C879F /* HelpView.m in Sources */,
 				BCB9AA031B1F149D00CC7023 /* AFURLSessionManager.m in Sources */,
 				BCBA37681B295B1E00B568F9 /* GroupDetailController.m in Sources */,
 				BCC416721B21C4960031C632 /* DestinationView.m in Sources */,

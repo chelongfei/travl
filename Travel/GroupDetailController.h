@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "GroupModel.h"
 #import "GroupDetailModel.h"
+#import "CustomNavBarController.h"
 
 
 
-@interface GroupDetailController : UIViewController
+@interface GroupDetailController : CustomNavBarController
 
 @property(nonatomic)NSString * id;
 

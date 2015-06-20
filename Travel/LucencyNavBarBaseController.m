@@ -21,6 +21,7 @@
     [super viewDidLoad];
     [self addCustomNavgationBar];
     [self addLucencyNavBar];
+    [self addLeftTitleForCustomNavBar];
     
 }
 
@@ -29,6 +30,12 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden=YES;
     self.bar.alpha=0.0;
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [SVProgressHUD dismiss];
 }
 
 -(void)addCustomNavgationBar
@@ -73,6 +80,15 @@
     [ self.lucencyView addSubview:right];
     [self.view addSubview: self.lucencyView];
     
+}
+
+-(void)addLeftTitleForCustomNavBar
+{
+    self.leftTitle=[[UILabel alloc]initWithFrame:(CGRectMake(50,0,self.view.frame.size.width-150, 50))];
+    self.leftTitle.numberOfLines=0;
+    self.leftTitle.font=[UIFont boldSystemFontOfSize:18];
+    self.leftTitle.textColor=[UIColor whiteColor];
+    [self.bar addSubview:self.leftTitle];
 }
 
 - (void)back{

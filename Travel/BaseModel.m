@@ -9,12 +9,20 @@
 #import "BaseModel.h"
 
 @implementation BaseModel
+
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key
 {
     
 }
+
 -(id)valueForUndefinedKey:(NSString *)key
 {
     return nil;
 }
+
+-(void)setNilValueForKey:(NSString *)key
+{
+    
+}
+
 @end

@@ -13,8 +13,10 @@
 #import "CityMapModel.h"
 #import "MyAnnotationView.h"
 #import "MyAnnotation.h"
+#import "DesCityController.h"
 #import "UIImageView+WebCache.h"
 #import "CircleBottomView.h"
+#import "SVProgressHUD.h"
 #import <objc/message.h>
 #import <objc/runtime.h>
 
@@ -45,6 +47,12 @@
     }else{
         self.imageName=@"";
     }
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [SVProgressHUD dismiss];
 }
 
 -(void)addMapView
@@ -167,9 +175,23 @@
     NSArray * array=[nib instantiateWithOwner:nil options:nil];
     self.bottomView=[array lastObject];
     self.bottomView.frame=CGRectMake(0, SCREEN_HEIGHT-100, SCREEN_WIDTH, 100);
+    self.bottomView.userInteractionEnabled=YES;
+    UITapGestureRecognizer * tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(bottomViewClick:)];
+    objc_setAssociatedObject(tap, "model", model, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self.bottomView addGestureRecognizer:tap];
+    
     [self.bottomView initUIWithModel:model];
     [self.view addSubview:self.bottomView];
 }
 
+-(void)bottomViewClick:(UITapGestureRecognizer *)tap
+{
+    if ([self.dict objectForKey:@"country_id"]!=nil) {
+        CityMapModel * model=objc_getAssociatedObject(tap, "model");
+        DesCityController * desCityVC=[[DesCityController alloc]init];
+        desCityVC.model=(DesHotCityModel *)model;
+        [self.navigationController pushViewController:desCityVC animated:YES];
+    }
+}
 
 @end

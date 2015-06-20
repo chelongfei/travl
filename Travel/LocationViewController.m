@@ -17,6 +17,7 @@
 
 
 
+
 #define WIDTH self.view.frame.size.width
 #define HEIGHT self.view.frame.size.height
 #define COLLECT_HEAD_VIEW_CELL @"collectionHeadViewCellID"
@@ -34,6 +35,7 @@
 @implementation LocationViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     [self addCollectionView];
     [self fetchDataWithUrl];
@@ -49,6 +51,8 @@
     self.collectionView.contentOffset=CGPointMake(0, 20);
     self.bar.alpha=0.0;
 }
+
+
 
 -(void)addShareItem
 {
@@ -104,6 +108,7 @@
         NSMutableArray * reciveArray=[AnalyticalNetWorkData parseRecommendLocation:respondsObject];
         self.dataArray=reciveArray[1];
         self.model=[reciveArray objectAtIndex:0];
+        self.leftTitle.text=self.model.title;
         [self.collectionView reloadData];
     } faild:^(NSError *error) {
         

@@ -25,7 +25,14 @@
     [self initColorArray];
     [self initAnnotationImageNameArray];
     [self addCustomNavgationBar];
+    [self addLeftTitleForCustomNavBar];
+    
+}
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [SVProgressHUD dismiss];
 }
 
 -(void)viewDidDisappear:(BOOL)animated
@@ -80,7 +87,7 @@
 
 -(void)map
 {
-
+    
 }
 
 -(void)heart
@@ -89,11 +96,9 @@
     
 }
 
-
-
 -(void)addCustomNavgationBar
 {
-  self.view.backgroundColor=[UIColor colorWithRed:224/255.0 green:224/255.0 blue:224/255.0 alpha:1.0];
+    self.view.backgroundColor=[UIColor colorWithRed:224/255.0 green:224/255.0 blue:224/255.0 alpha:1.0];
     
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     
@@ -107,14 +112,14 @@
     
     UIButton *left = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    [left setFrame:CGRectMake(0, 10, 30, 30)];
-    
     [left setImage:[UIImage imageNamed:@"ic_back_white.png"] forState:(UIControlStateNormal)];
+    
+    [left setFrame:CGRectMake(0, 10, 30, 30)];
     
     [left addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithCustomView:left];
-
+    
     [self.navItem setLeftBarButtonItem:leftButton];
     
     [self.bar pushNavigationItem:self.navItem animated:NO];
@@ -122,9 +127,19 @@
     [self.view addSubview:self.bar];
 }
 
+-(void)addLeftTitleForCustomNavBar
+{
+    self.leftTitle=[[UILabel alloc]initWithFrame:(CGRectMake(50,8,self.view.frame.size.width-150, 40))];
+    self.leftTitle.numberOfLines=0;
+    self.leftTitle.font=[UIFont boldSystemFontOfSize:18];
+    self.leftTitle.textColor=[UIColor whiteColor];
+    [self.bar addSubview:self.leftTitle];
+}
+
 - (void)back{
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 
 
 

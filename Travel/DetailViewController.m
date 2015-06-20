@@ -8,7 +8,6 @@
 
 #import "DetailViewController.h"
 #import <WebKit/WebKit.h>
-#import "SVProgressHUD.h"
 
 @interface DetailViewController ()<WKNavigationDelegate>
 
@@ -22,15 +21,12 @@
     [super viewDidLoad];
     self.webView=[[WKWebView alloc]initWithFrame:(CGRectMake(0, 70, self.view.frame.size.width, self.view.frame.size.height-70))];
     self.webView.navigationDelegate=self;
+    
+    self.leftTitle.text=self.title;
+    
     NSURLRequest * request=[[NSURLRequest alloc]initWithURL:[NSURL URLWithString:_url]];
     [self.webView loadRequest:request];
     [self.view addSubview:self.webView];
-}
-
--(void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [SVProgressHUD dismiss];
 }
 
 -(void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation

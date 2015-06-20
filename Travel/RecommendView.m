@@ -109,7 +109,7 @@
     self.dataArray=dataArray;
     self.discountDataArray=[dataArray objectAtIndex:2];
     self.locationDataArray=[dataArray objectAtIndex:3];
-//    [self.collectionView reloadData];
+    [self.collectionView reloadData];
 }
 
 
@@ -223,21 +223,21 @@
             return headView;
         }
     }else{
-    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-        //返回Header视图
-        SectionHeadView * headView=[self.collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier: COLLECT_VIEW_SECTION_HEAD forIndexPath:indexPath];
-        
-        NSArray * array=@[@"抢特价折扣",@"玩当地特色",@"看热门游记"];
-        headView.headTitle.text=[array objectAtIndex:indexPath.section-1];
-        
-        return headView;
-    }else if([kind isEqualToString:UICollectionElementKindSectionFooter]){
-        //返回Footer视图
-        if (indexPath.section==1) {
-            SectionFootView * footView=[self.collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:COLLECT_VIEW_SECTION_FOOT forIndexPath:indexPath];
-            return footView;
+        if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+            //返回Header视图
+            SectionHeadView * headView=[self.collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier: COLLECT_VIEW_SECTION_HEAD forIndexPath:indexPath];
+            
+            NSArray * array=@[@"抢特价折扣",@"玩当地特色",@"看热门游记"];
+            headView.headTitle.text=[array objectAtIndex:indexPath.section-1];
+            
+            return headView;
+        }else if([kind isEqualToString:UICollectionElementKindSectionFooter]){
+            //返回Footer视图
+            if (indexPath.section==1) {
+                SectionFootView * footView=[self.collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:COLLECT_VIEW_SECTION_FOOT forIndexPath:indexPath];
+                return footView;
+            }
         }
-    }
     }
     return nil;
 }
@@ -248,7 +248,7 @@
         case 1:{
             PriceOffModel * model=[self.discountDataArray objectAtIndex:indexPath.row];
             NSString * url=[NSString stringWithFormat:DISCOUNT_URL,model.id];
-           [[NSNotificationCenter defaultCenter]postNotificationName:@"DetailVCWithUrl" object:url];
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"DetailVCWithUrl" object:url userInfo:@{@"title":model.title}];
             break;}
         case 2:{
             RecommendModel * model=[self.locationDataArray objectAtIndex:indexPath.row];
@@ -258,15 +258,14 @@
             break;}
         case 3:{
             RecommendCellModel * model=[self.tableDataArray objectAtIndex:indexPath.row];
-        [[NSNotificationCenter defaultCenter]postNotificationName:@"DetailVCWithUrl" object:model.view_url];
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"DetailVCWithUrl" object:model.view_url userInfo:@{@"title":model.title}];
             break;}
             
         default:
             break;
     }
-
+    
 }
-
 
 #pragma mark---上拉刷新
 

@@ -22,7 +22,6 @@
 #import "DesCountryControlle.h"
 #import "DesCityController.h"
 
-
 #define COLLECTIONVIEW_CELLID @"collectionViewCellId"
 #define SCREEN_WIDTH  self.view.frame.size.width
 #define SCREEN_HEIGHT self.view.frame.size.height
@@ -74,10 +73,13 @@
     [self addHomeCollectionView];
     [self addRecommendView];
     //使用coreData数据渲染
-    [self.recommendView updateRecommendView:[[CoreDataManager defaultCoreManager]fetchModelFromCoreDataWithEntityName:@"Entity"]];
-    //使用coreData数据渲染
+    NSMutableArray * temRecArray=[[CoreDataManager defaultCoreManager]fetchModelFromCoreDataWithEntityName:@"Entity"];
+    [self.recommendView updateRecommendView:temRecArray];
+    
     [self addDestinationView];
-    self.destinationView.dataArray=[[CoreDataManager defaultCoreManager]fetchModelFromCoreDataWithEntityName:@"Entity1"];
+    //使用coreData数据渲染
+    NSMutableArray * temDesArray=[[CoreDataManager defaultCoreManager]fetchModelFromCoreDataWithEntityName:@"Entity1"];
+    self.destinationView.dataArray=temDesArray;
     
     [self addGroupView];
     [self loadRecommendData];
@@ -121,19 +123,20 @@
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter]removeObserver:self];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reciveImageClick:) name:@"DetailVCWithUrl" object:nil];
-    
 }
 
 //接收到通知中心的点击事件后的处理事件
 -(void)reciveImageClick:(NSNotification *)notify
 {
     NSString *  url=(NSString *)notify.object;
+    NSString * title=[notify.userInfo objectForKey:@"title"];
     DetailViewController * detailVC=[[DetailViewController alloc]init];
     detailVC.url=url;
+    detailVC.title=title;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
-//添加recommendView
+//添加推荐页面
 -(void)addRecommendView
 {
     self.recommendView=[[RecommendView alloc]initWithFrame:(CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-70))];
@@ -146,7 +149,7 @@
     [_HomeCollectionView addSubview:self.recommendView];
 }
 
-//添加DestinationView
+//添加目的地页面
 -(void)addDestinationView
 {
     self.destinationView=[[DestinationView alloc]initWithFrame:(CGRectMake(self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height-70))];
@@ -157,14 +160,16 @@
             DesCountryControlle * desVC=[[DesCountryControlle alloc]init];
             desVC.model=model;
             [weakself.navigationController pushViewController:desVC animated:YES];
-        }else{
-            NSLog(@"这是一个城市");
+        }else if(model.flag==2){
+            DesCityController * desCityVC=[[DesCityController alloc]init];
+            desCityVC.model=(DesHotCityModel *)model;
+            [weakself.navigationController pushViewController:desCityVC animated:YES];
         }
     }];
     [_HomeCollectionView addSubview:self.destinationView];
 }
 
-//添加GroupView
+//添加社区页面
 -(void)addGroupView
 {
     self.groupView=[[GroupView alloc]initWithFrame:(CGRectMake(self.view.frame.size.width*2, 0, self.view.frame.size.width, self.view.frame.size.height-70))];
@@ -215,7 +220,6 @@
     }];
 }
 
-
 #pragma mark---懒加载区域
 
 -(NSMutableArray *)recommendDataArray
@@ -252,7 +256,6 @@
         button.selected=!button.selected;
         [UIView animateWithDuration:0.5 animations:^{
             _HomeCollectionView.contentOffset=CGPointMake(self.view.frame.size.width*(button.tag-10000), 0);
-            
             CGRect frame=_currentButton.frame;
             frame.origin.y=_whiteSliderForHeadButton.frame.origin.y;
             self.whiteSliderForHeadButton.frame=frame;
@@ -263,22 +266,12 @@
 #pragma mark-------<UICollectionViewDataSource,UICollectionViewDelegate>
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 3;
+    return 3;//3个区分别为推荐,目的地,社区
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell=[self.HomeCollectionView dequeueReusableCellWithReuseIdentifier:COLLECTIONVIEW_CELLID forIndexPath:indexPath];
-    switch (indexPath.row) {
-        case 1:
-            cell.backgroundColor=[UIColor greenColor];
-            break;
-        case 2:
-            cell.backgroundColor=[UIColor orangeColor];
-            break;
-        default:
-            break;
-    }
     return cell;
 }
 

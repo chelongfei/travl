@@ -16,6 +16,7 @@
 #import "CustomNavBarController.h"
 #import "MapViewController.h"
 
+
 #define WIDTH self.view.frame.size.width
 #define HEIGHT self.view.frame.size.height
 
@@ -63,11 +64,16 @@
     [self addRightButton];
 }
 
+
+
 -(void)initUIWithCategory
 {
-    NSArray * categoryIDArray=@[@"32",@"78",@"147",@"148",@""];
+    NSArray * categoryIDArray=@[@"32",@"78",@"147",@"148"];
     self.index=[categoryIDArray indexOfObject:self.categoryID];
-    NSArray * imageNameArray=@[@"view",@"food",@"shopping",@"act",@""];
+    NSArray * imageNameArray=@[@"view",@"food",@"shopping",@"act"];
+    self.imageName=[imageNameArray objectAtIndex:self.index];
+    NSArray * leftTitleNameArray=@[@"景点",@"美食",@"购物",@"活动"];
+    self.leftTitle.text=[leftTitleNameArray objectAtIndex:self.index];
     self.imageName=[imageNameArray objectAtIndex:self.index];
     self.bar.barTintColor=[self.colorArray objectAtIndex:self.index];
 }

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SVProgressHUD.h"
 
 @interface CustomNavBarController : UIViewController
 
@@ -23,6 +24,8 @@
 @property(nonatomic)NSArray * colorArray;
 
 @property(nonatomic)NSArray * annotationImageArray;
+
+@property(nonatomic)UILabel * leftTitle;
 
 -(void)addCustomNavgationBar;
 

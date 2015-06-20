@@ -22,6 +22,7 @@
 #import "LocalModel.h"
 #import "MapViewController.h"
 
+
 #define COLLECT_HEAD_VIEW_ID @"collectionHeadViewId"
 #define COLLECT_SECTION_HEAD_ID @"collectionSectionHeadId"
 #define COLLECT_SECTION_FOOT_ID @"collectionSectionFootId"
@@ -50,10 +51,15 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    self.leftTitle.text=[NSString stringWithFormat:@"%@\n%@",self.model.cnname,self.model.enname];
+    
     self.navigationController.navigationBarHidden=YES;
     self.bar.alpha=0.0;
     self.collectionView.contentOffset=CGPointMake(0, 20);
 }
+
+
 
 -(void)addCollectionView
 {
@@ -270,7 +276,7 @@
 }
 
 #pragma mark----<UIScrollViewDelegate>
-
+//设置自定义NavBar随滚动而呈现
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     if (self.collectionView.contentOffset.y<20) {

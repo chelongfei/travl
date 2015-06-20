@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SVProgressHUD.h"
+
 
 @interface LucencyNavBarBaseController : UIViewController
 
 @property(nonatomic)UINavigationBar * bar;
 
 @property(nonatomic)UIView * lucencyView;
+
+@property(nonatomic)UILabel * leftTitle;
 
 -(void)map:(UIButton *)button;
 

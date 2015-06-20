@@ -11,6 +11,6 @@
 
 @interface DetailViewController : CustomNavBarController
 
-@property(nonatomic)NSString * url;
+@property(nonatomic,copy)NSString * url;
 
 @end

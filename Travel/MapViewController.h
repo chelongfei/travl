@@ -17,4 +17,6 @@
 
 @property(nonatomic,copy)NSString * type;
 
+-(void)bottomViewClick:(UITapGestureRecognizer *)tap;
+
 @end

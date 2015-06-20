@@ -13,6 +13,8 @@
 
 @property(nonatomic,copy)NSString * url;
 
--(id)initWithFrame:(CGRect)frame url:(NSString *)urlLink;
+@property(nonatomic,copy)NSString * title;
+
+-(id)initWithFrame:(CGRect)frame url:(NSString *)urlLink title:(NSString *)title;
 
 @end

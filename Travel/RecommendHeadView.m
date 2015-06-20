@@ -48,7 +48,7 @@
             
             CGRect frame=CGRectMake(index*_scrollView.frame.size.width, 0, _scrollView.frame.size.width, _scrollView.frame.size.height);
             
-            MyImageView * imageView=[[ MyImageView alloc]initWithFrame:frame url:model.url];
+            MyImageView * imageView=[[ MyImageView alloc]initWithFrame:frame url:model.url title:nil];
             [imageView sd_setImageWithURL:[NSURL URLWithString:model.photo]placeholderImage:[UIImage imageNamed:@"zbg_p9_cover_def_mid_round_corner.9.png"]];
             [_scrollView addSubview:imageView];
         }else{
@@ -56,7 +56,7 @@
             RecommendModel * model=array[index-1];
             CGRect frame=CGRectMake(index*_scrollView.frame.size.width, 0, _scrollView.frame.size.width, _scrollView.frame.size.height);
             
-            MyImageView * imageView=[[ MyImageView alloc]initWithFrame:frame url:model.url];
+            MyImageView * imageView=[[ MyImageView alloc]initWithFrame:frame url:model.url title:nil];
             [imageView sd_setImageWithURL:[NSURL URLWithString:model.photo] placeholderImage:[UIImage imageNamed:@"zbg_p9_cover_def_mid_round_corner.9.png"]];
             [_scrollView addSubview:imageView];
         }
@@ -118,7 +118,7 @@
 
 -(void)addImageViewToSubjectViewWithModel:(RecommendModel *)model frame:(CGRect)frame
 {
-    MyImageView * imageView=[[MyImageView alloc]initWithFrame:frame url:model.url];
+    MyImageView * imageView=[[MyImageView alloc]initWithFrame:frame url:model.url title:model.title];
     [imageView sd_setImageWithURL:[NSURL URLWithString:model.photo]];
     [self.SubjiectView addSubview:imageView];
 }

@@ -45,6 +45,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.leftTitle.text=[NSString stringWithFormat:@"%@\n%@",self.model.cnname,self.model.enname];
+    
     [self addCollectionView];
     [self fetchDataWithUrl];
     [self.view insertSubview:self.collectionView atIndex:0];
@@ -57,6 +60,8 @@
     self.collectionView.contentOffset=CGPointMake(0, 20);
     self.bar.alpha=0.0;
 }
+
+
 
 -(void)addCollectionView
 {
