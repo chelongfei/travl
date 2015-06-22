@@ -14,6 +14,9 @@
 		BC7DA3401B28513600A37571 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC7DA33F1B28513600A37571 /* Images.xcassets */; };
 		BC7DA3431B28513600A37571 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7DA3411B28513600A37571 /* LaunchScreen.xib */; };
 		BC7DA34F1B28513600A37571 /* xmlPasteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7DA34E1B28513600A37571 /* xmlPasteTests.m */; };
+		BC7DA35D1B2851AD00A37571 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC7DA35C1B2851AD00A37571 /* libxml2.dylib */; };
+		BC7DA35F1B2851F600A37571 /* xml.txt in Resources */ = {isa = PBXBuildFile; fileRef = BC7DA35E1B2851F600A37571 /* xml.txt */; };
+		BC7DA3631B28521800A37571 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7DA3621B28521800A37571 /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,10 @@
 		BC7DA3481B28513600A37571 /* xmlPasteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xmlPasteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC7DA34D1B28513600A37571 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC7DA34E1B28513600A37571 /* xmlPasteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xmlPasteTests.m; sourceTree = "<group>"; };
+		BC7DA35C1B2851AD00A37571 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		BC7DA35E1B2851F600A37571 /* xml.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = xml.txt; sourceTree = "<group>"; };
+		BC7DA3611B28521800A37571 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
+		BC7DA3621B28521800A37571 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC7DA35D1B2851AD00A37571 /* libxml2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +71,9 @@
 		BC7DA3261B28513600A37571 = {
 			isa = PBXGroup;
 			children = (
+				BC7DA3601B28521800A37571 /* GDataXML */,
+				BC7DA35E1B2851F600A37571 /* xml.txt */,
+				BC7DA35C1B2851AD00A37571 /* libxml2.dylib */,
 				BC7DA3311B28513600A37571 /* xmlPaste */,
 				BC7DA34B1B28513600A37571 /* xmlPasteTests */,
 				BC7DA3301B28513600A37571 /* Products */,
@@ -117,6 +128,15 @@
 				BC7DA34D1B28513600A37571 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BC7DA3601B28521800A37571 /* GDataXML */ = {
+			isa = PBXGroup;
+			children = (
+				BC7DA3611B28521800A37571 /* GDataXMLNode.h */,
+				BC7DA3621B28521800A37571 /* GDataXMLNode.m */,
+			);
+			path = GDataXML;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +221,7 @@
 			files = (
 				BC7DA33E1B28513600A37571 /* Main.storyboard in Resources */,
 				BC7DA3431B28513600A37571 /* LaunchScreen.xib in Resources */,
+				BC7DA35F1B2851F600A37571 /* xml.txt in Resources */,
 				BC7DA3401B28513600A37571 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC7DA33B1B28513600A37571 /* ViewController.m in Sources */,
+				BC7DA3631B28521800A37571 /* GDataXMLNode.m in Sources */,
 				BC7DA3381B28513600A37571 /* AppDelegate.m in Sources */,
 				BC7DA3351B28513600A37571 /* main.m in Sources */,
 			);
@@ -347,6 +369,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = xmlPaste/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -357,6 +384,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = xmlPaste/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

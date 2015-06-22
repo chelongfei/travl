@@ -25,7 +25,7 @@
         NSPersistentStoreCoordinator * coordinator=[[NSPersistentStoreCoordinator alloc]initWithManagedObjectModel:model];
         //
         NSString *path = [NSHomeDirectory()   stringByAppendingString:@"/Documents/MyCollect.sqlite"];
-        NSPersistentStore * store=[coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[NSURL fileURLWithPath:path] options:nil error:nil];
+        [coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[NSURL fileURLWithPath:path] options:nil error:nil];
         _context=[[NSManagedObjectContext alloc]init];
         _context.persistentStoreCoordinator=coordinator;
     }

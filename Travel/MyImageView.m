@@ -24,7 +24,11 @@
 
 -(void)imageClick:(UITapGestureRecognizer *)tap
 {
+    if (self.title.length==0) {
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"DetailVCWithUrl" object:self.url];
+    }else{
     [[NSNotificationCenter defaultCenter]postNotificationName:@"DetailVCWithUrl" object:self.url userInfo:@{@"title":self.title}];
+    }
 }
 
 @end

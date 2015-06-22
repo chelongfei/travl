@@ -18,4 +18,6 @@
 
 -(void)fetchModelFromCoreData;
 
+-(void)removeAllModelFromCoreData;
+
 @end

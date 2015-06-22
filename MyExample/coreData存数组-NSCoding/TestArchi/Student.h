@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface student : NSObject<NSCoding>
+@interface Student : NSObject<NSCoding>
 
 @property(nonatomic,copy)NSString * name;
 @property(nonatomic,copy)NSString * nickName;

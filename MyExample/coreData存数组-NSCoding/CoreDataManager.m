@@ -67,18 +67,26 @@
     for (Entity * model in array) {
         //解归档的前提是拥有相关的类。
         NSArray * array=[NSKeyedUnarchiver unarchiveObjectWithData:model.dataArray];
-        student * stu=[array objectAtIndex:1];
+        Student * stu=[[array objectAtIndex:0] objectAtIndex:1];
         NSLog(@"%@",stu.name);
-
     }
-
-    
 }
 
 -(void)removeAllModelFromCoreData
 {
-    
-    
+        // 删除姓liu的学生(最后一个)
+//        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name like 'liu*'"];
+        NSFetchRequest *request
+        = [[NSFetchRequest alloc] init];
+        [request setEntity:[NSEntityDescription entityForName:@"Entity" inManagedObjectContext:_context]];
+//        [request setPredicate:predicate];
+        NSArray *arr = [_context executeFetchRequest:request error:nil];
+        if (arr.count > 0) {
+            for (Entity  * entity in arr) {
+                [_context deleteObject:(NSManagedObject *)entity];
+            }
+            [_context save:nil];
+        }
 }
 
 @end

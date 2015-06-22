@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 chelongfei. All rights reserved.
 //
 
-#import "student.h"
+#import "Student.h"
 
-@implementation student
+@implementation Student
 
 
 -(void)encodeWithCoder:(NSCoder *)aCoder

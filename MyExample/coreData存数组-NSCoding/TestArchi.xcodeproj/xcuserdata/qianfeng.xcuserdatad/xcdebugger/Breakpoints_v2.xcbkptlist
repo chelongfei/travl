@@ -9,7 +9,7 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TestArchi/student.m"
+            filePath = "TestArchi/Student.m"
             timestampString = "455621118.485738"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"

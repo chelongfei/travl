@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  NSCopyingDemo
 //
-//  Created by qianfeng on 15/6/12.
+//  Created by qianfeng on 15/1/12.
 //  Copyright (c) 2015年 chelongfei. All rights reserved.
 //
 

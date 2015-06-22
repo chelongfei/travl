@@ -14,7 +14,7 @@
 		BC7DA2CA1B2836F300A37571 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC7DA2C91B2836F300A37571 /* Images.xcassets */; };
 		BC7DA2CD1B2836F300A37571 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7DA2CB1B2836F300A37571 /* LaunchScreen.xib */; };
 		BC7DA2D91B2836F300A37571 /* TestArchiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7DA2D81B2836F300A37571 /* TestArchiTests.m */; };
-		BC7DA2E41B28372600A37571 /* student.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7DA2E31B28372600A37571 /* student.m */; };
+		BC7DA2E41B28372600A37571 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7DA2E31B28372600A37571 /* Student.m */; };
 		BC7DA2E71B2837D100A37571 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BC7DA2E51B2837D100A37571 /* Model.xcdatamodeld */; };
 		BC7DA2ED1B28381900A37571 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7DA2EC1B28381900A37571 /* Entity.m */; };
 		BC7DA2F01B28383800A37571 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7DA2EF1B28383800A37571 /* CoreDataManager.m */; };
@@ -44,8 +44,8 @@
 		BC7DA2D21B2836F300A37571 /* TestArchiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestArchiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC7DA2D71B2836F300A37571 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC7DA2D81B2836F300A37571 /* TestArchiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestArchiTests.m; sourceTree = "<group>"; };
-		BC7DA2E21B28372600A37571 /* student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = student.h; sourceTree = "<group>"; };
-		BC7DA2E31B28372600A37571 /* student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = student.m; sourceTree = "<group>"; };
+		BC7DA2E21B28372600A37571 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		BC7DA2E31B28372600A37571 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 		BC7DA2E61B2837D100A37571 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		BC7DA2EB1B28381900A37571 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		BC7DA2EC1B28381900A37571 /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
@@ -105,8 +105,8 @@
 				BC7DA2C91B2836F300A37571 /* Images.xcassets */,
 				BC7DA2CB1B2836F300A37571 /* LaunchScreen.xib */,
 				BC7DA2BC1B2836F300A37571 /* Supporting Files */,
-				BC7DA2E21B28372600A37571 /* student.h */,
-				BC7DA2E31B28372600A37571 /* student.m */,
+				BC7DA2E21B28372600A37571 /* Student.h */,
+				BC7DA2E31B28372600A37571 /* Student.m */,
 			);
 			path = TestArchi;
 			sourceTree = "<group>";
@@ -243,7 +243,7 @@
 				BC7DA2C21B2836F300A37571 /* AppDelegate.m in Sources */,
 				BC7DA2E71B2837D100A37571 /* Model.xcdatamodeld in Sources */,
 				BC7DA2BF1B2836F300A37571 /* main.m in Sources */,
-				BC7DA2E41B28372600A37571 /* student.m in Sources */,
+				BC7DA2E41B28372600A37571 /* Student.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +438,7 @@
 				BC7DA2DE1B2836F300A37571 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BC7DA2DF1B2836F300A37571 /* Build configuration list for PBXNativeTarget "TestArchiTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +447,7 @@
 				BC7DA2E11B2836F300A37571 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

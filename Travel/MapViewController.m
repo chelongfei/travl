@@ -191,6 +191,10 @@
         DesCityController * desCityVC=[[DesCityController alloc]init];
         desCityVC.model=(DesHotCityModel *)model;
         [self.navigationController pushViewController:desCityVC animated:YES];
+    }else{
+        NSLog(@"----");
+        
+        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"http://m.amap.com/navi/?dest=116.470098,39.992838&destName=阜通西&hideRouteIcon=1&key=99e3d94c53443823264e74d2ade13f37"]];
     }
 }
 
