@@ -61,8 +61,6 @@
     self.bar.alpha=0.0;
 }
 
-
-
 -(void)addCollectionView
 {
     UICollectionViewFlowLayout * flowLayout=[[UICollectionViewFlowLayout alloc]init];

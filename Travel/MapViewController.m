@@ -18,7 +18,6 @@
 #import "CircleBottomView.h"
 #import "SVProgressHUD.h"
 #import <objc/message.h>
-#import <objc/runtime.h>
 
 
 
@@ -55,13 +54,6 @@
     [SVProgressHUD dismiss];
 }
 
--(void)addMapView
-{
-    self.mapView=[[MKMapView alloc]initWithFrame:CGRectMake(0, 70, self.view.frame.size.width, self.view.frame.size.height-70)];
-    self.mapView.delegate=self;
-    [self.view addSubview:self.mapView];
-}
-
 -(void)fetchDataWithUrl
 {
     [[DataEngine shareInstance]requestMapWithDict:self.dict type:self.type success:^(NSData *respondsObject) {
@@ -92,7 +84,7 @@
     for (CityMapModel * model in self.dataArray) {
         MKPointAnnotation * annotation=[[MKPointAnnotation alloc]init];
         annotation.coordinate=CLLocationCoordinate2DMake([model.lat floatValue], [model.lng floatValue]);
-        annotation.title=model.cnname;
+       annotation.title=model.cnname;
         objc_setAssociatedObject(annotation, "model", model, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         objc_setAssociatedObject(annotation, "index", [NSNumber numberWithInt:index], OBJC_ASSOCIATION_ASSIGN);
         [self.mapView addAnnotation:annotation];
@@ -104,11 +96,12 @@
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    MKAnnotationView   *myAnnotationView = (MKAnnotationView*)[self.mapView dequeueReusableAnnotationViewWithIdentifier:ANNOTATION_ID];
+    static NSString *pointReuseIndetifier = ANNOTATION_ID;
+    MKAnnotationView   *myAnnotationView = (MKAnnotationView*)[self.mapView dequeueReusableAnnotationViewWithIdentifier:pointReuseIndetifier];
     if (myAnnotationView == nil) {
-        myAnnotationView = [[MKAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:ANNOTATION_ID];
+        myAnnotationView = [[MKAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:pointReuseIndetifier];
     }
-    myAnnotationView.canShowCallout = YES;
+    myAnnotationView.canShowCallout = NO;
     int index=[objc_getAssociatedObject(annotation, "index") intValue];
     if (index<10) {
         myAnnotationView.image=[UIImage imageNamed:[NSString stringWithFormat:@"ic_map%@_recommend",_imageName]];
@@ -125,39 +118,47 @@
 {
     NSString * pressedName=[NSString stringWithFormat:@"ic_map%@_recommend_pressed",self.imageName];
     NSString * normalName=[NSString stringWithFormat:@"ic_map%@_recommend",self.imageName];
+    NSString * smallViewNormalName=[NSString stringWithFormat:@"ic_map_poi%@",self.imageName];
+    NSString * smallViewPressedName=[NSString stringWithFormat:@"ic_map_poi%@_pressed",self.imageName];
+    
     MKPointAnnotation * annotation=(MKPointAnnotation *)view.annotation;
+    
     int index=[objc_getAssociatedObject(annotation, "index") intValue];
+    
     CityMapModel * model=objc_getAssociatedObject(annotation, "model");
-    if (index<10) {
+
         if (self.currentView==nil) {
             self.currentView=view;
-            view.image=[UIImage imageNamed:pressedName];
-            view.frame=CGRectMake(0, 0, 21, 28);
+            if (index<10) {
+                view.image=[UIImage imageNamed:pressedName];
+                view.frame=CGRectMake(0, 0, 21, 28);
+            }else{
+                view.image=[UIImage imageNamed:smallViewPressedName];
+                view.frame=CGRectMake(0, 0, 10, 10);
+            }
         }else if(self.currentView!=view){
+            MKPointAnnotation * lastAnnotation=(MKPointAnnotation *)self.currentView.annotation;
+            int lastIndex=[objc_getAssociatedObject(lastAnnotation, "index") intValue];
             self.currentView.selected=NO;
-            self.currentView.image=[UIImage imageNamed:normalName];
-            self.currentView.frame=CGRectMake(0, 0, 21, 28);
+            if (lastIndex<10) {
+                self.currentView.image=[UIImage imageNamed:normalName];
+                self.currentView.frame=CGRectMake(0, 0, 21, 28);
+            }else{
+                self.currentView.image=[UIImage imageNamed:smallViewNormalName];
+                self.currentView.frame=CGRectMake(0, 0, 10, 10);
+            }
             self.currentView=view;
             self.currentView.selected=YES;
-            view.image=[UIImage imageNamed:pressedName];
-            view.frame=CGRectMake(0, 0, 21, 28);
+            if (index<10) {
+                 view.image=[UIImage imageNamed:pressedName];
+                self.currentView.frame=CGRectMake(0, 0, 21, 28);
+            }else{
+                view.image=[UIImage imageNamed:smallViewPressedName];
+                view.frame=CGRectMake(0, 0, 10, 10);
+            }
         }
-        
-    }else{
-        if (self.currentView==nil) {
-            self.currentView=view;
-            view.image=[UIImage imageNamed:pressedName];
-            view.frame=CGRectMake(0, 0, 10, 10);
-        }else if(self.currentView!=view){
-            self.currentView.selected=NO;
-            self.currentView.image=[UIImage imageNamed:normalName];
-            self.currentView.frame=CGRectMake(0, 0, 10, 10);
-            self.currentView=view;
-            self.currentView.selected=YES;
-            view.image=[UIImage imageNamed:pressedName];
-            view.frame=CGRectMake(0, 0, 10, 10);
-        }
-    }
+
+
     [self changeRegionOfMap:model];
     [self callDetailViewAboutAnnotation:model];
 }

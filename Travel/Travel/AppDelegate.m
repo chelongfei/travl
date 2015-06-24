@@ -8,6 +8,11 @@
 
 #import "AppDelegate.h"
 #import "UMSocial.h"
+#import "MainViewController.h"
+#import "WelcomeViewController.h"
+
+#define SCREEN_WIDTH   [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT  [UIScreen mainScreen].bounds.size.height
 
 @interface AppDelegate ()
 
@@ -18,7 +23,30 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
  [UMSocialData setAppKey:@"55555dc167e58e7bb20054bc"];
+    
+    self.window=[[UIWindow alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    self.window.rootViewController=[self creatRootViewController];
+    [self.window makeKeyAndVisible];
     return YES;
+}
+-(UIViewController *)creatRootViewController
+{
+//    BOOL bShowWelcom=[[NSUserDefaults standardUserDefaults]boolForKey:@"showWelcome"];
+//    if (bShowWelcom) {
+//        //显示主界面
+//        MainViewController * homeVC=[[MainViewController alloc]init];
+//        UINavigationController * nav=[[UINavigationController alloc]initWithRootViewController:homeVC];
+//        return nav;
+//    }else{
+//        WelcomeViewController * wvc=[[WelcomeViewController alloc]init];
+//        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"showWelcome"];
+//        return wvc;
+//    }
+
+        WelcomeViewController * wvc=[[WelcomeViewController alloc]init];
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"showWelcome"];
+        return wvc;
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
